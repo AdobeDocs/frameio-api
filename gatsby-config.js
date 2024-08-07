@@ -60,7 +60,7 @@ module.exports = {
       },
       {
         title: 'Frame.io API',
-        path: '/guides/dummy_metrics_api/'
+        path: '/guides/api/'
       },
       {
         title: 'Migrating',
