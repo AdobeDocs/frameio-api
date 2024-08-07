@@ -15,17 +15,13 @@ module.exports = {
   siteMetadata: {
     versions: [
       {
-        title: 'v2.0',
+        title: 'v4',
         selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/dev-site'
       }
     ],
     pages: [
       {
-        title: 'Cat Analytics',
+        title: 'Frame.io API',
         path: '/'
       },
       {
@@ -36,15 +32,10 @@ module.exports = {
         title: 'API Reference',
         menu: [
           {
-            title: 'Cat Reference v2.0',
-            description: 'Cat Reporting API',
+            title: 'Frame.io API v4',
+            description: 'Frame.io API',
             path: '/api/index.md'
           },
-          {
-            title: 'Cat Reference v1.4',
-            description: 'Cat API Spec',
-            path: '/api/1.4.md'
-          }
         ]
       },
       {
@@ -68,7 +59,7 @@ module.exports = {
         ]
       },
       {
-        title: 'Cat Metrics API',
+        title: 'Frame.io API',
         path: '/guides/dummy_metrics_api/'
       },
       {
