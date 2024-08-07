@@ -1,5 +1,5 @@
 ---
-title: Cat API Spec 2.0
-description: Cat API Spec 2.0
-openAPISpec:  /petstore.json
+title: Frame.io API Spec v4
+description: Frame.io API Spec v4
+openAPISpec:  /frameio-api.json
 --- 
