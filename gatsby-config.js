@@ -11,7 +11,7 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/frameio-api/',
+  pathPrefix: process.env.PATH_PREFIX || '/frameio/',
   siteMetadata: {
     versions: [
       {
