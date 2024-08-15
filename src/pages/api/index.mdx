@@ -4,11 +4,4 @@ title: Frame.io API
 description: Frame.io API
 ---
 
-<RedoclyAPIBlock
-  src={process.env.GATSBY_API_SPEC_URL}
-  requestInterceptor=
-    "(req, operation) => ({
-        console.log('Args:', req, rawOperation);
-        return req;
-    })"
-/>
+<RedoclyAPIBlock src={process.env.GATSBY_API_SPEC_URL} />
