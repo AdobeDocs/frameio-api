@@ -7942,19 +7942,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dev-site-documentation-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "dev-site-documentation-template@workspace:."
-  dependencies:
-    "@adobe/gatsby-theme-aio": ^4.14.9
-    gatsby: 4.22.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    remark-cli: ^11.0.0
-    remark-validate-links: ^12.1.0
-  languageName: unknown
-  linkType: soft
-
 "devcert@npm:^1.2.0":
   version: 1.2.2
   resolution: "devcert@npm:1.2.2"
@@ -9667,6 +9654,19 @@ __metadata:
   checksum: 8c76a6e21dedea87109d6171a0ac77afa14205794a565d71cb10d2925f629a3922da61bf45ea52dbc30bce4d8636dc0a27213a88cbd600eab047d82f9a3a94c5
   languageName: node
   linkType: hard
+
+"frameio-api@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "frameio-api@workspace:."
+  dependencies:
+    "@adobe/gatsby-theme-aio": ^4.14.9
+    gatsby: 4.22.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    remark-cli: ^11.0.0
+    remark-validate-links: ^12.1.0
+  languageName: unknown
+  linkType: soft
 
 "fresh@npm:0.5.2":
   version: 0.5.2
