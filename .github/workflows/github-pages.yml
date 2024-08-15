@@ -9,10 +9,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Yarn Install
-        uses: bahmutov/npm-install@v1
-        with:
-          cache-key-prefix: yarn-1
+      - uses: actions/setup-node@v4
       - name: Build
         run: |
           yarn build
