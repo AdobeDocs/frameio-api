@@ -9,10 +9,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: actions/setup-node@v4
+      - name: Yarn Install
+        uses: bahmutov/npm-install@v1
+        with:
+          cache-key-prefix: 1.0
       - name: Build
         run: |
-          yarn install
           yarn build
         env:
           PREFIX_PATHS: true # works like --prefix-paths flag for 'gatsby build'
