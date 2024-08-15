@@ -152,7 +152,7 @@ jobs:
           GATSBY_FEDS_PRIVACY_ID: ${{ secrets.AIO_FEDS_PRIVACY_ID }}
           GATSBY_SITE_DOMAIN_URL: https://developer-stage.adobe.com
           GATSBY_REDOCLY_KEY: ${{ secrets.REDOCLY_LICENSE_KEY }}
-          GATSBY_API_SPEC_URL: https://api.staging.frame.io/v4/openapi
+          GATSBY_API_SPEC_URL: https://api-pr-15755.dev.frame.io/v4/openapi
 
       - name: Deploy
         uses: AdobeDocs/static-website-deploy@master
@@ -261,7 +261,7 @@ jobs:
           GATSBY_FEDS_PRIVACY_ID: ${{ secrets.AIO_FEDS_PRIVACY_ID }}
           GATSBY_SITE_DOMAIN_URL: https://developer.adobe.com
           GATSBY_REDOCLY_KEY: ${{ secrets.REDOCLY_LICENSE_KEY }}
-          GATSBY_API_SPEC_URL: https://api-pr-15755.dev.frame.io/v4/openapi
+          GATSBY_API_SPEC_URL: https://api.frame.io/v4/openapi
 
       - name: Deploy
         uses: AdobeDocs/static-website-deploy@master
