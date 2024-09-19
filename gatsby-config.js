@@ -15,7 +15,7 @@ module.exports = {
   siteMetadata: {
     versions: [
       {
-        title: 'v4',
+        title: 'v4.0',
         selected: true
       }
     ],
@@ -32,8 +32,8 @@ module.exports = {
         title: 'API Reference',
         menu: [
           {
-            title: 'Frame.io API v4',
-            description: 'Frame.io API',
+            title: 'Frame.io API',
+            description: 'v4.0 - current',
             path: '/api/index.md'
           },
         ]
