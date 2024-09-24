@@ -40,23 +40,16 @@ Get started with the Frame.io APIs.
 
 Returns information on the user's company that is necessary for making other Frame.io API calls.
 
-<DiscoverBlock slots="link, text"/>
+<DiscoverBlock slots="heading, link, text"/>
 
 ### API References
 
-[Try the API](api/)
+[OpenAPI](api/)
 
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
+Explore, make calls, with full endpoint descriptions.
 
 ## Contributing
 
 We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
+or deletions for this documentation, check out the source from [this github repo](https://github.com/AdobeDocs/frameio-api), and submit a pull
 request with your contribution. For more information, refer to the [contributing page](support/contribute/).
-
-## API Requests & Rate Limits
-
-The timeout for API requests through adobe.io is currently *60 seconds*.
-
-The default rate limit is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`.
