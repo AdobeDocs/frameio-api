@@ -2,3 +2,4 @@ referenceDocs:
   theme:
     openapi:
       licenseKey: <%= process.env.GATSBY_REDOCLY_KEY %>
+      hideSchemaTitles: true
