@@ -10,6 +10,11 @@
  * governing permissions and limitations under the License.
  */
 
+/*
+ * Configuration for the Redoc API documentation viewer.
+ * https://redocly.com/docs/api-reference-docs/configuration/functionality
+ */
+
 import React, { useState, useEffect } from 'react';
 import { css } from '@emotion/react';
 import { withPrefix } from 'gatsby';
@@ -675,6 +680,7 @@ const OpenAPIBlock = ({ src }) => {
           <RedocStandalone
             {...input}
             options={{
+              hideSchemaTitles: true,
               nativeScrollbars: true,
               disableSearch: false,
               hideLoading: true,
