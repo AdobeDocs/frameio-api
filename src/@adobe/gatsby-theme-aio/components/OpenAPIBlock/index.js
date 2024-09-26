@@ -687,6 +687,7 @@ const OpenAPIBlock = ({ src }) => {
               scrollYOffset: 64,
               menuToggle: true,
               hideDownloadButton: true,
+              sortOperationsAlphabetically: true,
               theme: {
                 sidebar: {
                   width: SIDENAV_WIDTH
