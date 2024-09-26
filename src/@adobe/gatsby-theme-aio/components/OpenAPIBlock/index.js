@@ -676,7 +676,7 @@ const OpenAPIBlock = ({ src }) => {
             {...input}
             options={{
               nativeScrollbars: true,
-              disableSearch: true,
+              disableSearch: false,
               hideLoading: true,
               scrollYOffset: 64,
               menuToggle: true,
