@@ -30,6 +30,11 @@ module.exports = {
             description: 'v4.0 Current',
             path: '/api/current/index.md'
           },
+          {
+            title: 'Frame.io API',
+            description: 'Experimental',
+            path: '/api/experimental/index.md'
+          }
         ]
       }
     ],
