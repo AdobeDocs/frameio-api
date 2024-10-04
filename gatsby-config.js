@@ -33,8 +33,8 @@ module.exports = {
         menu: [
           {
             title: 'Frame.io API',
-            description: 'v4.0 - current',
-            path: '/api/index.md'
+            description: 'current',
+            path: '/api/current/index.md'
           },
         ]
       },
