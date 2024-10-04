@@ -13,12 +13,6 @@
 module.exports = {
   pathPrefix: process.env.PATH_PREFIX || '/frameio/',
   siteMetadata: {
-    versions: [
-      {
-        title: 'v4.0',
-        selected: true
-      }
-    ],
     pages: [
       {
         title: 'Frame.io API',
