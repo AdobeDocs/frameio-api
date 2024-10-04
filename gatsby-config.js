@@ -27,7 +27,7 @@ module.exports = {
         menu: [
           {
             title: 'Frame.io API',
-            description: 'current',
+            description: 'v4.0 Current',
             path: '/api/current/index.md'
           },
         ]
