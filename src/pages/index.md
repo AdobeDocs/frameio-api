@@ -9,7 +9,7 @@ contributors:
 
 # Frame.io API
 
-Frame.io API offers limitless ways to integrate your most important customer data into key business processes. Cat Product API offer limitless ways.
+Frame.io customers can use our new V4-compatible REST API and webhooks to power custom workflows and automations.
 
 <Resources slots="heading, links"/>
 
@@ -31,14 +31,6 @@ This documentation provides instructions for Frame.io APIs. For working with Fra
 [Quickstart Guide](guides/)
 
 Get started with the Frame.io APIs.
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Guides
-
-[Frame.io API](guides/api/)
-
-Returns information on the user's company that is necessary for making other Frame.io API calls.
 
 <DiscoverBlock slots="heading, link, text"/>
 
