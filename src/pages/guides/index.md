@@ -165,7 +165,7 @@ In order to determine the rate limits that apply to a particular request, client
 
 ## API Details
 
-The definitive documentation to the V4 Developer API is our API Reference Guide, but understanding the resource hierarchy as modeled by the V4 API will be helpful before issuing your first requests.
+The definitive documentation to the V4 Developer API is our [API Reference Guide](../api/current/), but understanding the resource hierarchy as modeled by the V4 API will be helpful before issuing your first requests.
 
 ### Resource Hierarchy
 
@@ -181,7 +181,7 @@ Every asset uploaded to Frame.io is ultimately represented as a File, while Fold
 
 A Version Stack is an ordered container of Files. Its ordering is strictly linear and determines a version number for each of its children, but clients may reorder the Files within the version stack as they see fit. A File will always be a child of (contained within) exactly one Folder *or* Version Stack at any given time. Similarly, a Folder or Version Stack will always be a child of exactly one Folder (excluding the project's root folder).
 
-See the [API Reference Guide](api/current/#tag/Folders) for more detail about performing basic CRUD operations on Files and Folders stored within Frame. At present the V4 API only supports Version Stacks when listing the contents of a Folder, but endpoints for creating and updating Version Stacks are coming soon.
+See the [API Reference Guide](../api/current/#tag/Folders) for more detail about performing basic CRUD operations on Files and Folders stored within Frame. At present the V4 API only supports Version Stacks when listing the contents of a Folder, but endpoints for creating and updating Version Stacks are coming soon.
 
 ## Start Developing with Postman
 
@@ -219,7 +219,7 @@ Most of the resources that you’ll interact with using the V4 API are contained
 
 ### Listing the Contents of a Project
 
-Now that the `FOLDER_ID` has been set to the root folder of the Project, you will able to list the content stored within it. Select the “list folder children” endpoint and click the Send button to try it out. This is a good opportunity to experiment with some of the optional query parameters that you may include with some GET requests that return lists of resources. In the example below, query parameters have been added to limit the number of returned resources to 5 (`page_size=5`), include the total count of child resources (`include_total_count=true`) and to include information about the child resources’ creator (`include=creator`). More information about the query parameters supported by each endpoint can be found in the API Reference Guide.
+Now that the `FOLDER_ID` has been set to the root folder of the Project, you will able to list the content stored within it. Select the “list folder children” endpoint and click the Send button to try it out. This is a good opportunity to experiment with some of the optional query parameters that you may include with some GET requests that return lists of resources. In the example below, query parameters have been added to limit the number of returned resources to 5 (`page_size=5`), include the total count of child resources (`include_total_count=true`) and to include information about the child resources’ creator (`include=creator`). More information about the query parameters supported by each endpoint can be found in the [API Reference Guide](../api/current/).
 ![alt image](./image_8.png)Note the `links.next` value in the response. For paginated responses, this value will be populated if there is more data to return. In this case the requested number of items per “page” was quite small (5) and there are 15 files and folders stored in the Project’s root folder (the `total_count` property in the response) so the client should use the relative URL contained within the `links.next` property to retrieve the next page of items. Note that in Postman, clicking on the link will create a new tab containing that request, but you’ll need to manually set the Auth Type (on its Authorization page) to “Bearer” and copy the auth token from the Authorization settings of the Frame.io V4 Developer API collection since the dynamically created request isn’t a child of the collection. Also note that the query parameters from the initial request aren’t propagated to the link, so you’ll need to manually append those query parameters again if you’d like to apply them to the request for the next page of data.
 
 ### Uploading a New File

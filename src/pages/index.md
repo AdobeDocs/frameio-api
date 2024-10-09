@@ -15,7 +15,7 @@ Frame.io customers can use our new V4-compatible REST API and webhooks to power 
 
 #### Resources
 
-* [Quickstart Guide](guides/)
+* [Quickstart Guide](./guides/)
 * [Frame.io API Docs Github Repo](https://github.com/AdobeDocs/frameio-api)
 
 ## Overview
@@ -44,10 +44,10 @@ If you need additional support beyond what’s covered in these documents, pleas
 
 ### Get Started
 
-[Getting Started guide](guides/)
+[Getting Started guide](./guides/)
 Get started with the Frame.io API.
 
 ### API Reference
 
-[API Reference Documentation](api/current/)
+[API Reference Documentation](./api/current/)
 Explore and make calls with full endpoint descriptions.
