@@ -21,11 +21,13 @@ import { withPrefix } from 'gatsby';
 import { ProgressCircle } from '../ProgressCircle';
 import { RedocStandalone } from 'redoc';
 import { Footer } from '../Footer';
-import { SIDENAV_WIDTH, MOBILE_SCREEN_WIDTH, isExternalLink } from '../../utils';
+import { OPENAPI_SPEC_BASE_URL, SIDENAV_WIDTH, MOBILE_SCREEN_WIDTH, isExternalLink } from '../../utils';
 import PropTypes from 'prop-types';
 
 const OpenAPIBlock = ({ src }) => {
   const [showProgress, setShowProgress] = useState(true);
+
+  src = `${OPENAPI_SPEC_BASE_URL}${src}`;
 
   let input = {};
   if (isExternalLink(src)) {
