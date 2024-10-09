@@ -44,4 +44,4 @@ Explore, make calls, with full endpoint descriptions.
 
 We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
 or deletions for this documentation, check out the source from [this github repo](https://github.com/AdobeDocs/frameio-api), and submit a pull
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
+request with your contribution. 
