@@ -17,6 +17,5 @@ module.exports = {
   DESKTOP_FOOTER_SCREEN_WIDTH_MAX: process.env.GATSBY_DESKTOP_FOOTER_SCREEN_WIDTH_MAX || '1280px',
   TABLET_SCREEN_WIDTH: '1024px',
   // --spectrum-global-dimension-static-breakpoint-small
-  MOBILE_SCREEN_WIDTH: '768px',
-  OPENAPI_SPEC_BASE_URL: process.env.OPENAPI_SPEC_BASE_URL
+  MOBILE_SCREEN_WIDTH: '768px'
 };

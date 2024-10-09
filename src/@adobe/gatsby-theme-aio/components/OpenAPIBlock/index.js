@@ -27,6 +27,7 @@ import PropTypes from 'prop-types';
 const OpenAPIBlock = ({ src }) => {
   const [showProgress, setShowProgress] = useState(true);
 
+  // NOTE: dynamically set the spec URL based on the environment
   src = `${process.env.GATSBY_OPENAPI_SPEC_BASE_URL}${src}`;
 
   let input = {};
