@@ -1,0 +1,2074 @@
+{
+	"info": {
+		"_postman_id": "780459ac-4809-4bbb-800c-f186699c446c",
+		"name": "Frame.io V4 Developer API",
+		"description": "Collection for the Frame.io V4 Developer API with support for V4 accounts only.\n\n## Authentication\n\nAuthentication happens using OAuth 2.0 via Adobe IMS. API access and client credentials are configured on / retrieved from the Adobe Developer Console. Local configuration is done on the Authorization tab of this collection.\n\n## Environment Variables\n\nAll path params and dynamic arguments are configured via environment variables. Please import the Frame V4 Developer API Default Environment in order to view and configure the envirornment variables referenced from this collection.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34248872"
+	},
+	"item": [
+		{
+			"name": "Assets",
+			"item": [
+				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "create file",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"data\": {\n        \"name\": \"test.mp4\",\n        \"media_type\": \"video/mp4\",\n        \"file_size\": 27454966\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/folders/:folder_id/files",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"folders",
+										":folder_id",
+										"files"
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "folder_id",
+											"value": "{{FOLDER_ID}}"
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL.\n\nNote that uploading data to the returned S3 URLs requires passing the x-amz-acl: private header with the PUT request."
+							},
+							"response": []
+						},
+						{
+							"name": "show file",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/files/:id?include=creator,project",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"files",
+										":id"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "creator,project"
+										}
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{ASSET_ID}}"
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+							},
+							"response": []
+						},
+						{
+							"name": "delete file",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/files/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"files",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Folders",
+					"item": [
+						{
+							"name": "list folder children",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/folders/:id/children",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"folders",
+										":id",
+										"children"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "version_stack",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{FOLDER_ID}}"
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+							},
+							"response": []
+						},
+						{
+							"name": "create folder",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"data\": {\n    \"name\": \"A New Folder\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/folders/:folder_id/folders",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"folders",
+										":folder_id",
+										"folders"
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "folder_id",
+											"value": "{{FOLDER_ID}}"
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL.\n\nNote that uploading data to the returned S3 URLs requires passing the x-amz-acl: private header with the PUT request."
+							},
+							"response": []
+						},
+						{
+							"name": "show folder",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/folders/:id?include=creator,project",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"folders",
+										":id"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "creator,project"
+										}
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{FOLDER_ID}}"
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+							},
+							"response": []
+						},
+						{
+							"name": "update folder",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"name\": \"Renamed folder\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/folders/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"folders",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{FOLDER_ID}}"
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+							},
+							"response": []
+						},
+						{
+							"name": "delete folder",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/v4/accounts/:account_id/folders/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"v4",
+										"accounts",
+										":account_id",
+										"folders",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "{{ACCOUNT_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{FOLDER_ID}}"
+										}
+									]
+								},
+								"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "list comments on file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/files/:id/comments",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"files",
+								":id",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "id",
+									"value": "{{ASSET_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"text\": \"Hello it's a comment\",\n        \"timestamp\": 10    \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/files/:id/comments",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"files",
+								":id",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "id",
+									"value": "{{ASSET_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show comment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/comments/:comment_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"comments",
+								":comment_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "comment_id",
+									"value": "{{COMMENT_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update comment",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"text\": \"Hello it's an updated comment\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/comments/:comment_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"comments",
+								":comment_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "comment_id",
+									"value": "{{COMMENT_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/comments/:comment_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"comments",
+								":comment_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "comment_id",
+									"value": "{{COMMENT_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Custom Fields",
+			"item": [
+				{
+					"name": "show custom field values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/files/:id/custom_fields",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"files",
+								":id",
+								"custom_fields"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "id",
+									"value": "{{ASSET_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "list projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/projects?include=owner",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "owner"
+								}
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "create project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"Test Project\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/projects",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "show project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/projects/:project_id?include=owner",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"projects",
+								":project_id"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "owner"
+								}
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "project_id",
+									"value": "{{PROJECT_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"Renamed Project\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/projects/:project_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"projects",
+								":project_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "project_id",
+									"value": "{{PROJECT_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "delete project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project\": {\n    \"description\": \"Test Project description\",\n    \"name\": \"Test Project\",\n    \"private\": true\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/projects/:project_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"projects",
+								":project_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								},
+								{
+									"key": "project_id",
+									"value": "{{PROJECT_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shares",
+			"item": [
+				{
+					"name": "list shares",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/projects/:project_id/shares",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"projects",
+								":project_id",
+								"shares"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "project_id",
+									"value": "{{PROJECT_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "create share with assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"data\": {\n        \"type\": \"asset\",\n        \"name\": \"Test Share - preview\",\n        \"access\": \"public\",\n        \"asset_ids\": [\"c97292ba-82e0-483c-99a1-f361b8ff74bb\"] //optional\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/projects/:project_id/shares",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"projects",
+								":project_id",
+								"shares"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "project_id",
+									"value": "{{PROJECT_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v4/me",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "list webhooks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/webhooks",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"webhooks"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "create webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"New Webhook\",\n   \"events\": [\"asset.created\"],\n   \"url\": \"https://url.example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/webhooks",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"webhooks"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "show webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/webhooks/:webhook_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"webhooks",
+								":webhook_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								},
+								{
+									"key": "webhook_id",
+									"value": "{{WEBHOOK_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "update webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"webhook\": {\n        \"name\": \"change\",\n        \"events\": [\n            \"asset.created\"\n        ],\n        \"url\": \"https://url.change.com\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/webhooks/:webhook_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"webhooks",
+								":webhook_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								},
+								{
+									"key": "webhook_id",
+									"value": "{{WEBHOOK_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "delete webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{CURRENT_PREVIEW_ENV}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id/webhooks/:webhook_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id",
+								"webhooks",
+								":webhook_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								},
+								{
+									"key": "webhook_id",
+									"value": "{{WEBHOOK_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workspaces",
+			"item": [
+				{
+					"name": "list workspaces",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces?page_size=50",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "creator",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "50"
+								}
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "create workspace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"Test workspace\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "show workspace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				},
+				{
+					"name": "update workspace",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"Test workspace\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete workspace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-preview-environment",
+								"value": "{{PREVIEW_ENV}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project\": {\n    \"description\": \"Test Project description\",\n    \"name\": \"Test Project\",\n    \"private\": true\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v4/accounts/:account_id/workspaces/:workspace_id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v4",
+								"accounts",
+								":account_id",
+								"workspaces",
+								":workspace_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{ACCOUNT_ID}}"
+								},
+								{
+									"key": "workspace_id",
+									"value": "{{WORKSPACE_ID}}"
+								}
+							]
+						},
+						"description": "Gets S3 URLs for multipart upload into Project root.\n\nNote: for simplicity, example file / filesize will return only one URL."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenName",
+				"value": "OAuth Sample",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "openid profile AdobeID additional_info.roles offline_access",
+				"type": "string"
+			},
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "useBrowser",
+				"value": true,
+				"type": "boolean"
+			},
+			{
+				"key": "grant_type",
+				"value": "authorization_code",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{IMS_CLIENT_SECRET}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{IMS_CLIENT_ID}}",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "{{IMS_BASE_URL}}/ims/authorize",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{IMS_BASE_URL}}/ims/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
