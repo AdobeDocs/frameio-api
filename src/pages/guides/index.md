@@ -4,7 +4,7 @@
 
 Adobe Developer Console is the ultimate developer destination to access Adobe APIs & SDKs– including the Frame.io API. The details for accessing the Developer Console can be found here: https://developer.adobe.com/developer-console/docs/guides/getting-started/.
 
-The first step to use any Adobe API is to create a Project in the Adobe Developer Console. The concept of Project in the Developer Console corresponds to an application you are building to consume the Frame.io Developer API. This is distinct from a Project within Frame.io. 
+The first step to use any Adobe API is to create a Project in the Adobe Developer Console. The concept of Project in the Developer Console corresponds to an application you are building to consume the Frame.io Developer API. This is distinct from a Project within Frame.io.
 
 After creating a Project in the Developer Console, we can then add the Frame.io API to it. More details on Projects in the Developer Console can be found here: https://developer.adobe.com/developer-console/docs/guides/projects/.
 
@@ -14,7 +14,7 @@ After creating a Project in the Developer Console, we can then add the Frame.io 
 
 Adobe is committed to the privacy and security of our users and their data. The first step in accessing the Adobe Frame.io V4 API is getting authenticated. For that, you will need to create the user authentication credentials and then the access token. The steps below will show you how to create the user authentication credentials and generate an access token and make your first API call.
 
-Frame.io V4 API can be added to the project in three different ways, which lead to different types of user authentication credentials available. 
+Frame.io V4 API can be added to the project in three different ways, which lead to different types of user authentication credentials available.
 
 These different types of user authentication credentials are:
 
@@ -33,17 +33,15 @@ The above two steps are required for all the three types of App credentials. How
 
 After we have the access token, we can use it to trigger any of the Frame.io V4 APIs.
 
-
 ## What’s New in Version 4 of the Frame.io Developer API
 
-Just as the Frame.io application has been completely transformed for Version 4, the V4 Developer API has also been redesigned from the ground up. Although some key concepts remain similar to the legacy API, many have been replaced or redesigned to support more powerful collaboration workflows and integrations. The introduction of a completely new API has also provided an opportunity to drastically simplify our operations and prioritize important customer workflows. 
+Just as the Frame.io application has been completely transformed for Version 4, the V4 Developer API has also been redesigned from the ground up. Although some key concepts remain similar to the legacy API, many have been replaced or redesigned to support more powerful collaboration workflows and integrations. The introduction of a completely new API has also provided an opportunity to drastically simplify our operations and prioritize important customer workflows.
 
 Within the V4 API, some resources, such as Workspaces (previously referred to as Teams in the legacy version of Frame.io), have been renamed in order to match Frame.io Version 4, while others, like Assets in the legacy version, have been renamed to refer to specific storage entities (Files, Folders, and Version Stacks) in order to reduce developer confusion. Still others, for example Custom Fields and Shares, are entirely new. Among other substantial changes, we have drastically pared down the amount of data returned by default for resource requests, renamed some property names in our responses to be more accurate and consistent across the entire API surface, and switched to a new, cursor-based pagination mechanism. As such, it is important to realize that, with the exception of the Camera to Cloud (C2C) API, clients that integrate with the legacy API are not compatible with the V4 API.
 
 Additionally, some features remain in-progress and are expected to follow and evolve quickly in response to real-world customer use cases and feedback. Examples include the ability to create custom actions and version stacks. If a feature that was previously available in our legacy API appears to be missing, it’s quite likely that there is an alternative or that it will be available soon, but we’d like to hear from you about it. More information on support can be found here (link).
 
 Before diving into the V4 API it is helpful to first understand the core concepts expressed in the Frame.io Version 4 application. A good place to start is the [Frame.io V4 Knowledge Base](https://help.frame.io/en/). Concepts like Accounts, Users, Workspaces, Projects, Collections, Shares, and Custom Fields (Metadata) are modeled as distinct resources in the V4 API, and understanding their relationships and capabilities in the application will aid in understanding how they work in the V4 API.
-
 
 ## API Overview
 
@@ -57,8 +55,8 @@ URL paths published in the OpenAPI specification generally reflect resource owne
 
 Request parameters that control pagination behavior and the optional inclusion of related resources in response objects are defined as a standard set of query parameters: `include`, `page_size`, `include_total_count`. Some requests may support additional query parameters that are specific to that resource or operation.
 
-```
-`GET https://api.frame.io/v4/accounts/{account_id}/folders/{folder_id}/children?&include=project&page_size=5&include_total_count=true`
+```html
+GET https://api.frame.io/v4/accounts/{account_id}/folders/{folder_id}/children?&include=project&page_size=5&include_total_count=true
 ```
 
 ### Request and Response Payloads
@@ -69,7 +67,7 @@ Request and response payloads both are composed as JSON objects, and, as such, t
 
 Responses that may potentially return large numbers of resource objects (e.g folder or comment listings) are paginated in order to reduce request latency as a result set grows large.. This means that the response to a request may only include a single “page” of results. As mentioned above, a client may choose a specific page size, up to a maximum of 100 elements through the `page_size` query parameter when making the request. If left unspecified, the page size will default to 50 elements. The V4 API uses a form of pagination known as *cursor-based pagination* and includes a relative link in the `links` property of the response object (see example below) that contains an opaque (clients should not attempt to construct this string themselves) cursor string in the `after` query parameter, which allows the client to retrieve the next page of results (see example response below) by making subsequent requests. At present, the V4 API only supports unidirectional pagination.
 
-```
+```json
 {
     "data": [
         {
@@ -108,7 +106,7 @@ Responses that may potentially return large numbers of resource objects (e.g fol
 
 In the event that an error occurs, the `errors` property in the response object will contain an array of one or more error objects that provide details about the error(s) that occurred. At present, batch operations are not supported by the V4 API so there are no cases where partial success and errors must be handled by the client.
 
-```
+```json
 {
     "errors": [
         {
@@ -122,9 +120,7 @@ In the event that an error occurs, the `errors` property in the response object 
 }
 ```
 
-
 The following table lists common status codes used by the V4 API
-
 
 |Status Code	|**Status**	|Description	|
 |---	|---	|---	|
@@ -138,7 +134,6 @@ The following table lists common status codes used by the V4 API
 |422	|Unprocessable Entity	|The request payload and/or parameters are well-formed but are otherwise invalid, preventing execution of the request (largely interchangeble with 400 Bad Request).	|
 |429	|Too Many Requests	|The request has exceeded our API rate limit for this account. See Rate Limiting section of the Getting Started guide for details.	|
 |5xx	|Server Errors	|An unexpected error was reported by our server. Clients should be wait a minimum of 30 seconds before retrying the event and any automated retries should be limited and include a randomized interval in additonal to employing exponential back-off in successive requests.	|
-|	|	|	|
 
 ### Authentication and Authorization
 
@@ -150,7 +145,7 @@ The Frame.io V4 Developer API is *not* backward-compatible with earlier versions
 
 ### Rate Limiting
 
-All V4 API calls are rate-limited, and each API resource and operation is configured with its own limit, The limits range from as low as 10 requests per minute to as high as 100 requests per second. At present, each limit is enforced by *account,* but the policies and limits themselves are subject to change. 
+All V4 API calls are rate-limited, and each API resource and operation is configured with its own limit, The limits range from as low as 10 requests per minute to as high as 100 requests per second. At present, each limit is enforced by *account,* but the policies and limits themselves are subject to change.
 
 The V4 API uses a “[leaky bucket](https://wikipedia.org/wiki/Leaky_bucket)” algorithm of progressive rate limiting, in which limits refresh gradually during their allotted time window. In other words, there is not a concept of any hard cutoff after which limits refresh for a particular resource (i.e. "fixed" and "sliding window" enforcement strategies). Rather, remaining limits are constantly refreshing at a pace relative to a resource's limit and time window. Requests that exceed the rate limit for a particular endpoint will fail with a 429 HTTP error.
 
@@ -182,9 +177,9 @@ The basic hierarchy of content resources within Frame.io is as follows:
 
 **Account → Workspace → Project → Folder → Folder / Version Stack / File**
 
-Every asset uploaded to Frame.io is ultimately represented as a File, while Folders and Version Stacks are storage resources that act as containers and provide the foundation for a hierarchical storage model that supports versioned assets. Most users are already familiar with the basic concept of a Folder in Frame.io: it simply serves as unordered container of other storage resources (modeled as its `children`) and represents a node within the folder tree. Every Project has a unique root folder (identified by the `root_folder_id` key), which serves as the root of the folder tree in which all of a Project’s assets reside. 
+Every asset uploaded to Frame.io is ultimately represented as a File, while Folders and Version Stacks are storage resources that act as containers and provide the foundation for a hierarchical storage model that supports versioned assets. Most users are already familiar with the basic concept of a Folder in Frame.io: it simply serves as unordered container of other storage resources (modeled as its `children`) and represents a node within the folder tree. Every Project has a unique root folder (identified by the `root_folder_id` key), which serves as the root of the folder tree in which all of a Project’s assets reside.
 
-A Version Stack is an ordered container of Files. Its ordering is strictly linear and determines a version number for each of its children, but clients may reorder the Files within the version stack as they see fit. A File will always be a child of (contained within) exactly one Folder *or* Version Stack at any given time. Similarly, a Folder or Version Stack will always be a child of exactly one Folder (excluding the project's root folder). 
+A Version Stack is an ordered container of Files. Its ordering is strictly linear and determines a version number for each of its children, but clients may reorder the Files within the version stack as they see fit. A File will always be a child of (contained within) exactly one Folder *or* Version Stack at any given time. Similarly, a Folder or Version Stack will always be a child of exactly one Folder (excluding the project's root folder).
 
 See the [API Reference Guide](api/current/#tag/Folders) for more detail about performing basic CRUD operations on Files and Folders stored within Frame. At present the V4 API only supports Version Stacks when listing the contents of a Folder, but endpoints for creating and updating Version Stacks are coming soon.
 
@@ -206,6 +201,7 @@ The collection, named Frame.io V4 Developer API, contains all of the public endp
 
 Once the collection and environment are imported, you should be able to view both within Postman. The environment contains default URLs for the `BASE_URL` and `IMS_BASE_URL` variables, but other environment variables are empty and will need to be filled in by you.
 ![alt image](./image_2.png)
+
 ### Authentication Setup
 
 The `IMS_CLIENT_ID` and `IMS_CLIENT_SECRET` environment variables should be set to the values retrieved from the Credential page associated with your project in the Adobe Developer Console.
@@ -220,6 +216,7 @@ Once those environment variables have been set (**make sure to save these change
 Most of the resources that you’ll interact with using the V4 API are contained within a Project. Projects are organized and managed within a Workspace, so the first step to creating or listing a Project is to determine the Workspace ID that contains it. In order to retrieve a list of existing Workspaces that you have access to in the account you logged into, select the “list workspaces” endpoint in the Postman collection browser and click the Send button. If your `ACCOUNT_ID` environment variable has been properly set then you should receive a response containing a list of all available Workspaces.
 ![alt image](./image_6.png)Once you’ve identified the Workspace in which you plan to operate, copy the value of its `id` property to the `WORKSPACE_ID` environment variable and save your environment. You are now ready to request a list of projects that you have access to within that Workspace. Select the “list projects” endpoint in Postman and click Send. The response will contain the list of projects contained within the Workspace. Identify the Project in which you’d like to experiment, and copy its `id` value to the `PROJECT_ID` environment variable in your current Postman environment. Also copy the `root_folder_id` property to the `FOLDER_ID` property in your environment. When operating on the asset tree within a project, many requests take the parent Folder ID of a resource as a path parameter. Setting this environment variable to refer to the root folder will allow you to make requests to operate on resources contained at the root level of the Project.
 ![alt image](./image_7.png)
+
 ### Listing the Contents of a Project
 
 Now that the `FOLDER_ID` has been set to the root folder of the Project, you will able to list the content stored within it. Select the “list folder children” endpoint and click the Send button to try it out. This is a good opportunity to experiment with some of the optional query parameters that you may include with some GET requests that return lists of resources. In the example below, query parameters have been added to limit the number of returned resources to 5 (`page_size=5`), include the total count of child resources (`include_total_count=true`) and to include information about the child resources’ creator (`include=creator`). More information about the query parameters supported by each endpoint can be found in the API Reference Guide.
@@ -237,4 +234,3 @@ While experimenting in Postman it is often most convenient to choose a relativel
 
 Once all the parts have been uploaded to their respective upload URLs, the Frame.io media pipeline will automatically stitch together the parts (if there is more than one), process the upload (perform any appropriate transcoding and generate thumbnails, preview renditions, etc.), and update the `status` of the File to reflect any in-progress or pending operations. Depending on the size of the file, it may take some time before the Frame.io web application is updated to reflect the uploaded state of the File. Note that in a real-world application it is possible, and often signficantlfaster, to issue the content upload requests concurrently (although operating systems and browsers will frequently throttle the number of simultaneous HTTP/1.1 connections to the same URL host in order to avoid overwhelming the server).
 ![alt image](./image_10.png)
-
