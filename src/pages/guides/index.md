@@ -181,7 +181,7 @@ Every asset uploaded to Frame.io is ultimately represented as a File, while Fold
 
 A Version Stack is an ordered container of Files. Its ordering is strictly linear and determines a version number for each of its children, but clients may reorder the Files within the version stack as they see fit. A File will always be a child of (contained within) exactly one Folder *or* Version Stack at any given time. Similarly, a Folder or Version Stack will always be a child of exactly one Folder (excluding the project's root folder).
 
-See the [API Reference Guide](../api/current/#tag/Folders) for more detail about performing basic CRUD operations on Files and Folders stored within Frame. At present the V4 API only supports Version Stacks when listing the contents of a Folder, but endpoints for creating and updating Version Stacks are coming soon.
+See the [API Reference Guide](../api/current/) for more detail about performing basic CRUD operations on Files and Folders stored within Frame. At present the V4 API only supports Version Stacks when listing the contents of a Folder, but endpoints for creating and updating Version Stacks are coming soon.
 
 ## Start Developing with Postman
 
