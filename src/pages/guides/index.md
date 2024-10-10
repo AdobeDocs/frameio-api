@@ -191,7 +191,7 @@ Postman is a popular tool used by web developers for testing and interacting wit
 ### Prerequisites
 
 1. You have downloaded [Postman](https://www.postman.com/downloads/).
-2. You have followed the steps in Getting Started with the Developer Console to create a Developer Console Project with a Frame.io API Subscription that has been configured with an OAuth Web App Credential. This example assumes the use of a OAuth Web App credential, but for real-world use make sure to choose the appropriate credential type for your application.
+2. You have followed the steps in Getting Started with the Adobe Developer Console to create an Adobe Developer Console Project with a Frame.io API subscription that has been configured with an OAuth Web App Credential. This example assumes the use of a OAuth Web App credential, but for real-world use make sure to choose the appropriate credential type for your application.
 
 ### Importing the Postman Collection
 
