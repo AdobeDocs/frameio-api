@@ -36,7 +36,7 @@ In these docs you’ll find a comprehensive Getting Started Guide that walks you
 
 ### Support
 
-If you need additional support beyond what’s covered in these documents, please reach out to the Frame.io Support Team for assistance by chatting with us on our [Support Site](https://support.frame.io/en/) . Please note that Enterprise customers may be directed to their Customer Success Manager.
+If you need additional support beyond what’s covered in these documents, please reach out to the Frame.io Support Team for assistance by chatting with us on our [Support Site](https://help.frame.io/en/) . Please note that Enterprise customers may be directed to their Customer Success Manager.
 
 ## Discover
 
