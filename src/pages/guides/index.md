@@ -46,7 +46,7 @@ Before diving into the V4 API it is helpful to first understand the core concept
 
 ## API Overview
 
-The Frame.io V4 API is designed to follow RESTful architectural principles, and uses standard HTTP methods and response codes in conjunction with unique, resource-specific URLs. Frame.io publishes an OpenAPI 3.0 specification (todo: provide link) for our V4 API, which provides detailed information about its endpoints, request parameters, and responses. The OpenAPI spec can be consumed by a variety of third-party code-generation tools to facilitate rapid client application development.
+The Frame.io V4 API is designed to follow RESTful architectural principles, and uses standard HTTP methods and response codes in conjunction with unique, resource-specific URLs. Frame.io publishes an [OpenAPI 3.0 specification](https://api.frame.io/v4/openapi.json) for our V4 API, which provides detailed information about its endpoints, request parameters, and responses. The OpenAPI spec can be consumed by a variety of third-party code-generation tools to facilitate rapid client application development.
 
 ### URL and Path Conventions
 
