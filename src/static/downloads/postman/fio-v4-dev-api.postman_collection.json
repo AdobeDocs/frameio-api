@@ -1980,6 +1980,16 @@
 		"type": "oauth2",
 		"oauth2": [
 			{
+				"key": "authUrl",
+				"value": "{{IMS_BASE_URL}}/ims/authorize/v2",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{IMS_BASE_URL}}/ims/token/v3",
+				"type": "string"
+			},
+			{
 				"key": "tokenName",
 				"value": "OAuth Sample",
 				"type": "string"
@@ -2030,11 +2040,6 @@
 				"type": "string"
 			},
 			{
-				"key": "authUrl",
-				"value": "{{IMS_BASE_URL}}/ims/authorize",
-				"type": "string"
-			},
-			{
 				"key": "addTokenTo",
 				"value": "header",
 				"type": "string"
@@ -2042,11 +2047,6 @@
 			{
 				"key": "client_authentication",
 				"value": "body",
-				"type": "string"
-			},
-			{
-				"key": "accessTokenUrl",
-				"value": "{{IMS_BASE_URL}}/ims/token",
 				"type": "string"
 			}
 		]
