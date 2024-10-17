@@ -85,10 +85,16 @@ const rootFixPages = pages => {
   });
 };
 
-const layoutColumns = (columns, gutters = []) =>
-  `calc(${columns} * var(--spectrum-global-dimension-static-grid-fixed-max-width) / var(--spectrum-global-dimension-static-grid-columns)${
+const layoutColumns = (columns, gutters = []) => {
+  // Override 3 columns to 2 columns because 3 columns is too narrow.
+  // See: https://github.com/adobe/aio-theme/blob/main/packages/gatsby-theme-aio/src/components/MDXFilter/index.js#L235-L237
+  if (columns === 3) {
+    columns = 2
+  }
+  return `calc(${columns} * var(--spectrum-global-dimension-static-grid-fixed-max-width) / var(--spectrum-global-dimension-static-grid-columns)${
     gutters.length > 0 ? ` - ${gutters.join(' - ')}` : ''
-  })`;
+  })`
+};
 
 const findSelectedTopPage = (pathname, pages) =>
   pages.find(
