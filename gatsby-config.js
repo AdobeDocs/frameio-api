@@ -36,9 +36,14 @@ module.exports = {
     subPages: [
       {
         title: 'Getting Started',
-        path: '/guides/',
+        path: '/guides/'
+      },
+      {
+        title: 'Webhooks',
+        path: '/guides/webhooks/'
       }
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]
 };
+  
