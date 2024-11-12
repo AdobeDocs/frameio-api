@@ -1,0 +1,58 @@
+# Frame V4 API FAQ
+
+The Frame V4 API allows developers to integrate Frame.io’s surface for creatives and their teams to manage their work for every step of the asset delivery lifecycle from plan to deliver.
+
+
+* How do I **authenticate**?
+
+    The first step in accessing the [Frame.io](http://frame.io/) API is getting authenticated. Create the user authentication credentials and then the access token. Adobe Identity Management Service (IMS) is Adobe’s OAuth 2.0-based identity management feature that supports authentication. There are two steps required for generating the access token:
+
+    * The user has to authorize the application before the token generation. The details for this can be found [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#authorize-request).
+    * The next step is fetching the access token. The above step returns a **code** in the response body. This is used in this step. The exact endpoints to trigger and the parameters to use can be found [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#fetching-access-tokens).
+* Where is the **API reference**?
+    * Go [here](https://developer-stage.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages. 
+* How can I get **help**?
+    * Reach out to the [Frame.io](http://frame.io/) support team for assistance by chatting with us on our [Support Site](https://help.frame.io/en/). Please note that enterprise customers may be directed to their Customer Success Manager.
+* What are the key concepts to the Frame V4 API?
+    * V4 represents an expansion from primarily serving post-production video professionals to a discipline-agnostic platform for creatives and creative managers.  [Frame.io](http://frame.io/) acts as a central canvas for multi-disciplinary teams and solves for key needs for everything from more focus time for creative work to increased visibility into ongoing projects.
+    * **Workflow management**: Centralize, organize, and build all your end-to-end creative workflows at scale leveraging Metadata, Custom Fields, and Collections.
+    * **File transfer and management**: This set of capabilities gives users all the flexibility and power to build the best file management system for their creative process making it easier to quickly get the information they need, and manage all their work-in-progress assets at scale.
+    * **Review and approval**: [Frame.io](http://frame.io/) helps creative teams reduce the total number of revision cycles with advanced review, commenting, and annotation capabilities available across a broad set of media types.
+    * **Sharing and presentation**: Customize and share creative work from one central place.
+    * **Security and governance**: View and manage all users, workspaces, and projects in one place. Take bulk actions and export information to control how you utilize usage data.
+    * **Integrations and APIs**: Native integrations and an open API connect [Frame.io](http://frame.io/) to the systems you already use to unblock sticking points and keep work in flow.
+
+* How can I move my **Azure** **Blob** storage to [Frame.io](http://frame.io/) V4 directly?
+
+    The easiest and most efficient way to upload and download bulk content, large folder structures, and entire projects. Upload your files and folder structures directly from your desktop into your [Frame.io](http://frame.io/) projects; download the original files or choose multiple proxies. 
+
+* What is **metadata**?
+  
+  Use Metadata to tag, organize, and view creative assets based on how your team works. Tag all incoming assets with metadata to organize then group into Collections to sort and view your assets based on need (assignee, due date, approval status, etc.) for easier access and superior organization. 
+* What are **Shares**?
+   
+   Preview, edit, manage and send beautiful Shares to ensure your assets are showcased in the best light for internal and external stakeholders. Fine tune every element of your Share—from branding, to descriptions, to layout—to ensure that you are presenting your work professionally and beautifully.
+* What are **Collections** in V4?
+   
+   Collections are flexible, real-time, saved views of a selection of assets that allow users to dynamically select, filter, group, and sort their media using previously tagged metadata. Collections allow users to build meaningful, efficient workflows without the tool forcing them to work within a particular approach, process or template.
+* Is the Frame V4 API **backward compatible**?  
+    No. The Frame product released at Adobe MAX operates in fundamentally different ways and emphasizes different workflows than the legacy version. Due to these differences, the new API is not backward compatible with the Legacy Product.
+
+        The Frame.io V4 API is *not* backward-compatible with earlier versions of Frame.io APIs and, generally, cannot be used to access or update resources contained within legacy accounts as there have been significant changes to the V4 concepts and data model. As such, the URIs associated with the V4 API all include a `/v4` path prefix. However, the V4 API is still evolving quickly and it is possible that new features may occasionally warrant breaking changes.  
+
+    Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the V4 namespace. 
+
+* Will the V4 API only be **available for enterprise**? 
+   
+   For the moment, Yes. Once the V4 API is generally available, will the automations I set up on V3 using Developer Tokens be broken, or will these be migrated to V4 automatically? Will I need to start my automations from scratch?
+*2.* Once the V4 API is generally available, will the **automations I set up on V3** using developer tokens be broken, or will these be migrated to V4 automatically? 
+   All automations using v3 developer tokens will be broken and we **do not** have any way to migrate them to v4.
+* Can we create and **manage Collections programmatically** on V4?
+    1. We do not yet have any Collections endpoints publicly available. But, Collections management is under development.
+* Will there be a **Zapier** connection available for V4? 
+    1. The existing Zapier integration however **does not work** with V4 yet. It likely will in the future, but I don’t think commitments have actually been made by anyone.
+* Is there support or recommended workflows for integrating [Frame.io](http://frame.io/) V4 with Airtable, [Descript.com](http://descript.com/), and [Kitchn.io](http://kitchn.io/)?
+     Not yet.
+
+
+
