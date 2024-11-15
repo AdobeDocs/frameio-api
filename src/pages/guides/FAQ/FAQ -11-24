@@ -20,7 +20,7 @@ The Frame V4 API allows developers to integrate Frame.io’s surface for creativ
     * **Review and approval**: [Frame.io](http://frame.io/) helps creative teams reduce the total number of revision cycles with advanced review, commenting, and annotation capabilities available across a broad set of media types.
     * **Sharing and presentation**: Customize and share creative work from one central place.
     * **Security and governance**: View and manage all users, workspaces, and projects in one place. Take bulk actions and export information to control how you utilize usage data.
-    * **Integrations and APIs**: Native integrations and an open API connect [Frame.io](http://frame.io/) to the systems you already use to unblock sticking points and keep work in flow.
+    * **Open API Standards**: A REST API and an OpenAPI specification connect Frame.io to the systems you already use to unblock custom workflows.
 
 * How can I move my **Azure** **Blob** storage to [Frame.io](http://frame.io/) V4 directly?
 
