@@ -3,7 +3,7 @@
 The Frame V4 API allows developers to integrate Frame.io’s surface for creatives and their teams to manage their work.
 
 * Where is the **API reference**?
-    * Go [here](https://developer-stage.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages. 
+    * Go [here](https://developer-stage.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages.
 * How can I get **help**?
     * Reach out to the Frame.io support team for assistance by chatting with us on our [Support Site](https://help.frame.io/en/). Please note that enterprise customers may be directed to their Customer Success Manager.
 * What are the **key concepts** to the Frame V4 API?
@@ -16,23 +16,23 @@ The Frame V4 API allows developers to integrate Frame.io’s surface for creativ
     * **Open API Standards**: A REST API and an OpenAPI specification connect Frame.io to the systems you already use to unblock custom workflows.
 
 * Is the Frame V4 API **backward compatible**?  
-    
+
     No. The Frame product released at Adobe MAX operates in fundamentally different ways and emphasizes different workflows than the legacy version. Due to these differences, the new API is not backward compatible.
 
     Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the V4 namespace. 
 
 * Will the V4 API only be **available for enterprise**? 
-   
+
    For the moment, Yes. Once the V4 API is generally available, will the automations I set up on V3 using Developer Tokens be broken, or will these be migrated to V4 automatically? Will I need to start my automations from scratch?
 * Once the V4 API is generally available, will the **automations I set up on V3** using developer tokens be broken, or will these be migrated to V4 automatically?
-   
+
    All automations using v3 developer tokens will be broken and we **do not** have any way to migrate them to v4.
 * Can we create and **manage Collections programmatically** on V4?
-    
+
     We do not yet have any Collections endpoints publicly available. But, Collections management is under development.
 * Will there be a **Zapier** connection available for V4? 
-    
+
     The existing Zapier integration however **does not work** with V4 yet but it is in development. 
 * Is there support or recommended workflows for integrating Frame.io V4 with Airtable, [Zapier](http://Zapier.com/), and [Make](http://Make.com/)?
-     
+
     No, not yet but it is in development.
