@@ -33,6 +33,6 @@ The Frame V4 API allows developers to integrate Frame.io’s surface for creativ
 * Will there be a **Zapier** connection available for V4? 
     
     The existing Zapier integration however **does not work** with V4 yet but it is in development. 
-* Is there support or recommended workflows for integrating Frame.io V4 with Airtable, [Descript.com](http://descript.com/), and [Kitchn.io](http://kitchn.io/)?
+* Is there support or recommended workflows for integrating Frame.io V4 with Airtable, [Zapier](http://Zapier.com/), and [Make](http://Make.com/)?
      
     No, not yet but it is in development.
