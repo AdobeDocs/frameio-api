@@ -6,7 +6,7 @@ The Frame V4 API allows developers to integrate Frame.io’s surface for creativ
     * Go [here](https://developer-stage.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages. 
 * How can I get **help**?
     * Reach out to the Frame.io support team for assistance by chatting with us on our [Support Site](https://help.frame.io/en/). Please note that enterprise customers may be directed to their Customer Success Manager.
-* What are the key concepts to the Frame V4 API?
+* What are the **key concepts** to the Frame V4 API?
     * V4 represents an expansion from primarily serving post-production video professionals to a discipline-agnostic platform for creatives and creative managers. Frame.io acts as a central canvas for multi-disciplinary teams and solves for key needs for everything from more focus time for creative work to increased visibility into ongoing projects.
     * **Workflow management**: Centralize, organize, and build all your end-to-end creative workflows at scale leveraging Metadata, Custom Fields, and Collections.
     * **File transfer and management**: This set of capabilities gives users all the flexibility and power to build the best file management system for their creative process making it easier to quickly get the information they need, and manage all their work-in-progress assets at scale.
