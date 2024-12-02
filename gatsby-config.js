@@ -32,8 +32,8 @@ module.exports = {
           },
           {
             title: 'Frame.io API',
-            description: 'Experimental',
-            path: '/api/experimental/index.md'
+            description: 'Alpha Version',
+            path: '/api/alpha/index.md'
           }
         ]
       }
