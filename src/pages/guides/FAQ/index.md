@@ -28,7 +28,7 @@ Recognizing that backward-compatibility is a major concern for customers managin
 
 ### Will the V4 API only be **available for enterprise**?
 
-For the moment, Yes. Once the V4 API is generally available, will the automations I set up on V3 using Developer Tokens be broken, or will these be migrated to V4 automatically? Will I need to start my automations from scratch?
+For the moment, Yes. 
 
 ### Once the V4 API is generally available, will the **automations I set up on V3** using developer tokens be broken, or will these be migrated to V4 automatically?
 
