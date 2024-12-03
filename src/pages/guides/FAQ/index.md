@@ -30,9 +30,9 @@ Recognizing that backward-compatibility is a major concern for customers managin
 
 For the moment, Yes. 
 
-### Once the V4 API is generally available, will the **automations I set up on V3** using developer tokens be broken, or will these be migrated to V4 automatically?
+### Once the V4 API is generally available, will the automations I set up with the legacy product continue to work? i.e. will these be migrated to V4 automatically?
 
-All automations using v3 developer tokens will be broken and we **do not** have any way to migrate them to v4.
+All automations using legacy developer tokens will no longer work for V4 accounts. We **do not** have any way to migrate them to V4.
 
 ### Can we create and **manage Collections programmatically** on V4?
 
