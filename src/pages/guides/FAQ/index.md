@@ -28,7 +28,7 @@ Recognizing that backward-compatibility is a major concern for customers managin
 
 ### Will the V4 API only be **available for enterprise**?
 
-For the moment, Yes. 
+For the moment, Yes.
 
 ### Once the V4 API is generally available, will the automations I set up with the legacy product continue to work? i.e. will these be migrated to V4 automatically?
 
