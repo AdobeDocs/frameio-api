@@ -37,6 +37,10 @@ module.exports = {
       {
         title: 'Getting Started',
         path: '/guides/',
+      },
+      {
+        title: 'Frequently Asked Questions',
+        path: '/guides/FAQ/',
       }
     ]
   },
