@@ -19,9 +19,9 @@ The Frame V4 API allows developers to integrate Frame.io’s surface for creativ
 
     No. The Frame product released at Adobe MAX operates in fundamentally different ways and emphasizes different workflows than the legacy version. Due to these differences, the new API is not backward compatible.
 
-    Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the V4 namespace. 
+    Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the V4 namespace.
 
-* Will the V4 API only be **available for enterprise**? 
+* Will the V4 API only be **available for enterprise**?
 
    For the moment, Yes. Once the V4 API is generally available, will the automations I set up on V3 using Developer Tokens be broken, or will these be migrated to V4 automatically? Will I need to start my automations from scratch?
 * Once the V4 API is generally available, will the **automations I set up on V3** using developer tokens be broken, or will these be migrated to V4 automatically?
@@ -30,9 +30,9 @@ The Frame V4 API allows developers to integrate Frame.io’s surface for creativ
 * Can we create and **manage Collections programmatically** on V4?
 
     We do not yet have any Collections endpoints publicly available. But, Collections management is under development.
-* Will there be a **Zapier** connection available for V4? 
+* Will there be a **Zapier** connection available for V4?
 
-    The existing Zapier integration however **does not work** with V4 yet but it is in development. 
+    The existing Zapier integration however **does not work** with V4 yet but it is in development.
 * Is there support or recommended workflows for integrating Frame.io V4 with Airtable, [Zapier](http://Zapier.com/), and [Make](http://Make.com/)?
 
     No, not yet but it is in development.
