@@ -689,8 +689,14 @@ const OpenAPIBlock = ({ src }) => {
               hideLoading: true,
               scrollYOffset: 64,
               menuToggle: true,
-              hideDownloadButton: true,
+              // expandResponses: ['200', '201', '204'],
+              jsonSampleExpandLevel: 'all',
+              hideDownloadButton: false,
               sortOperationsAlphabetically: true,
+              // generateCodeSamples: {
+              //   languages: [{ lang: 'curl' }, { lang: 'Node.js' }, { lang: 'JavaScript', label: 'JS' }],
+              //   skipOptionalParameters: true,
+              // },
               theme: {
                 sidebar: {
                   width: SIDENAV_WIDTH

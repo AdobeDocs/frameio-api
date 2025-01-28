@@ -26,13 +26,13 @@ module.exports = {
         title: 'API Reference',
         menu: [
           {
-            title: 'Frame.io API',
-            description: 'v4.0 Current',
+            title: 'Current Version',
+            description: 'Stable',
             path: '/api/current/index.md'
           },
           {
-            title: 'Frame.io API',
-            description: 'Alpha Version',
+            title: 'Alpha Version',
+            description: 'Active Development',
             path: '/api/alpha/index.md'
           }
         ]
