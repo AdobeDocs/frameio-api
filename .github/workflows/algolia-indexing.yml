@@ -31,6 +31,13 @@ jobs:
         run: yarn install
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
+      
+      - name: Fetch openapi docs for indexing
+        run: |
+          mkdir -p ./static/v4/docs/alpha ./static/v4/docs/4.0
+          curl -o ./static/v4/docs/alpha/openapi.json https://api.frame.io/v4/docs/alpha/openapi.json
+          curl -o ./static/v4/docs/4.0/openapi.json https://api.frame.io/v4/docs/4.0/openapi.json
+          curl -o ./static/v4/openapi.json https://api.frame.io/v4/openapi.json
 
       - name: Build site
         run: yarn build
