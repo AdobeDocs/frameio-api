@@ -24,11 +24,13 @@ Reach out to the Frame.io support team for assistance by chatting with us on our
 
 No. The Frame.io product released at Adobe MAX operates in fundamentally different ways and emphasizes different workflows than the legacy version. Due to these differences, the new API is not backward compatible.
 
-Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the V4 namespace.
+### How will backwards compatibility be handled going forwards?
+
+Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the `/v4` API namespace.
 
 ### Will the V4 API only be **available for enterprise**?
 
-For the moment, Yes.
+The V4 API is currently available for new Enterprise customers and select customers and partners via testing accounts.
 
 ### Once the V4 API is generally available, will the automations I set up with the legacy product continue to work? i.e. will these be migrated to V4 automatically?
 
