@@ -4,7 +4,7 @@ The Frame.io API allows developers to integrate Frame.io’s surface for creativ
 
 ### Where is the **API reference**?
 
-Go [here](https://developer-stage.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages.
+Go [here](https://developer.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages.
 
 ### How can I get **help**?
 
