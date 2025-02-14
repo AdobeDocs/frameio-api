@@ -18,7 +18,7 @@ Reach out to the Frame.io support team for assistance by chatting with us on our
 * **Review and approval**: Frame.io helps creative teams reduce the total number of revision cycles with advanced review, commenting, and annotation capabilities available across a broad set of media types.
 * **Sharing and presentation**: Customize and share creative work from one central place.
 * **Security and governance**: View and manage all users, workspaces, and projects in one place. Take bulk actions and export information to control how you utilize usage data.
-* **Open API Standards**: A REST API and an OpenAPI specification connect Frame.io to the systems you already use to unblock custom workflows.
+* **Open API Standards**: A REST API documented via the OpenAPI 3.0 specification can connect Frame.io to the systems you already use to unlock custom workflows.
 
 ### Is the Frame.io V4 API **backward compatible**?  
 
