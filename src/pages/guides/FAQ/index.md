@@ -4,7 +4,7 @@ The Frame.io API allows developers to integrate Frame.io’s surface for creativ
 
 ### Where is the **API reference**?
 
-Go [here](https://developer-stage.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages.
+Go [here](https://developer.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages.
 
 ### How can I get **help**?
 
@@ -18,17 +18,19 @@ Reach out to the Frame.io support team for assistance by chatting with us on our
 * **Review and approval**: Frame.io helps creative teams reduce the total number of revision cycles with advanced review, commenting, and annotation capabilities available across a broad set of media types.
 * **Sharing and presentation**: Customize and share creative work from one central place.
 * **Security and governance**: View and manage all users, workspaces, and projects in one place. Take bulk actions and export information to control how you utilize usage data.
-* **Open API Standards**: A REST API and an OpenAPI specification connect Frame.io to the systems you already use to unblock custom workflows.
+* **Open API Standards**: A REST API documented via the OpenAPI 3.0 specification can connect Frame.io to the systems you already use to unlock custom workflows.
 
 ### Is the Frame.io V4 API **backward compatible**?  
 
 No. The Frame.io product released at Adobe MAX operates in fundamentally different ways and emphasizes different workflows than the legacy version. Due to these differences, the new API is not backward compatible.
 
-Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the V4 namespace.
+### How will backwards compatibility be handled going forwards?
+
+Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the `/v4` API namespace.
 
 ### Will the V4 API only be **available for enterprise**?
 
-For the moment, Yes.
+The V4 API is currently available for new Enterprise customers and select customers and partners via testing accounts.
 
 ### Once the V4 API is generally available, will the automations I set up with the legacy product continue to work? i.e. will these be migrated to V4 automatically?
 
