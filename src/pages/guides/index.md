@@ -15,7 +15,6 @@ Adobe is committed to the privacy and security of our users and their data. The 
 
 > User authentication credentials rely on OAuth2.0 `authorization_code` grant type, commonly known as 3-legged OAuth. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/).
 
-
 #### User Authentication Credential Types
 
 1. **OAuth Web App credential**: Use this credential if the API is added as a Web App. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-web-app-credential).
@@ -25,6 +24,7 @@ Adobe is committed to the privacy and security of our users and their data. The 
 ![alt image](./image_1.png)
 
 #### Adobe Identity Management Service (IMS)
+
 Adobe Identity Management Service (IMS) is Adobe’s OAuth 2.0-based identity management feature that supports authentication. There are two steps required for generating the access token.
 
 1. First, the user authorizes the application before a token is generated. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#authorize-request).
