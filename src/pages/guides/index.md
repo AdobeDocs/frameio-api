@@ -1,5 +1,7 @@
 # Frame.io API Getting Started Guide
 
+> For information about server to server authentication support go to [Automate your setup using Frame.io server to server support](https://helpx.adobe.com/enterprise/using/automate-using-frame-io.html).
+
 ## Starting with the Developer Console
 
 The first step in using an Adobe API is to create a **Project** in the Adobe Developer Console. Projects in the Developer Console correspond to an application you are building to consume the Frame.io Developer API. This is distinct from a project within Frame.io.
@@ -31,6 +33,7 @@ Adobe Identity Management Service (IMS) is Adobe’s OAuth 2.0-based identity ma
 2. Next, fetch the access token. The above step returns a code in the response body needed in this step. See the exact endpoints to trigger, and the parameters to use, [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#fetching-access-tokens).
 
 The above two steps are required for all the three types of app credentials.  There are differences in the way the IMS endpoints `/authorize/v2` and `/token/v3` are triggered for getting the token. These differences are listed in detail in the two links above. After we have the access token, we can use it to trigger any of the Frame.io V4 APIs.
+
 
 ## What’s New in the Frame.io V4 Developer API?
 
