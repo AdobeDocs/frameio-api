@@ -10,7 +10,7 @@ Add the [Frame.io](http://frame.io/) V4 API with one of the user authentication 
 2. **OAuth Single Page App**: If the API is added as a single page app, use this credential. Go [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-single-page-app-credential) for details.
 3. **OAuth Native App**: If the API is configured as a Native app, use this credential.  Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-native-app-credential).
 
-## Service to Server Authentication
+## Server to Server Authentication
 
 Frame.io's V4 API supports service accounts to connect the tools and systems critical to your creative process with your [Frame.io](http://frame.io/) account.
 
