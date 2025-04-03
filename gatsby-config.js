@@ -46,6 +46,10 @@ module.exports = {
       {
         title: 'Frequently Asked Questions',
         path: '/guides/FAQ/',
+      },
+      {
+        title: 'Authentication',
+        path: '/guides/Authentication'
       }
     ]
   },
