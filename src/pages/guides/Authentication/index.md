@@ -1,6 +1,6 @@
 # Authentication Guide
 
-Adobe is committed to the privacy and security of our users and their data. The first step in accessing the Frame.io API is authentication. 
+Adobe is committed to the privacy and security of our users and their data. The first step in accessing the Frame.io API is authentication.
 For Frame.io via our integration with Adobe Business Platform (ABP) and Identity Management Service (IMS), there are authentication types for several use cases.
 
 * **OAuth Server to Server Authentication:** This allows technical or service user accounts to take action. They are also known as service or system accounts or bot users. When authenticating this way you are not required to complete the classic sign-up / sign-in (SUSI) process.
