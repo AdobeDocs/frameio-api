@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *[Frame.io](http://frame.io/) V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 while maintaining Legacy API access.
+The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *[Frame.io](http://frame.io/) V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 and is not backwards compatible.
 
 This guide outlines the key differences between the Legacy and V4 APIs and provides step-by-step guidance to help you migrate smoothly.
 
