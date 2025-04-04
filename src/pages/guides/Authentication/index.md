@@ -16,19 +16,19 @@ Add the Frame.io V4 API with one of the user authentication credentials availabl
 
 ## Server to Server Authentication
 
-Frame.io's V4 API supports service accounts to connect the tools and systems critical to your creative process with your Frame.io account.
+Frame.io's V4 API supports service account users to connect the tools and systems critical to your creative process with your Frame.io account.
 
 > See [Automate your setup using Frame.io server to server support](https://helpx.adobe.com/enterprise/using/automate-using-frame-io.html) for more information.
 
-Server-to-server authentication credentials allow your application's server to generate access tokens and make API calls on behalf of your application within a service account. Service accounts are distinguishable from standard user accounts because they can perform actions on behalf of the service and a user that are viewable by other users.
+Server-to-server authentication credentials allow your application's server to generate access tokens and make API calls on behalf of your application within a service account user. Service account users are distinguishable from standard user accounts because they can perform actions on behalf of the service and a user that are viewable by other users.
 
-When a service account performs an action, the service account name is displayed in Frame.io. Users can grant and revoke service accounts via the Adobe Admin and Developer Consoles. Users can manage service accounts within the Frame.io UI including names. The first S2S connection you make will be called **Service Account User** by default, the second **Service Account User 2** by default, and so on.
+When a service account user performs an action, the service account user name is displayed in Frame.io. Users can grant and revoke service account users via the Adobe Admin and Developer Consoles. Users can manage service account users within the Frame.io UI including names. The first S2S connection you make will be called **Service Account User** by default, the second **Service Account User 2** by default, and so on.
 
 ## Adobe Identity Management Service (IMS)
 
 Adobe Identity Management Service (IMS) is Adobe’s OAuth 2.0-based identity management feature that supports authentication. There are two steps required for generating the access token.
 
 1. First, the user authorizes the application before a token is generated. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#authorize-request).
-2. Next, fetch the access token. The above step returns a code in the response body needed in this step. See the exact endpoints to trigger, and the parameters to use, [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#fetching-access-tokens).
+2. Next, fetch the access token. The above step returns a code in the response body needed in this step. See the exact endpoints to access, and the parameters to use, [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#fetching-access-tokens).
 
-The above two steps are required for all the three types of app credentials. There are differences in the way the IMS endpoints `/authorize/v2` and `/token/v3` are triggered for getting the token. These differences are listed in detail in the two links above. After we have the access token, we can use it to trigger any of the Frame.io V4 APIs.
+> The above steps are required for all the three types of app credentials. There are differences in the way the IMS endpoints `/authorize/v2` and `/token/v3` are accessed to get the token. After you have the access token, you can use it to interact with the Frame.io V4 API.
