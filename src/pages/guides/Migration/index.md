@@ -1,15 +1,15 @@
 
-# [Frame.io](http://frame.io/) Legacy API to V4 Migration Guide
+# Frame.io Legacy API to V4 Migration Guide
 
 ## Introduction
 
-The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *[Frame.io](http://frame.io/) V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 and is not backwards compatible.
+The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *Frame.io V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 and is not backwards compatible.
 
 This guide outlines the key differences between the Legacy and V4 APIs and provides step-by-step guidance to help you migrate smoothly.
 
 ## Key Differences
 
-* **API access and management**: The V4 APIs are managed through the [Adobe Developer Console](https://developer.adobe.com/developer-console/), whereas the Legacy API was managed in the [Frame.io](http://frame.io/) developer site.
+* **API access and management**: The V4 APIs are managed through the [Adobe Developer Console](https://developer.adobe.com/developer-console/), whereas the Legacy API was managed in the Frame.io developer site.
 * **Assets → Folders & Files**: Distinct endpoints for files and folders in V4, unlike unified asset endpoints in Legacy.
 * **Authentication:** The V4 API exclusively uses OAuth2.0 (`authorization_code` grant type). The Legacy API which allowed for JWT auth and Developer Tokens are no longer supported.
     * There are 3 distinct new ways to obtain user authentication credentials when you create your project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/):
@@ -25,7 +25,7 @@ This guide outlines the key differences between the Legacy and V4 APIs and provi
 ## Migration Checklist
 
 1. **Audit** **existing Legacy API calls.** Compare existing calls to the tables below. If an endpoint you use is **not in this list**, it does not yet exist in V4—please submit your feedback via this form.
-2. **Implement OAuth2.0 via the Adobe developer console**. Legacy [Frame.io](http://frame.io/) developer tokens and existing OAuth apps managed via [developer.frame.io](http://developer.frame.io/) will not work on V4 accounts.
+2. **Implement OAuth2.0 via the Adobe developer console**. Legacy Frame.io developer tokens and existing OAuth apps managed via [developer.frame.io](http://developer.frame.io/) will not work on V4 accounts.
 3. **Refactor your code.**  Use the new V4 API routes and JSON payloads (e.g., files/folders vs. assets).
 4. **Test thoroughly.** Test with a V4 account, focusing on uploads, comments, and *webhooks*.
 5. **Remove legacy code paths.** Remove any code paths that leverage Legacy API endpoints as they will fail in V4.
@@ -35,7 +35,7 @@ This guide outlines the key differences between the Legacy and V4 APIs and provi
 
 ## Authentication
 
-1. **Create a project in the Adobe Developer Console** and add [Frame.io](http://frame.io/) as a product.
+1. **Create a project in the Adobe Developer Console** and add Frame.io as a product.
 2. **Authenticate.** See the [Authenticatin Guide](https://developer.adobe.com/frameio/guides/Authentication/) for more information.
     1. **User authentication**: Connects to Frame using a Client ID and/or Client Secret, and requires a user to login with their username and password.
     2. **Server to server authentication**: Connects to Frame using Client ID and Client Secret, but does not require a user in the loop to login via a browser.
