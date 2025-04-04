@@ -97,7 +97,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 [(Delete Project)](https://developer.adobe.com/frameio/api/current/#tag/Projects/operation/projects.delete)	|Removes project.	|
 |GET	|`/v2/projects/{project_id}/collaborators`
 ([Get Project Collaborators](https://developer.frame.io/api/reference/operation/getProjectCollaborators/))	|GET	|`/v4/accounts/{account_id}/projects/{project_id}/users`
-	|Returns all the users in a project (available in the V4 alpha API)	|
+|Returns all the users in a project (available in the V4 alpha API)	|
 |POST	|`/v2/projects/{project_id}/collaborators`
 ([Add a Collaborator to a Project](https://developer.frame.io/api/reference/operation/addCollaboratorToProject/))	|PATH	|`/v4/accounts/{account_id}/projects/{project_id}/users/{user_id}` 	|Allows for adding or removing users from a project (available in the V4 alpha API)	|
 
