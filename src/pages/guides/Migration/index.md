@@ -12,10 +12,6 @@ This guide outlines the key differences between the Legacy and V4 APIs and provi
 * **API access and management**: The V4 APIs are managed through the [Adobe Developer Console](https://developer.adobe.com/developer-console/), whereas the Legacy API was managed in the [Frame.io](http://frame.io/) developer site.
 * **Assets → Folders & Files**: Distinct endpoints for files and folders in V4, unlike unified asset endpoints in Legacy.
 * **Authentication:** The V4 API exclusively uses OAuth2.0 (`authorization_code` grant type). The Legacy API which allowed for JWT auth and Developer Tokens are no longer supported.
-    * There are 3 distinct new ways to obtain user authentication credentials when you create your project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/):
-        * [OAuth Web App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-web-app-credential)
-        * [OAuth Single Page App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-single-page-app-credential)
-        * [OAuth Native App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-native-app-credential)
     * V4 Authorization URL: https://ims-na1.adobelogin.com/ims/authorize/v2
     * Legacy Authorization URL: https://applications.frame.io/oauth2/auth
 * **Parity with Legacy APIs:** Some specialized legacy callsare not yet supported in V4.
