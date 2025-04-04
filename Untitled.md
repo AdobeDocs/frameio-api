@@ -1,48 +1,83 @@
-# [Frame.io](http://frame.io/) Legacy API to V4 Migration Guide
+# [Frame.io](http://frame.io/) Legacy API → V4 Migration Guide
 
 ## Introduction
 
-The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *[Frame.io](http://frame.io/) V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 while maintaining Legacy API access.
-
-This guide outlines the key differences between the Legacy and V4 APIs and provides step-by-step guidance to help you migrate smoothly.
+Frame.io’s V4 API is a complete redesign of the Legacy API, often referred to as _V2 endpoints_ or _Frame.io V3 API_. The redesign takes full advantage of the new capabilities and features of Frame V4 while maintaining Legacy API access.  
+  
+This guide outlines the key differences between the Legacy and V4 APIs and provides step-by-step guidance to help you migrate your integration smoothly.  
+  
 
 ## Key Differences
 
-* **API access and management**: The V4 APIs are managed through the [Adobe Developer Console](https://developer.adobe.com/developer-console/), whereas the Legacy API was managed in the [Frame.io](http://frame.io/) developer site.
-* **Assets → Folders & Files**: Distinct endpoints for files and folders in V4, unlike unified asset endpoints in Legacy.
-* **Authentication:** The V4 API exclusively uses OAuth2.0 (`authorization_code` grant type). The Legacy API which allowed for JWT auth and Developer Tokens are no longer supported.
-    * There are 3 distinct new ways to obtain user authentication credentials when you create your project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/):
-        * [OAuth Web App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-web-app-credential)
-        * [OAuth Single Page App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-single-page-app-credential)
-        * [OAuth Native App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-native-app-credential)
-    * V4 Authorization URL: https://ims-na1.adobelogin.com/ims/authorize/v2
-    * Legacy Authorization URL: https://applications.frame.io/oauth2/auth
-* **Parity with Legacy APIs:** Some specialized legacy callsare not yet supported in V4.
-* **Review and Presentation links → Share links**: Review and presentation links, which were two distinct ways of sharing content in V3, have been consolidated into a single “share link” in V4 with support for different custom branding options.
-* **Teams → Workspaces**: “Team” endpoints in the Legacy API have been replaced by “Workspace” endpoints in V4.
+- **API access and management**: The V4 APIs are managed through the [Adobe Developer Console](https://developer.adobe.com/developer-console/), whereas the Legacy API was managed in the [Frame.io](http://Frame.io) developer site.
+- **Assets → Folders & Files**: Distinct endpoints for files and folders in V4, unlike unified asset endpoints in Legacy.
+- **Authentication:** The V4 API exclusively uses OAuth2.0 (`authorization_code` grant type). The Legacy API which allowed for JWT auth and Developer Tokens are no longer supported.
+
+- There are 3 distinct new ways to obtain user authentication credentials when you create your project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/):
+
+- [OAuth Web App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-web-app-credential)
+- [OAuth Single Page App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-single-page-app-credential)
+- [OAuth Native App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-native-app-credential)
+
+- V4 Authorization URL: [https://ims-na1.adobelogin.com/ims/authorize/v2](https://ims-na1.adobelogin.com/ims/authorize/v2)
+- Legacy Authorization URL: [https://applications.frame.io/oauth2/auth](https://applications.frame.io/oauth2/auth)
+
+- **Review and Presentation links → Share links**: Review and presentation links, which were two distinct ways of sharing content in V3, have been consolidated into a single “share link” in V4 with support for different custom branding options.
+- **Teams → Workspaces**: “Team” endpoints in the Legacy API have been replaced by “Workspace” endpoints in V4.
+- **Parity with Legacy APIs:** Some specialized legacy callsare not yet supported in V4.
+
+  
+
+---
 
 ## Migration Checklist
 
 1. **Audit** **existing Legacy API calls.** Compare existing calls to the tables below. If an endpoint you use is **not in this list**, it does not yet exist in V4—please submit your feedback via this form.
 2. **Implement OAuth2.0 via the Adobe developer console**. Legacy [Frame.io](http://frame.io/) developer tokens and existing OAuth apps managed via [developer.frame.io](http://developer.frame.io/) will not work on V4 accounts.
-3. **Refactor your code.**  Use the new V4 API routes and JSON payloads (e.g., files/folders vs. assets).
-4. **Test thoroughly.** Test with a V4 account, focusing on uploads, comments, and *webhooks*.
+3. **Refactor your code.** Use the new V4 API routes and JSON payloads (e.g., files/folders vs. assets).
+4. **Test thoroughly.** Test with a V4 account, focusing on uploads, comments, and _webhooks_.
 5. **Remove legacy code paths.** Remove any code paths that leverage Legacy API endpoints as they will fail in V4.
 6. Implement a dedicated login method for V4 due to separate Auth URLs. Since the V4 Auth URL is different than the Legacy API, it will not return Legacy accounts in the response and should be treated as a separate integration.
 
-**Note**: This list is not exhaustive of the direct correlation of Legacy APIs to the V4 APIs and will be updated regularly as new endpoints are released, potentially via Alpha version.  If there is an endpoint that is not listed here that you have questions about, please reach out to our support team for more at [support@frame.io](mailto:support@frame.io).
+**Note**: This list is not exhaustive of the direct correlation of Legacy APIs to the V4 APIs and will be updated regularly as new endpoints are released, potentially via Alpha version. If there is an endpoint that is not listed here that you have questions about, please reach out to our support team for more at [support@frame.io](mailto:support@frame.io)  
+
+---
+
+## Legacy API Features Coming Soon
+
+The [Frame.io](http://Frame.io) V4 API is rapidly evolving and there are some features the Legacy API offered which we plan to support in the near future.  
+  
+**These features include:**  
+
+- Audit Logs
+- Custom actions
+- Search
+- Comment likes, replies, & statuses
+
+  
+
+---
 
 ## Authentication
 
-1. **Create a project in the Adobe Developer Console** and add [Frame.io](http://frame.io/) as a product.
-2. **Authenticate.** See the [Authenticatin Guide](https://developer.adobe.com/frameio/guides/Authentication/) for more information.
-    1. **User authentication**: Connects to Frame using a Client ID and/or Client Secret, and requires a user to login with their username and password.
-    2. **Server to server authentication**: Connects to Frame using Client ID and Client Secret, but does not require a user in the loop to login via a browser.
-3. **JWT Bearer Auth**: For  every API request pass the auth token via a header with key `Authorization` and a value of `Bearer <IMS_ACCESS_TOKEN>`.
+1. **Create a project in the Adobe Developer Console** and add [Frame.io](http://Frame.io) as a product.
+2. **Authenticate.**
 
-## Endpoint Mappings (Legacy API to V4)
+3. The Frame V4 APIs support to **two types of authentication:** user authentication and server to server. The options depend on how your users are managed.
 
-The table below **only** includes Legacy API endpoints that **do** have a V4 equivalent. If you don’t see your Legacy API call here it’s likely **deprecated** with no direct migration path.
+4. **Frame managed**: If you manage users (i.e. add or remove users) in the Frame application, then your account is “Frame managed”. This account type only support user authentication
+5. **Adobe managed**: If you manage users in the Adobe Admin console, then your account is Adobe managed. This account type supports user authentication and server to server authentication
+
+6. **User authentication**: Connects to Frame using a Client ID and/or Client Secret, and requires a user to login with their username and password
+7. **Server to server authentication**: Connects to Frame using Client ID and Client Secret, but does not require a user in the loop to login via a browser.
+
+8. **JWT Bearer Auth**: For every API request pass the auth token via a header with key `Authorization` and a value of `Bearer <IMS_ACCESS_TOKEN>`.
+
+---
+
+## Endpoint Mappings (Legacy API → V4)
+
+The table below **only** includes Legacy API endpoints that **do** have a V4 equivalent. If you don’t see your Legacy API call here, and wasn’t called out already in the “coming soon” section above, it’s likely **deprecated** with no direct migration path.  
 
 ### 1. Accounts & User Info
 
@@ -84,6 +119,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 |DELETE|`/v2/assets/{asset_id}`  <br>([Delete an Asset](https://developer.frame.io/api/reference/operation/deleteAsset/))|DELETE|`/v4/accounts/{account_id}/folders/{folder_id}`  <br>([Delete folder)](https://developer.adobe.com/frameio/api/current/#tag/Folders/operation/folders.delete)|Removes folder.|
 
 ### 5. Files
+
 |Legacy Method|Legacy Endpoint|V4 Method|V4 Endpoint|Notes|
 |---|---|---|---|---|
 |POST|`/v2/assets/{parent_asset_id}/children`  <br>([Create an Asset](https://developer.frame.io/api/reference/operation/createAsset/))|POST|`/v4/accounts/{account_id}/folders/{folder_id}/files`  <br>([Create file](https://developer.adobe.com/frameio/api/current/#tag/Files/operation/files.create))|Legacy API: requires name, type, filetype, filesize, & auto_version_id  <br>V4 API: account_id & folder_id are required in the path parameters, file_size, media_type_name required on payload|
@@ -94,19 +130,19 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 
 ### 6. Comments
 
-While initial support for Commenting endpoints, have been released there are a number of missing capabilities which will be released in the future.
-
-Capabilities coming soon include:
-
-1) Support for range-based comments
-2) Support for leaving comment replies
-3) Support for comment attachments
-4) Support for comment reactions (I.e. emoji’s)
-5) Support for viewing or modifying comment completion status
-6) Support for hyperlinks or @mentions (comment entities)
-7) Support for seeing who has viewed a comment (impressions)
-
-Note: The timestamp field actually represents the framestamp the comment is left on (starting from 1), not the timestamp.
+While initial support for Commenting endpoints, have been released there are a number of missing capabilities which will be released in the future.  
+  
+Capabilities coming soon include:  
+  
+1) Support for range-based comments  
+2) Support for leaving comment replies  
+3) Support for comment attachments  
+4) Support for comment reactions (I.e. emoji’s)  
+5) Support for viewing or modifying comment completion status  
+6) Support for hyperlinks or @mentions (comment entities)  
+7) Support for seeing who has viewed a comment (impressions)  
+  
+Note: The “timestamp” field actually represents the framestamp the comment is left on (starting from 1), not the timestamp  
 
 |Legacy Method|Legacy Endpoint|V4 Method|V4 Endpoint|Notes|
 |---|---|---|---|---|
@@ -118,7 +154,7 @@ Note: The timestamp field actually represents the framestamp the comment is left
 
 ### 7. Shares (Review Links / Presentations)
 
-In Frame V4 share links are no longer split between review and presentation links. In V4 the same link can now be configured with different styling to match the review or presentation experience.
+In Frame V4 share links are no longer split between review and presentation links. In V4 the same link can now be configured with different styling to match the review or presentation experience.  
 
 |Legacy Method|Legacy Endpoint|V4 Method|V4 Endpoint|Notes|
 |---|---|---|---|---|
@@ -131,7 +167,8 @@ In Frame V4 share links are no longer split between review and presentation link
 
 ### 8. Webhooks
 
-Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the Alpha state of Webhooks for V4, the number of supported “events” that you trigger Webhooks off of is very different.
+Given the many changes to resources in [Frame.io](http://Frame.io) V4, and the Alpha state of Webhooks for V4, the number of supported “events” that you trigger Webhooks off of is very different.  
+  
 
 |Legacy Method|Legacy Endpoint|V4 Method|V4 Endpoint|Notes|
 |---|---|---|---|---|
@@ -140,6 +177,8 @@ Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the 
 |GET|`/v2/hooks/{hook_id}`  <br>[(Get Webhook)](https://developer.frame.io/api/reference/operation/getWebhook/)|GET|`/v4/accounts/{account_id}/webhooks/{webhook_id}`  <br>[(Get Webhook)](https://developer.adobe.com/frameio/api/alpha/#tag/Folders/operation/folders.index)|Get webhook info|
 |PUT|`/v2/hooks/{hook_id}`  <br>[(Update Webhook)](https://developer.frame.io/api/reference/operation/updateWebhook/)|PATCH|`/v4/accounts/{account_id}webhooks/{webhook_id}`  <br>[(Update Webhook)](https://developer.adobe.com/frameio/api/alpha/#tag/Webhooks/operation/webhooks.update)|Update webhook settings|
 |DELETE|`/v2/hooks/{hook_id}`  <br>[(Delete Webhook)](https://developer.frame.io/api/reference/operation/deleteWebhook/)|DELETE|`/v4/accounts/{account_id}/webhooks{webhook_id}`  <br>[(Delete Webhook)](https://developer.adobe.com/frameio/api/alpha/#tag/Webhooks/operation/webhooks.delete)|Removes the webhook.|
+
+---
 
 ## Migration Steps
 
@@ -154,32 +193,64 @@ Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the 
 9. **Add** test users to your project via Adobe Developer Console.
 10. **Deploy** to Production once validated with a V4 [Frame.io](http://frame.io/) account.
 
+---
+
 ## Error Handling & Common Issues
 
-* **400** Bad Request: Check payload accuracy.
-* **401** Unauthorized: Refresh or re-authenticate OAuth tokens.
-* **403** Forbidden: Missing scope or user lacks access.
-* **404** Not Found: Confirm endpoint, API version, or IDs.
-* **422** Unprocessable Entity: Validate request data
-* **429** Rate limited: Implement retry with backoff.
-* **500** server error: Retry after a brief delay.
+- **400** Bad Request: Check payload accuracy.
+- **401** Unauthorized: Refresh or re-authenticate OAuth tokens.
+- **403** Forbidden: Missing scope or user lacks access.
+- **404** Not Found: Confirm endpoint, API version, or IDs.
+- **422** Unprocessable Entity: Validate request data
+- **429** Rate limited: Implement retry with backoff.
+- **500** server error: Retry after a brief delay.
 
-* * *
-**Legacy API endpoints currently unavailable in V4 API:**
+---
+
+**Legacy API endpoints currently unavailable in V4 API:**  
 
 1. **Accounts & User Info**
-    1. `GET /v2/accounts/{account_id}`
-    2. `GET /v2/projects/shared`
-    3. `GET /v2/accounts/{account_id}/membership`
-2. Files & Folders
-    1. `POST /v2/assets/{destination_folder}/move`
-    2. `POST /v2/assets/{destination_folder}/copy`
-    3. `DELETE /v2/assets/{asset_id}/unversion`
-3. Teams / Workspaces
-    1. `GET /v2/teams/{team_id}/membership`
-4. Comments
-    1. `GET /v2/comments/{comment_id}/impressions`
-5. Shares
-    1. `GET /v2/review_links/{link_id}`
-6. Webhooks
-    1. `GET /v2/accounts/{account_id}/webhooks`
+
+2. `GET /v2/accounts/{account_id}`
+3. `GET /v2/projects/shared`
+4. `GET /v2/accounts/{account_id}/membership`
+
+5. Files & Folders
+
+6. `POST /v2/assets/{destination_folder}/move`
+7. `POST /v2/assets/{destination_folder}/copy`
+8. `DELETE /v2/assets/{asset_id}/unversion`
+
+9. Teams / Workspaces
+
+10. `GET /v2/teams/{team_id}/membership`
+
+11. Comments
+
+12. `GET /v2/comments/{comment_id}/impressions`
+
+13. Shares
+
+14. `GET /v2/review_links/{link_id}`
+
+15. Webhooks
+
+16. `GET /v2/accounts/{account_id}/webhooks`
+
+  
+
+# Parking Lot (Do not include in release)
+
+## Code Examples (cURL & Python)
+
+### Example: Creating a Folder (Legacy vs V4)
+
+### Legacy
+
+curl -X POST "<https://api.frame.io/v2/assets/12345/children>" \\\\  
+     -H "Authorization: Bearer <V3_TOKEN>" \\\\  
+     -H "Content-Type: application/json" \\\\  
+     -d '{  
+       "name": "MyFolder",  
+       "type": "folder"  
+     }'
