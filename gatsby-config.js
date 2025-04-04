@@ -52,8 +52,8 @@ module.exports = {
         path: '/guides/Authentication'
       },
       {
-        title: 'Integration',
-        path: '/guides/Integrationtion'
+        title: 'Migration',
+        path: '/guides/Migration'
       }
     ]
   },
