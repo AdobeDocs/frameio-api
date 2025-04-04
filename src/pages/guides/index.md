@@ -1,36 +1,11 @@
-# Frame.io API Getting Started Guide
+# Frame.io V4 API Getting Started Guide
 
-## Starting with the Developer Console
+## Adobe Developer Console
 
 The first step in using an Adobe API is to create a **Project** in the Adobe Developer Console. Projects in the Developer Console correspond to an application you are building to consume the Frame.io Developer API. This is distinct from a project within Frame.io.
 
 * Adobe Developer Console is the developer destination to access Adobe APIs & SDKs including the Frame.io API. Access it [here](https://help.frame.io/en/articles/9084073-frame-io-v4-legacy-feature-comparison).
 * After creating a Project in the Developer Console, add the Frame.io API to it.  Access Projects in the Developer Console [here](https://developer.adobe.com/developer-console/docs/guides/projects/).
-
-## V4 Frame.io API
-
-### Authenticating
-
-Adobe is committed to the privacy and security of our users and their data. The first step in accessing the Frame.io API is authentication. The Frame.io API can be added to the Project in three different ways, with corresponding  user authentication credential types.  Create user authentication credentials and then the access token. Follow the steps below to create the user authentication credentials and generate an access token and then make your first API call.
-
-> User authentication credentials rely on OAuth2.0 `authorization_code` grant type, commonly known as 3-legged OAuth. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/).
-
-#### User Authentication Credential Types
-
-1. **OAuth Web App credential**: Use this credential if the API is added as a Web App. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-web-app-credential).
-2. **OAuth Single Page App credential**: Use this credential if the API is added as a Single Page App. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-single-page-app-credential).
-3. **OAuth Native App credential**: If the API is configured as a Native App, use the O. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-native-app-credential).
-
-![alt image](./image_1.png)
-
-#### Adobe Identity Management Service (IMS)
-
-Adobe Identity Management Service (IMS) is Adobe’s OAuth 2.0-based identity management feature that supports authentication. There are two steps required for generating the access token.
-
-1. First, the user authorizes the application before a token is generated. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#authorize-request).
-2. Next, fetch the access token. The above step returns a code in the response body needed in this step. See the exact endpoints to trigger, and the parameters to use, [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#fetching-access-tokens).
-
-The above two steps are required for all the three types of app credentials.  There are differences in the way the IMS endpoints `/authorize/v2` and `/token/v3` are triggered for getting the token. These differences are listed in detail in the two links above. After we have the access token, we can use it to trigger any of the Frame.io V4 APIs.
 
 ## What’s New in the Frame.io V4 Developer API?
 
