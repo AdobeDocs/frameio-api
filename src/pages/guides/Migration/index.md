@@ -84,6 +84,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 |DELETE|`/v2/assets/{asset_id}`  <br>([Delete an Asset](https://developer.frame.io/api/reference/operation/deleteAsset/))|DELETE|`/v4/accounts/{account_id}/folders/{folder_id}`  <br>([Delete folder)](https://developer.adobe.com/frameio/api/current/#tag/Folders/operation/folders.delete)|Removes folder.|
 
 ### 5. Files
+
 |Legacy Method|Legacy Endpoint|V4 Method|V4 Endpoint|Notes|
 |---|---|---|---|---|
 |POST|`/v2/assets/{parent_asset_id}/children`  <br>([Create an Asset](https://developer.frame.io/api/reference/operation/createAsset/))|POST|`/v4/accounts/{account_id}/folders/{folder_id}/files`  <br>([Create file](https://developer.adobe.com/frameio/api/current/#tag/Files/operation/files.create))|Legacy API: requires name, type, filetype, filesize, & auto_version_id  <br>V4 API: account_id & folder_id are required in the path parameters, file_size, media_type_name required on payload|
