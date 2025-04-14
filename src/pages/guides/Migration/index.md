@@ -90,7 +90,9 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 ### 6. Comments
 
 Initial support for Commenting endpoints has been released. There are several additional capabilities that will be released soon. Support for coming soon capabilities includes:
+
 * Range-based comments
+* 
 * Leaving comment replies
 * Comment attachments and comment reactions, i.e. emojis
 * Viewing or modifying comment completion status
