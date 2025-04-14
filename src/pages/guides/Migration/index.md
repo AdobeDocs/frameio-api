@@ -94,7 +94,8 @@ Initial support for Commenting endpoints has been released. There are several ad
 * Range-based comments
   
 * Leaving comment replies
-* Comment attachments and comment reactions, i.e. emojis
+* Comment attachments
+* Comment reactions, i.e. emojis
 * Viewing or modifying comment completion status
 * Hyperlinks or @mentions (comment entities)
 * Seeing who has viewed a comment (impressions)
