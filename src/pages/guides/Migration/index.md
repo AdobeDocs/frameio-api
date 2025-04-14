@@ -3,21 +3,13 @@
 
 ## Introduction
 
-The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *Frame.io V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 and is not backwards compatible.
-
-This guide outlines the key differences between the Legacy and V4 APIs and provides step-by-step guidance to help you migrate smoothly.
+The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *Frame.io V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 and is not backward compatible. This guide outlines the key differences between the Legacy and V4 APIs and provides step-by-step guidance to help you migrate smoothly.
 
 ## Key Differences
 
 * **API access and management**: The V4 APIs are managed through the [Adobe Developer Console](https://developer.adobe.com/developer-console/), whereas the Legacy API was managed in the Frame.io developer site.
 * **Assets → Folders & Files**: Distinct endpoints for files and folders in V4, unlike unified asset endpoints in Legacy.
 * **Authentication:** The V4 API exclusively uses OAuth2.0 (`authorization_code` grant type). The Legacy API which allowed for JWT auth and Developer Tokens are no longer supported.
-    * There are 3 distinct new ways to obtain user authentication credentials when you create your project in the [Adobe Developer Console](https://developer.adobe.com/developer-console/):
-        * [OAuth Web App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-web-app-credential)
-        * [OAuth Single Page App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-single-page-app-credential)
-        * [OAuth Native App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-native-app-credential)
-    * V4 Authorization URL: https://ims-na1.adobelogin.com/ims/authorize/v2
-    * Legacy Authorization URL: https://applications.frame.io/oauth2/auth
 * **Parity with Legacy APIs:** Some specialized legacy callsare not yet supported in V4.
 * **Review and Presentation links → Share links**: Review and presentation links, which were two distinct ways of sharing content in V3, have been consolidated into a single “share link” in V4 with support for different custom branding options.
 * **Teams → Workspaces**: “Team” endpoints in the Legacy API have been replaced by “Workspace” endpoints in V4.
@@ -31,7 +23,7 @@ This guide outlines the key differences between the Legacy and V4 APIs and provi
 5. **Remove legacy code paths.** Remove any code paths that leverage Legacy API endpoints as they will fail in V4.
 6. Implement a dedicated login method for V4 due to separate Auth URLs. Since the V4 Auth URL is different than the Legacy API, it will not return Legacy accounts in the response and should be treated as a separate integration.
 
-**Note**: This list is not exhaustive of the direct correlation of Legacy APIs to the V4 APIs and will be updated regularly as new endpoints are released, potentially via Alpha version.  If there is an endpoint that is not listed here that you have questions about, please reach out to our support team for more at [support@frame.io](mailto:support@frame.io).
+> **Note**: This list is not exhaustive of the direct correlation of Legacy APIs to the V4 APIs and will be updated regularly as new endpoints are released, potentially via Alpha version.  If there is an endpoint that is not listed here that you have questions about, please reach out to our support team for more at [support@frame.io](mailto:support@frame.io).
 
 ## Authentication
 
@@ -39,11 +31,11 @@ This guide outlines the key differences between the Legacy and V4 APIs and provi
 2. **Authenticate.** See the [Authenticatin Guide](https://developer.adobe.com/frameio/guides/Authentication/) for more information.
     1. **User authentication**: Connects to Frame using a Client ID and/or Client Secret, and requires a user to login with their username and password.
     2. **Server to server authentication**: Connects to Frame using Client ID and Client Secret, but does not require a user in the loop to login via a browser.
-3. **JWT Bearer Auth**: For  every API request pass the auth token via a header with key `Authorization` and a value of `Bearer <IMS_ACCESS_TOKEN>`.
+3. **JWT Bearer Auth**: For  every API request, pass the auth token via a header with key `Authorization` and a value of `Bearer <IMS_ACCESS_TOKEN>`.
 
 ## Endpoint Mappings (Legacy API to V4)
 
-The table below **only** includes Legacy API endpoints that **do** have a V4 equivalent. If you don’t see your Legacy API call here, and wasn’t called out already in the “coming soon” section above, it’s likely **deprecated** with no direct migration path.
+The table below **only** includes Legacy API endpoints that **do** have a V4 equivalent. If you don’t see your Legacy API call here, it’s likely **deprecated** with no direct migration path.
 
 ### 1. Accounts & User Info
 
@@ -97,19 +89,15 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 
 ### 6. Comments
 
-While initial support for Commenting endpoints, have been released there are a number of missing capabilities which will be released in the future.
+Initial support for Commenting endpoints has been released. There are several additional capabilities that will be released soon. Support for coming soon capabilities includes:
+* Range-based comments
+* Leaving comment replies
+* Comment attachments and comment reactions, i.e. emojis
+* Viewing or modifying comment completion status
+* Hyperlinks or @mentions (comment entities)
+* Seeing who has viewed a comment (impressions)
 
-Capabilities coming soon include:
-
-1) Support for range-based comments
-2) Support for leaving comment replies
-3) Support for comment attachments
-4) Support for comment reactions (I.e. emoji’s)
-5) Support for viewing or modifying comment completion status
-6) Support for hyperlinks or @mentions (comment entities)
-7) Support for seeing who has viewed a comment (impressions)
-
-Note: The “timestamp” field actually represents the framestamp the comment is left on (starting from 1), not the timestamp
+> Note: The “timestamp” field represents the framestamp the comment is left on (starting from 1), not the timestamp
 
 | Legacy Method | Legacy Endpoint                                                                                                                                                   | V4 Method | V4 Endpoint                                                                                                                                                            | Notes                                                                  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
