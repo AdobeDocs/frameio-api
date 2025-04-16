@@ -171,12 +171,11 @@ Postman is a popular tool used by web developers for testing and interacting wit
 
 ### Importing the Postman Collection
 
-1. Download the [sample Postman collection](https://raw.githubusercontent.com/AdobeDocs/frameio-api/refs/heads/main/src/static/downloads/postman/fio-v4-dev-api.postman_collection.json) and its corresponding [default environment](https://raw.githubusercontent.com/AdobeDocs/frameio-api/refs/heads/main/src/static/downloads/postman/fio-v4-dev-api.postman_environment.json).
-2. Import the downloaded collection and the default environment into Postman by choosing “Import...” from Postman’s File menu and selecting each of JSON files downloaded in Step 1.
+Fork or download the [public Postman collection](https://www.postman.com/adobe/workspace/frame-io-v4-public-api/collection/33150877-924315f2-cc62-45f5-8153-77ff2aaa9067?action=share&creator=33150877&active-environment=33150877-cffd66a8-23bd-4c50-8891-29157ead1185)
 
-The collection, named Frame.io V4 Developer API, contains all of the public endpoints that comprise the V4 API. The environment, named Frame V4 Developer API Default Env, is intended to serve as a template (i.e. may be duplicated or forked within Postman) for setting user-specific environment variables for testing, or, for now, you might also choose to update it directly.
+The collection, named Frame.io Developer API Collection, contains all of the public endpoints that comprise the V4 API. The environment, named 'Default', is intended to serve as a template (i.e. may be duplicated or forked within Postman) for setting user-specific environment variables for testing, or, for now, you might also choose to update it directly.
 
-Once the collection and environment are imported, you should be able to view both within Postman. The environment contains default URLs for the `BASE_URL` and `IMS_BASE_URL` variables, but other environment variables are empty and will need to be filled in by you.
+If downloading, once the collection and environment are imported, you should be able to view both within Postman. The environment contains default URLs for the `BASE_URL` and `IMS_BASE_URL` variables, but other environment variables are empty and will need to be filled in by you.
 ![alt image](./image_2.png)
 
 ### Authentication Setup
