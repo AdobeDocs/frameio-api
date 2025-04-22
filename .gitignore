@@ -21,7 +21,8 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
+!static/oauth2-redirect.html
+!static/oauth2-redirect.js
 # gatsby files
 .env
 .cache
@@ -35,6 +36,5 @@ cypress/screenshots
 lerna-debug.log
 
 # ignore static dir for indexing temp openapispec files during build
-static
-!src/static/oauth2-redirect.html
-!src/static/oauth2-redirect.js
+# static
+# src/static/oauth2-redirect.html
