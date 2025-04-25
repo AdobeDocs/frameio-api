@@ -48,6 +48,10 @@ module.exports = {
         path: '/guides/FAQ/',
       },
       {
+        title: 'Accounts, Projects, and Workspaces',
+        path: '/guides/Accounts, Projects, and Workspaces',
+      },
+      {
         title: 'Authentication',
         path: '/guides/Authentication'
       },
