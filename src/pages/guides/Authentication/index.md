@@ -28,7 +28,7 @@ When a service account user performs an action, the service account user name is
 
 Adobe Identity Management Service (IMS) is Adobe’s OAuth 2.0-based identity management feature that supports authentication. There are two steps required for generating the access token.
 
-1. First, the user authorizes the application before a token is generated. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#authorize-request).
-2. Next, fetch the access token. The above step returns a code in the response body needed in this step. See the exact endpoints to access, and the parameters to use, [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#fetching-access-tokens).
+1. First, the user authorizes the application before a token is generated. Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims/#authorize-request).
+2. Next, fetch the access token. The above step returns a code in the response body needed in this step. See the exact endpoints to access, and the parameters to use, [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims/#fetching-access-tokens).
 
 > The above steps are required for all the three types of app credentials. There are differences in the way the IMS endpoints `/authorize/v2` and `/token/v3` are accessed to get the token. After you have the access token, you can use it to interact with the Frame.io V4 API.
