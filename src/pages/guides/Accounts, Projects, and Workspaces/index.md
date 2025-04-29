@@ -7,6 +7,8 @@ All Frame V4 accounts—not just those managed via the Adobe Admin Console—can
 1. Visit Adobe developer console to create a user authentication token. The user must use the same Adobe ID as their Frame login to validate API token access.
 2. Once you have access to the APIs, the next step is to create API credentials, or an API token, to communicate with Frame. Create your API credentials at developer.adobe.com.
 
+![Account Access](../image_11.png)
+
 All V4 accounts, whether Frame-managed (V4F) or Adobe-managed (V4A) have access to create a Project in the Adobe Developer Console, and then create credentials. Once you have a set of credentials (OAuth Client ID/Client Secret), you can integrate with the Adobe Developer Platform’s three-legged OAuth flow. Sign in to your Adobe Identity to receive a valid auth and refresh token to make requests to the Frame.io V4 Developer API!
 
 ## Projects and Workspaces
