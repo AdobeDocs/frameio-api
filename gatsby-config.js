@@ -41,15 +41,19 @@ module.exports = {
     subPages: [
       {
         title: 'Getting Started',
-        path: '/guides/',
+        path: '/guides/'
       },
       {
-        title: 'Frequently Asked Questions',
-        path: '/guides/FAQ/',
+        title: 'FAQs',
+        path: '/guides/FAQ/'
       },
       {
         title: 'Accounts, Projects, and Workspaces',
-        path: '/guides/Accounts, Projects, and Workspaces',
+        path: '/guides/Accounts, Projects, and Workspaces'
+      },
+      {
+        title: 'OAth to File Upload',
+        path: '/guides/OAth to File Upload'
       },
       {
         title: 'Authentication',
