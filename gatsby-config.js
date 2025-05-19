@@ -53,7 +53,7 @@ module.exports = {
       },
       {
         title: 'OAuth to File Upload',
-        path: '/guides/OAth to File Upload'
+        path: '/guides/OAuth to File Upload'
       },
       {
         title: 'Authentication',
