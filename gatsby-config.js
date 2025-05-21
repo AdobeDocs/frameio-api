@@ -52,10 +52,6 @@ module.exports = {
         path: '/guides/Accounts, Projects, and Workspaces'
       },
       {
-        title: 'OAuth to File Upload',
-        path: '/guides/OAuth to File Upload'
-      },
-      {
         title: 'Authentication',
         path: '/guides/Authentication'
       },
