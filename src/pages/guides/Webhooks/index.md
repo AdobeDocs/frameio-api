@@ -1,6 +1,6 @@
 # V4 Webhooks
 
-Build any automation into your Frame.io workflow using webhooks. Webhook updates for V4 include event-driven outbound webhooks for triggering updates in external systems and webhook delivery time performance improvements. Also, you can both manage webhooks and view webhooks logs in the UI. And  the `GET` and `LIST` endpoints are updated for webhooks to include creator and active fields.
+Build any automation into your Frame.io workflow using webhooks. Webhook updates for V4 include event-driven outbound webhooks for triggering updates in external systems and webhook delivery time performance improvements. Also, you can both manage webhooks and view webhooks logs in the UI. And  the `GET` and `LIST` endpoints are updated for webhooks to include creator and active fields. Use the new APIs for managing webhooks to programmatically create, update, delete, and retrieve webhook configurations, so that your applications can subscribe to events and receive notifications when they occur.
 
 ## Logging
 
