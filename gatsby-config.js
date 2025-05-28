@@ -56,6 +56,10 @@ module.exports = {
         path: '/guides/Authentication'
       },
       {
+        title: 'Webhooks',
+        path: '/guides/Webhooks'
+      },
+      {
         title: 'Migration',
         path: '/guides/Migration'
       }
