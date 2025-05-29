@@ -1,6 +1,4 @@
-# DRAFT: May  2025 Changelog
-
-* * *
+# May Changelog
 
 ## Webhooks `**Breaking Change**` Coming
 
