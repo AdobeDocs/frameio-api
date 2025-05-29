@@ -44,6 +44,10 @@ module.exports = {
         path: '/guides/'
       },
       {
+        title: 'Changelog',
+        path: '/guides/May Changelog/'
+      },
+      {
         title: 'FAQs',
         path: '/guides/FAQ/'
       },
