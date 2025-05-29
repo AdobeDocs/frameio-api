@@ -1,8 +1,8 @@
-# DRAFT: May  2025 Changelog
+# May  2025 Changelog
 
 * * *
 
-## Webhooks `**Breaking Change**` Coming
+## Webhooks `Breaking Change` Coming
 
 Webhooks have been promoted from the alpha to the stable API version. The endpoint will be temporarily available in both APIs versions, before deprecating from alpha at the end of June.
 
