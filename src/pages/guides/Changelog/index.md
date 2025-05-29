@@ -1,4 +1,4 @@
-# May  2025 Changelog
+# May 2025 Changelog
 
 * * *
 
