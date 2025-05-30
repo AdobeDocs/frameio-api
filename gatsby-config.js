@@ -60,6 +60,10 @@ module.exports = {
         path: '/guides/Authentication'
       },
       {
+        title: 'Custom Actions',
+        path: '/guides/Custom Actions'
+      },
+      {
         title: 'Migration',
         path: '/guides/Migration'
       }
