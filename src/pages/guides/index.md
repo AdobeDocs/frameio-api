@@ -4,7 +4,7 @@
 
 The first step in using an Adobe API is to create a **Project** in the Adobe Developer Console. Projects in the Developer Console correspond to an application you are building to consume the Frame.io Developer API. This is distinct from a project within Frame.io.
 
-* Adobe Developer Console is the developer destination to access Adobe APIs & SDKs including the Frame.io API. Access it [here](https://help.frame.io/en/articles/9084073-frame-io-v4-legacy-feature-comparison).
+* Adobe Developer Console is the developer destination to access Adobe APIs & SDKs including the Frame.io API. Access it [here](https://developer.adobe.com/frameio/guides/).
 * After creating a Project in the Developer Console, add the Frame.io API to it.  Access Projects in the Developer Console [here](https://developer.adobe.com/developer-console/docs/guides/projects/).
 
 ## What’s New in the Frame.io V4 Developer API?
