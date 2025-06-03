@@ -21,7 +21,7 @@ Content Admin permissions are required to create Custom Actions for a Workspace.
 **Payload From Frame.io**
 When the user clicks your Custom Action, a payload is sent to the URL you set in the URL field. Use this payload to identify:
 
-* Which Custom Actions were clicked
+* Which Custom Action was clicked
 * Which resource was clicked
 * Which user took the action
 * Which account is associated with the Custom Action
@@ -73,7 +73,7 @@ POST /your/url
 The `interaction_id` is a unique identifier to track of the interaction as it evolves over time. If you do not need to respond to the user, return a 200 status code, and you're done. While optional, we recommend including information about the result of the action, like a success message or error alert. Custom actions support message callbacks.Frame.io expects a response in less than 10 seconds, and attempts to retry up to 5 times while waiting for a successful response. Ideally the response is immediate and asynchronous actions occur after a trigger via a Custom Action.
 
 **Create a Message Callback**
-In your HTTP response to the webhook event, you can return a JSON object describing a message that will be returned to the initiating user in the [Frame.io](http://frame.io/) UI.
+In your HTTP response to the webhook event, you can return a JSON object describing a message that will be returned to the initiating user in the Frame.io UI.
 
 ```json
 {
@@ -204,12 +204,12 @@ Like messages, Forms support `title` and `description` attributes that render at
     "type": "link",
     "name": "videoLink",
     "label": "Video Link",
-    "value": "https://www.youtube.com/watch?v=s4OXU-9ErXc"
+    "value": "https://www.youtube.com/watch?v=XtX1zv9CEVc"
  }
  ```
 
 **The Frame.io Permissions Model**
-Custom Actions have a special permissions model: they belong to a Workspace, not to any specific user who exists on a Team or Account.  That means:
+Custom Actions have a special permissions model: they belong to a Workspace, not to any specific user who exists on an Account.  That means:
 
 * Any Content Admin can create a Custom Action on a Workspace.
 * Any Content Admin can modify or delete a Custom Action that exists on a Team.  Once modified, all users will immediately see the result of the change.
