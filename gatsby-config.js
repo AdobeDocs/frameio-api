@@ -48,6 +48,10 @@ module.exports = {
         path: '/guides/Changelog/'
       },
       {
+        title: 'Custom Actions',
+        path: '/guides/Custom Actions/'
+      },
+      {
         title: 'FAQs',
         path: '/guides/FAQ/'
       },
