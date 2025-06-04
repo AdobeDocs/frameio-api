@@ -48,24 +48,28 @@ module.exports = {
         path: '/guides/Changelog/'
       },
       {
-        title: 'Custom Actions',
-        path: '/guides/Custom Actions/'
-      },
-      {
         title: 'FAQs',
         path: '/guides/FAQ/'
-      },
-      {
-        title: 'Accounts, Projects, and Workspaces',
-        path: '/guides/Accounts, Projects, and Workspaces'
       },
       {
         title: 'Authentication',
         path: '/guides/Authentication'
       },
       {
+        title: 'Accounts, Projects, and Workspaces',
+        path: '/guides/Accounts, Projects, and Workspaces'
+      },
+      {
+        title: 'Custom Actions',
+        path: '/guides/Custom Actions'
+      },
+      {
         title: 'Migration',
         path: '/guides/Migration'
+      },
+      {
+        title: 'Webhooks',
+        path: '/guides/Webhooks'
       }
     ]
   },
