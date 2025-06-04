@@ -6,7 +6,6 @@
 A **webhook** is a push-style HTTP callback that Frame.io fires **as soon as something interesting happens** in your account (e.g., a new file finishes transcoding, a comment is added, a project is created).
 Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON payload to that URL in real time so you can:
 
-* Trigger CI/CD or render pipelines
 * Sync metadata to an external DAM/MAM
 * Populate Slack channels or ticket systems
 
@@ -14,22 +13,21 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 
 ## Endpoint Overview
 
-|**Create** a webhook	|`POST /v4/accounts/{account_id}/workspaces/{workspace_id}/webhooks`	|Body with `name`, `url`, `events[]`	|
+|  ||  |
 |---	|---	|---	|
-|**List** all webhooks for a workspace	|`GET /v4/accounts/{account_id}/workspaces/{workspace_id}/webhooks`	|Supports pagination	|
-|**Show** one webhook	|`GET /v4/webhooks/{webhook_id}`	|Returns signing secret only at creation time	|
-|**Update** a webhook	|`PATCH /v4/webhooks/{webhook_id}`	|Change `url`, `events`, or `is_active`	|
-|**Delete** a webhook	|`DELETE /v4/webhooks/{webhook_id}`	|Immediately stops deliveries	|
+|**Create** a webhook	|POST /v4/accounts/{account_id}/workspaces/{workspace_id}/webhooks	|Body with `name`, `url`, `events[]`	|
+|**List** all webhooks for a workspace	|GET /v4/accounts/{account_id}/workspaces/{workspace_id}/webhooks	|Supports pagination	|
+|**Show** one webhook	|GET /v4/webhooks/{webhook_id}	|Returns signing secret only at creation time	|
+|**Update** a webhook	|PATCH /v4/webhooks/{webhook_id}	|Change `url`, `events`, or `is_active`	|
+|**Delete** a webhook	|DELETE /v4/webhooks/{webhook_id}	|Immediately stops deliveries	|
 
 >🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
 
 ## Updates to Webhooks in Frame V4
 
 * Added Account ID to the payload
-* Added the Event ID to the payload
 * Renamed Team ID to be Workspace ID
-* Turned Assets into Files and Folders
-* ID field under user object returns the account user ID instead of the user ID
+* Split asset webhooks to file and folder webhooks
 
 ## Webhook Event Subscriptions
 
@@ -49,9 +47,9 @@ When creating and updating webhooks identify which events you’re interested in
 
 |Event	|Description	|
 |---	|---	|
-|`file.created`	|A File has been **created** in Frame.io. This does trigger before the file has actually been uploaded though so it will likely trigger before the file is fully uploaded - so keep that in mind dependeing on what you intend to do once you receive this event	|
+|`file.created`	|A File has been **created** in Frame.io. This does trigger before the file has actually been uploaded though so it will likely trigger before the file is fully uploaded - so keep that in mind depending on what you intend to do once you receive this event	|
 |`file.ready`	|All transcodes have **completed**, after an file has been uploaded and processed	|
-|`file.updated`	|A Files’ description, name, or other file information is changed	|
+|`file.updated`	|A Files name, or other file information is changed	|
 |`file.deleted`	|A File is **deleted** (manually or otherwise)	|
 |`file.upload.completed`	|A File has been **uploaded**	|
 |`file.versioned`	|A File version has been created	|
@@ -78,7 +76,7 @@ When creating and updating webhooks identify which events you’re interested in
 
 |Event	|Description	|
 |---	|---	|
-|`metadata.value.updated`	|Metadata field on an Asset updated	|
+|`metadata.value.updated`	|Metadata fields updated for an asset|
 
 ## Webhook Message Payload
 
@@ -100,7 +98,6 @@ All webhook payloads contain a `type` field, indicating the type of event that t
   },
   "type": "file.ready",
   "user": {
-    "adobe_auth_id": "4B631AB66789A9A20A494025@c62f24cc5b5b7e0e0a494004",
     "id": "56556a3f-859f-4b38-b6c6-e8625b5da8a5"
   },
   "workspace": {
@@ -109,7 +106,7 @@ All webhook payloads contain a `type` field, indicating the type of event that t
 }
 ```
 
-In the above example of an `file.created` event, the `resource.id` indicates the `id` of the newly created Asset. Additionally, `team`, `project`, and `user` objects are included. These resource identifiers indicate the `team.id`, `project.id` and `user.id` of the resource that the webhook relates to, and can be used to filter events on the receiving end of the incoming webhook without having to resort to making an API call to look up the resource. If you've implemented any sort of caching of those resources, you can also perform a local look up against your cache without resorting an additional API call.
+In the above example of an `file.created` event, the `resource.id` indicates the `id` of the newly created Asset. Additionally, `workspace`, `project`, and `user` objects are included. These resource identifiers indicate the `team.id`, `project.id` and `user.id` of the resource that the webhook relates to, and can be used to filter events on the receiving end of the incoming webhook without having to resort to making an API call to look up the resource. If you've implemented any sort of caching of those resources, you can also perform a local look up against your cache without resorting an additional API call.
 
 **We do not include any additional information beyond the resource id about the subscribed resource**. If your application requires additional information or context, we recommend making an API call to look-up more information about the resources being referenced.
 
@@ -180,10 +177,9 @@ def verify_signature(curr_time, req_time, signature, body, secret):
 
 Webhooks created in Legacy transfer to V4 with the following changes.
 
->Although the term Team has changed to **Workspace** in V4, we have not modified the webhook payloads themselves to use the term `workspace` in lieu of `team.`
-
 1. When creating a new webhook resource the `team_id` is no longer provided in the JSON payload, but that is instead in the path parameter of the URL: `https://api.frame.io/v4/accounts/:account_id/workspaces/:workspace_id/webhooks`.
 2. Due to changes in API structure, endpoints, and authentication methods any existing code for incoming webhooks that makes subsequent calls to the Frame.io API for enrichment and look-up of resources require updating.
+3. Since the asset webhooks have been split to Files and Folders, any webhooks coming from Legacy with asset events need to be updated to have the appropriate File and Folder events.
 
 ## Webhook tutorial
 
@@ -198,8 +194,6 @@ This URL is unique to your session.
 #### Step 2: Choose the event(s) you want to subscribe to
 
 For this tutorial, we’ll keep it simple and setup this webhook to just subscribe to `file.created` events. The JSON payload we’ll use for the webhook creation will be as follows.
-
-![Step 2 Example](../webhook_creation_sample.gif)
 
 ```json
 {
@@ -229,7 +223,8 @@ Since our sample was set up to trigger on the `file.created` trigger, we’ll go
 
 **Ngrok** is a fantastic tool for developers working with webhooks that need to be exposed on a publicly accessible URL. It creates secure tunnels from your local environment to the internet, allowing you to expose your local server to receive webhook payloads in real-time. With features like request inspection, HTTPS support, and replay capabilities, Ngrok provides a seamless way to handle and troubleshoot webhook events during development, making it an essential tool for rapid iteration and local testing.
 
-**Hookdeck** **-** **https://hookdeck.com/**
+### **Hookdeck** **-** **https://hookdeck.com/**
+
 **Hookdeck** is a platform designed to help teams manage webhooks reliably by providing a robust event gateway. It centralizes webhook handling, ensuring no events are missed, and offers features such as filtering, queuing, and retrying failed webhooks. With tools for debugging, metrics monitoring, and automatic retries, Hookdeck simplifies webhook management, allowing development teams to focus on building their core services without worrying about event reliability.
 
 ### **Webhook.site - [https://webhook.site](https://webhook.site/)**

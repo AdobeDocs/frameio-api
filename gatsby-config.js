@@ -60,7 +60,7 @@ module.exports = {
         path: '/guides/Accounts, Projects, and Workspaces'
       },
       {
-        title: 'Cutom Actions',
+        title: 'Custom Actions',
         path: '/guides/Custom Actions'
       },
       {
