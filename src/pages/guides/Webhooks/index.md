@@ -9,8 +9,6 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 * Sync metadata to an external DAM/MAM
 * Populate Slack channels or ticket systems
 
-For more on what a webhook is, and what it does, see https://docs.webhook.site/.
-
 ## Endpoint Overview
 
 |  ||  |
@@ -21,7 +19,7 @@ For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 |**Update** a webhook	|PATCH /v4/webhooks/{webhook_id}	|Change `url`, `events`, or `is_active`	|
 |**Delete** a webhook	|DELETE /v4/webhooks/{webhook_id}	|Immediately stops deliveries	|
 
-🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
+> 🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
 
 ## Updates to Webhooks in Frame V4
 
@@ -108,7 +106,7 @@ All webhook payloads contain a `type` field, indicating the type of event that t
 
 In the above example of an `file.created` event, the `resource.id` indicates the `id` of the newly created Asset. Additionally, `workspace`, `project`, and `user` objects are included. These resource identifiers indicate the `team.id`, `project.id` and `user.id` of the resource that the webhook relates to, and can be used to filter events on the receiving end of the incoming webhook without having to resort to making an API call to look up the resource. If you've implemented any sort of caching of those resources, you can also perform a local look up against your cache without resorting an additional API call.
 
-> **We do not include any additional information beyond the resource ID about the subscribed resource**.
+**We do not include any additional information beyond the resource ID about the subscribed resource**.
 
  If your application requires additional information or context, we recommend making an API call to look-up more information about the resources being referenced.
 
