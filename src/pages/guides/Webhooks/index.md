@@ -9,7 +9,7 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 * Sync metadata to an external DAM/MAM
 * Populate Slack channels or ticket systems
 
- For more on what a webhook is, and what it does, see https://docs.webhook.site/.
+For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 
 ## Endpoint Overview
 
@@ -21,7 +21,6 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 |**Update** a webhook	|PATCH /v4/webhooks/{webhook_id}	|Change `url`, `events`, or `is_active`	|
 |**Delete** a webhook	|DELETE /v4/webhooks/{webhook_id}	|Immediately stops deliveries	|
 
-Webhooks-guide
 > 🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
 
 ## Updates to Webhooks in Frame V4
@@ -171,7 +170,6 @@ Webhooks-guide
 
 >   The provided signature is prefixed with `v0=`. Currently Frame.io only has this one version for signing requests. Be sure this prefix is prepended to your computed signature.
 
-main
 4. Compare!
 
 ## Retries and Logging
@@ -198,8 +196,6 @@ Here, we’re using [webhook.site](http://webhook.site/) which allows you to eas
 ## Webhook tutorial
 
 #### Step 1: Setup receiving end (done first so that you know what your URL will be)
-
-main
 
 This URL is unique to your session.
 
