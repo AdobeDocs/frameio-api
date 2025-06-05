@@ -108,7 +108,6 @@ All webhook payloads contain a `type` field, indicating the type of event that t
 
 In the above example of an `file.created` event, the `resource.id` indicates the `id` of the newly created Asset. Additionally, `workspace`, `project`, and `user` objects are included. These resource identifiers indicate the `team.id`, `project.id` and `user.id` of the resource that the webhook relates to, and can be used to filter events on the receiving end of the incoming webhook without having to resort to making an API call to look up the resource. If you've implemented any sort of caching of those resources, you can also perform a local look up against your cache without resorting an additional API call.
 
-Webhooks-guide
 **We do not include any additional information beyond the resource ID about the subscribed resource**.
 
  If your application requires additional information or context, we recommend making an API call to look-up more information about the resources being referenced.
