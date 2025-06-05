@@ -191,9 +191,7 @@ Webhooks created in Legacy transfer to V4 with the following changes.
 
 #### Step 1: Setup receiving end (done first so that you know what your URL will be)
 
-Here, we’re using [webhook.site](http://webhook.site/) which allows you to easily spin up a single-use webhook receiver that can be used for inspecting payloads, sending basic responses without any actual business logic. When you first navigate to [https://webhook.site](https://webhook.site/), a unique webhook endpoint is created for you which you can copy right away to use.
-
-## Webhook tutorial
+Here, we’re using [webhook.site](http://webhook.site/) which allows you to easily spin up a single-use webhook receiver that can be used for inspecting payloads, sending basic responses without any actual business logic. When you first navigate to [https://webhook.site](https://webhook.site/), a unique webhook endpoint is created for you, which you can copy to use.
 
 #### Step 1: Setup receiving end (done first so that you know what your URL will be)
 
