@@ -21,7 +21,6 @@ For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 |**Update** a webhook	|PATCH /v4/webhooks/{webhook_id}	|Change `url`, `events`, or `is_active`	|
 |**Delete** a webhook	|DELETE /v4/webhooks/{webhook_id}	|Immediately stops deliveries	|
 
-Webhooks-guide
 > 🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
 
 ## Updates to Webhooks in Frame V4
