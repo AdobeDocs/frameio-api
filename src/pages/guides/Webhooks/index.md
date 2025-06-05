@@ -9,11 +9,8 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 * Sync metadata to an external DAM/MAM
 * Populate Slack channels or ticket systems
 
-Webhooks-guide
-
  For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 
-main
 ## Endpoint Overview
 
 |  ||  |
@@ -179,9 +176,7 @@ main
 
 ## Retries and Logging
 
- Webhooks-guide
 * Five total attempts (initial + 4 retries)
- main
 * Exponential back-off starting at 15 s (+ jitter)
 * A non-`2xx` status or >5 second timeout triggers the retry
 * [Frame.io](http://frame.io/) keeps a **failure log** with: `webhook_id`, `account_id`, `event_type`, `resource_id`, `user_id`.
@@ -194,7 +189,6 @@ Webhooks created in Legacy transfer to V4 with the following changes.
 2. Due to changes in API structure, endpoints, and authentication methods any existing code for incoming webhooks that makes subsequent calls to the Frame.io API for enrichment and look-up of resources require updating.
 3. Since the asset webhooks have been split to Files and Folders, any webhooks coming from Legacy with asset events need to be updated to have the appropriate File and Folder events.
 
-Webhooks-guide
 ## Webhook Tutorial
 
 #### Step 1: Setup receiving end (done first so that you know what your URL will be)
@@ -239,9 +233,7 @@ Since our sample was set up to trigger on the `file.created` trigger, we’ll go
 
 ## Additional Resources
 
-Webhooks-guide
 ### **Ngrok -** [**https://ngrok.com/**](https://ngrok.com/)
- main
 
 **Ngrok** is a fantastic tool for developers working with webhooks that need to be exposed on a publicly accessible URL. It creates secure tunnels from your local environment to the internet, allowing you to expose your local server to receive webhook payloads in real-time. With features like request inspection, HTTPS support, and replay capabilities, Ngrok provides a seamless way to handle and troubleshoot webhook events during development, making it an essential tool for rapid iteration and local testing.
 
