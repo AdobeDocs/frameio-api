@@ -9,7 +9,7 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 * Sync metadata to an external DAM/MAM
 * Populate Slack channels or ticket systems
 
- For more on what a webhook is, and what it does, see https://docs.webhook.site/.
+For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 
 ## Endpoint Overview
 
