@@ -9,6 +9,11 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 * Sync metadata to an external DAM/MAM
 * Populate Slack channels or ticket systems
 
+Webhooks-guide
+
+ For more on what a webhook is, and what it does, see https://docs.webhook.site/.
+
+main
 ## Endpoint Overview
 
 |  ||  |
@@ -19,6 +24,7 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 |**Update** a webhook	|PATCH /v4/webhooks/{webhook_id}	|Change `url`, `events`, or `is_active`	|
 |**Delete** a webhook	|DELETE /v4/webhooks/{webhook_id}	|Immediately stops deliveries	|
 
+Webhooks-guide
 > 🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
 
 ## Updates to Webhooks in Frame V4
@@ -106,6 +112,7 @@ All webhook payloads contain a `type` field, indicating the type of event that t
 
 In the above example of an `file.created` event, the `resource.id` indicates the `id` of the newly created Asset. Additionally, `workspace`, `project`, and `user` objects are included. These resource identifiers indicate the `team.id`, `project.id` and `user.id` of the resource that the webhook relates to, and can be used to filter events on the receiving end of the incoming webhook without having to resort to making an API call to look up the resource. If you've implemented any sort of caching of those resources, you can also perform a local look up against your cache without resorting an additional API call.
 
+Webhooks-guide
 **We do not include any additional information beyond the resource ID about the subscribed resource**.
 
  If your application requires additional information or context, we recommend making an API call to look-up more information about the resources being referenced.
@@ -163,14 +170,18 @@ def verify_signature(curr_time, req_time, signature, body, secret):
 1. Extract the signature from the HTTP headers.
 2. Create a message to sign by combining the version, delivery time, and request body: `v0:timestamp:body.`
 3. Compute the HMAC SHA256 signature using your signing secret.
+Webhooks-guide
 
 >   The provided signature is prefixed with `v0=`. Currently Frame.io only has this one version for signing requests. Be sure this prefix is prepended to your computed signature.
 
+main
 4. Compare!
 
 ## Retries and Logging
 
+ Webhooks-guide
 * Five total attempts (initial + 4 retries)
+ main
 * Exponential back-off starting at 15 s (+ jitter)
 * A non-`2xx` status or >5 second timeout triggers the retry
 * [Frame.io](http://frame.io/) keeps a **failure log** with: `webhook_id`, `account_id`, `event_type`, `resource_id`, `user_id`.
@@ -183,11 +194,18 @@ Webhooks created in Legacy transfer to V4 with the following changes.
 2. Due to changes in API structure, endpoints, and authentication methods any existing code for incoming webhooks that makes subsequent calls to the Frame.io API for enrichment and look-up of resources require updating.
 3. Since the asset webhooks have been split to Files and Folders, any webhooks coming from Legacy with asset events need to be updated to have the appropriate File and Folder events.
 
+Webhooks-guide
 ## Webhook Tutorial
 
 #### Step 1: Setup receiving end (done first so that you know what your URL will be)
 
 Here, we’re using [webhook.site](http://webhook.site/) which allows you to easily spin up a single-use webhook receiver that can be used for inspecting payloads, sending basic responses without any actual business logic. When you first navigate to [https://webhook.site](https://webhook.site/), a unique webhook endpoint is created for you which you can copy right away to use.
+
+## Webhook tutorial
+
+#### Step 1: Setup receiving end (done first so that you know what your URL will be)
+
+main
 
 This URL is unique to your session.
 
@@ -221,7 +239,9 @@ Since our sample was set up to trigger on the `file.created` trigger, we’ll go
 
 ## Additional Resources
 
+Webhooks-guide
 ### **Ngrok -** [**https://ngrok.com/**](https://ngrok.com/)
+ main
 
 **Ngrok** is a fantastic tool for developers working with webhooks that need to be exposed on a publicly accessible URL. It creates secure tunnels from your local environment to the internet, allowing you to expose your local server to receive webhook payloads in real-time. With features like request inspection, HTTPS support, and replay capabilities, Ngrok provides a seamless way to handle and troubleshoot webhook events during development, making it an essential tool for rapid iteration and local testing.
 
