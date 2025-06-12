@@ -31,9 +31,9 @@ module.exports = {
             path: '/api/current/index.md'
           },
           {
-            title: 'Alpha Version',
-            description: 'Active Development',
-            path: '/api/alpha/index.md'
+            title: 'Experimental Version',
+            description: 'Experimental Development',
+            path: '/api/experimental/index.md'
           }
         ]
       }
