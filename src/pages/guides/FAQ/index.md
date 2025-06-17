@@ -1,16 +1,16 @@
-# Frame.io API FAQ
+# Frame.io API FAQ {#frameio-api-faq}
 
 The Frame.io API allows developers to integrate Frame.io’s surface for creatives and their teams to manage their work.
 
-### Where is the **API reference**?
+### Where is the **API reference**? {#where-is-the-api-reference}
 
 Go [here](https://developer.adobe.com/frameio/api/current/) to see the Frame V4 API reference pages.
 
-### How can I get **help**?
+### How can I get **help**? {#how-can-i-get-help}
 
 Reach out to the Frame.io support team for assistance by chatting with us on our [Support Site](https://help.frame.io/en/). Please note that enterprise customers may be directed to their Customer Success Manager.
 
-### What are the **key concepts** to the Frame.io API?
+### What are the **key concepts** to the Frame.io API? {#what-are-the-key-concepts-to-the-frameio-api}
 
 * V4 represents an expansion from primarily serving post-production video professionals to a discipline-agnostic platform for creatives and creative managers. Frame.io acts as a central canvas for multi-disciplinary teams and solves for key needs for everything from more focus time for creative work to increased visibility into ongoing projects.
 * **Workflow management**: Centralize, organize, and build all your end-to-end creative workflows at scale leveraging Metadata, Custom Fields, and Collections.
@@ -20,30 +20,30 @@ Reach out to the Frame.io support team for assistance by chatting with us on our
 * **Security and governance**: View and manage all users, workspaces, and projects in one place. Take bulk actions and export information to control how you utilize usage data.
 * **Open API Standards**: A REST API documented via the OpenAPI 3.0 specification can connect Frame.io to the systems you already use to unlock custom workflows.
 
-### Is the Frame.io V4 API **backward compatible**?  
+### Is the Frame.io V4 API **backward compatible**? {#is-the-frameio-v4-api-backward-compatible}  
 
 No. The Frame.io product released at Adobe MAX operates in fundamentally different ways and emphasizes different workflows than the legacy version. Due to these differences, the new API is not backward compatible.
 
-### How will backwards compatibility be handled going forwards?
+### How will backwards compatibility be handled going forwards? {#how-will-backwards-compatibility-be-handled-going-forwards}
 
 Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the `/v4` API namespace.
 
-### Will the V4 API only be **available for enterprise**?
+### Will the V4 API only be **available for enterprise**? {#will-the-v4-api-only-be-available-for-enterprise}
 
 The V4 API is currently available for new Enterprise customers and select customers and partners via testing accounts.
 
-### Once the V4 API is generally available, will the automations I set up with the legacy product continue to work? i.e. will these be migrated to V4 automatically?
+### Once the V4 API is generally available, will the automations I set up with the legacy product continue to work? i.e. will these be migrated to V4 automatically? {#once-the-v4-api-is-generally-available-will-the-automations-i-set-up-with-the-legacy-product-continue-to-work-ie-will-these-be-migrated-to-v4-automatically}
 
 All automations using legacy developer tokens will no longer work for V4 accounts. We **do not** have any way to migrate them to V4.
 
-### Can we create and **manage Collections programmatically** on V4?
+### Can we create and **manage Collections programmatically** on V4? {#can-we-create-and-manage-collections-programmatically-on-v4}
 
 We do not yet have any Collections endpoints publicly available. But, Collections management is under development.
 
-### Will there be a **Zapier** connection available for V4?
+### Will there be a **Zapier** connection available for V4? {#will-there-be-a-zapier-connection-available-for-v4}
 
 The existing Zapier integration however **does not work** with V4 yet but it is in development.
 
-### Is there support or recommended workflows for integrating Frame.io V4 with Airtable, [Zapier](http://Zapier.com/), and [Make](http://Make.com/)?
+### Is there support or recommended workflows for integrating Frame.io V4 with Airtable, [Zapier](http://Zapier.com/), and [Make](http://Make.com/)? {#is-there-support-or-recommended-workflows-for-integrating-frameio-v4-with-airtable-zapier-and-make}
 
 No, not yet but it is in development.

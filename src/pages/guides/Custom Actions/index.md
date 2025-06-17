@@ -1,24 +1,26 @@
-# Custom Actions
+# Custom Actions {#custom-actions}
 
 Use the Custom Actions beta to build integrations directly into [Frame.io](https://next.frame.io/) as programmable UI components. This enables workflows that can be triggered by users within the app, leveraging the same underlying events routing as webhooks. You can create user-triggered single or multi-step forms that come back to Frame.io as another form or a basic response. And when a user clicks a Custom Action on an Asset, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or responds with a custom callback that can render additional UI in Frame.io.
 
-Configure [Custom Actions](https://developer-stage.adobe.com/frameio/api/alpha/#tag/Custom-Actions) in the Experimental API. A Custom Action requires:
+Configure [Custom Actions](https://developer-stage.adobe.com/frameio/api/alpha/#tag/Custom-Actions) in the Experimental API.
+<br/>
 
 |Field name	|Description	|
 |---	|---	|
 |Name	|The name you choose for your custom action. It will be shown in the menu of available custom actions in Frame.io.	|
-|---	|---	|
 |Description	|Explain what the action does, for reference (the description won't appear in the Frame.io web app).	|
 |Event	|Internal event key to help you differentiate between standard webhook events and your own.	|
 |URL	|Where to deliver events.	|
 |Workspace	|The Workspace that will use the custom action.	|
 
-**Configure Your Custom Action**
+## Configure Your Custom Action {#configure-your-custom-action}
+
 When a user selects a Custom Action on an Asset, Frame.io sends a payload to a URL you provide. The receiving application can respond with an HTTP status code to acknowledge receipt, or respond with a custom callback that renders additional UI in [Frame.io](https://next.frame.io/).
 
 Content Admin permissions are required to create Custom Actions for a Workspace. Ask your admin to modify your permissions if you don't have access.
 
-**Payload From Frame.io**
+## Payload From Frame.io {#payload-from-frameio}
+
 When the user clicks your Custom Action, a payload is sent to the URL you set in the URL field. Use this payload to identify:
 
 * Which Custom Action was clicked
@@ -69,10 +71,12 @@ POST /your/url
 | `workspace.id`       | The unique Workspace of this Action. It is always be the same for a given Action.|
 |`data`| An object of key-value pairs denoting the name of a form element and the value selected and is what the user defines to inform the client url app of a choice being made.
 
-**Interactions, Retries and Timeouts**
+## Interactions, Retries and Timeouts {#interactions-retries-and-timeouts}
+
 The `interaction_id` is a unique identifier to track of the interaction as it evolves over time. If you do not need to respond to the user, return a 200 status code, and you're done. While optional, we recommend including information about the result of the action, like a success message or error alert. Custom actions support message callbacks.Frame.io expects a response in less than 10 seconds, and attempts to retry up to 5 times while waiting for a successful response. Ideally the response is immediate and asynchronous actions occur after a trigger via a Custom Action.
 
-**Create a Message Callback**
+## Create a Message Callback {#create-a-message-callback}
+
 In your HTTP response to the webhook event, you can return a JSON object describing a message that will be returned to the initiating user in the Frame.io UI.
 
 ```json
@@ -84,7 +88,8 @@ In your HTTP response to the webhook event, you can return a JSON object describ
 
 Messages close the action loop providing variable context to the user, without asking them to switch contexts. When the initial payload and subsequent calls to the Frame.io API don't provide enough context for the receiving application, use **Form Callbacks**.
 
-**Create a Form Callback**
+## Create a Form Callback {#create-a-form-callback}
+
 Let's say that you need more info before you start your process. For example, you may be uploading content to a system that requires additional details and settings. You can describe a Form in your response, which the user sees snd fills out, and is then sent right back to you! Here's an example form that renders a Form in the Frame.io UI that the acting user can fill out and submit:
 
 ```json
@@ -134,7 +139,8 @@ POST /your/url
 
 All custom fields added on a form appear in the data section of the JSON payload sent by Frame.io. Use the `interaction_id` to map the initial request and this new form data. And again, you can respond with a message (or even another form!). By chaining Actions, Forms, and Messages, you can effectively program entire Asset workflows in Frame.io with business logic from an external system.
 
-**Form details**
+## Form Details {#form-details}
+
 Like messages, Forms support `title` and `description` attributes that render at the top of the Form. Beyond that, each form field accepts the following base attributes:
 
 * type -- Tells the Frame.io UI which type of data to expect, and which component and render.
@@ -142,8 +148,11 @@ Like messages, Forms support `title` and `description` attributes that render at
 * name -- Key by which the field will be identified on the subsequent payload.
 * value -- Value with which to pre-populate the field.
 
-**Supported Field Types**
-**Text field**: A simple text field with no additional parameters.
+## Supported Field Types {#supported-field-types}
+
+### Text Field {#text-field}
+
+A simple text field with no additional parameters.
 
 ```json
 {  
@@ -154,7 +163,9 @@ Like messages, Forms support `title` and `description` attributes that render at
 }
 ```
 
-**Text area**: A simple text area with no additional parameters.
+### Text Area {#text-area}
+
+A simple text area with no additional parameters.
 
 ```json
 {  
@@ -165,7 +176,9 @@ Like messages, Forms support `title` and `description` attributes that render at
 }
 ````
 
-**Select list**: Defines a picklist that the user can choose from. Must include an `options` list, each member of which should include a human-readable `name`, and a machine-parseable `value`.
+### Select List {#select-list}
+
+Defines a picklist that the user can choose from. Must include an `options` list, each member of which should include a human-readable `name`, and a machine-parseable `value`.
 
 ```json
 {
@@ -186,7 +199,9 @@ Like messages, Forms support `title` and `description` attributes that render at
 }
 ```
 
-**Checkbox:** A simple checkbox with no additional parameters.
+### Checkbox {#checkbox}
+
+A simple checkbox with no additional parameters.
 
 ```json
 { 
@@ -197,7 +212,9 @@ Like messages, Forms support `title` and `description` attributes that render at
 }
 ```
 
-**Link:** A simple link with no additional parameters.
+### Link {#link}
+
+A simple link with no additional parameters.
 
 ```json
   {
@@ -208,13 +225,15 @@ Like messages, Forms support `title` and `description` attributes that render at
  }
  ```
 
-**The Frame.io Permissions Model**
-Custom Actions have a special permissions model: they belong to a Workspace, not to any specific user who exists on an Account.  That means:
+## The Frame.io Permissions Model {#the-frameio-permissions-model}
+
+Custom Actions have a special permissions model: they belong to a Workspace, not to any specific user who exists on an Account. That means:
 
 * Any Content Admin can create a Custom Action on a Workspace.
 * Any Content Admin can modify or delete a Custom Action that exists on a Team.  Once modified, all users will immediately see the result of the change.
 
-**Security and Verification**
+## Security and Verification {#security-and-verification}
+
 By default, all Custom Actions have a signing key generated during their creation. This is not configurable. This key can be used to verify that the request originates from Frame.io. Included in the `POST` request are the following:
 
 | Name     | Description     |
@@ -225,7 +244,7 @@ By default, all Custom Actions have a signing key generated during their creatio
 * **The timestamp** is the time the request was signed on its way out of Frame.io's network. This can be used to prevent replay attacks. We recommended verifying this time is within 5 minutes of local time.
 * **The signature** is a HMAC SHA-256 hash using the signing key provided when the Custom Action is first created.
 
-**Verifying the Signature**
+### Verifying the Signature {#verifying-the-signature}
 
 1. Extract the signature from the HTTP headers.
 2. Create a message to sign by combining the version, delivery time, and request body `v0:timestamp:body`.

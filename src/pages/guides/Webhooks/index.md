@@ -1,7 +1,7 @@
 
-# V4 Webhooks
+# V4 Webhooks {#v4-webhooks}
 
-## What’s a Webhook?
+## What's a Webhook? {#whats-a-webhook}
 
 A **webhook** is a push-style HTTP callback that Frame.io fires **as soon as something interesting happens** in your account (e.g., a new file finishes transcoding, a comment is added, a project is created).
 Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON payload to that URL in real time so you can:
@@ -11,7 +11,7 @@ Instead of polling the API, you supply a public HTTPS URL; Frame.io sends a JSON
 
 For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 
-## Endpoint Overview
+## Endpoint Overview {#endpoint-overview}
 
 |  ||  |
 |---	|---	|---	|
@@ -23,19 +23,19 @@ For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 
 > 🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
 
-## Updates to Webhooks in Frame V4
+## Updates to Webhooks in Frame V4 {#updates-to-webhooks-in-frame-v4}
 
 * Added Account ID to the payload
 * Renamed Team ID to be Workspace ID
 * Split asset webhooks to file and folder webhooks
 
-## Webhook Event Subscriptions
+## Webhook Event Subscriptions {#webhook-event-subscriptions}
 
 When creating and updating webhooks identify which events you’re interested in. Choose as few or as many as you’d like, note that the experience is better if you subscribe to fewer events, splitting up your webhooks logically with different naming schemes and different endpoints so that you can model your business logic on the receiving end to do less filtering and routing in shared functions.
 
 > Event scope — All events are scoped to the Workspace provided during the creation of the webhook. This means events will be sent for actions taken in all projects in that Workspace.
 
-### Projects
+### Projects {#projects}
 
 |Event	|Description	|
 |---	|---	|
@@ -43,7 +43,7 @@ When creating and updating webhooks identify which events you’re interested in
 |`project.updated`	|A Project's settings are **updated**	|
 |`project.deleted`	|A Project has been **deleted**	|
 
-### Files
+### Files {#files}
 
 |Event	|Description	|
 |---	|---	|
@@ -54,7 +54,7 @@ When creating and updating webhooks identify which events you’re interested in
 |`file.upload.completed`	|A File has been **uploaded**	|
 |`file.versioned`	|A File version has been created	|
 
-### Folders
+### Folders {#folders}
 
 |Event	|Description	|
 |---	|---	|
@@ -62,7 +62,7 @@ When creating and updating webhooks identify which events you’re interested in
 |`folder.updated`	|A Folder's settings are **updated**	|
 |`folder.deleted`	|A Folder has been **deleted**	|
 
-### Comments
+### Comments {#comments}
 
 |Event	|Description	|
 |---	|---	|
@@ -72,17 +72,17 @@ When creating and updating webhooks identify which events you’re interested in
 |`comment.completed`	|A Comment was marked as **completed**	|
 |`comment.uncompleted`	|A Comment was marked as **uncompleted**	|
 
-### Metadata
+### Metadata {#metadata}
 
 |Event	|Description	|
 |---	|---	|
 |`metadata.value.updated`	|Metadata fields updated for an asset|
 
-## Webhook Message Payload
+## Webhook Message Payload {#webhook-message-payload}
 
 All webhook payloads contain a `type` field, indicating the type of event that triggered a webhook, as well as a `resource` object. The `resource` object specifies the `type` and `ID` of the resource related to this event.
 
-### Example Payload
+### Example Payload {#example-payload}
 
 ```json
 {
@@ -112,13 +112,13 @@ In the above example of an `file.created` event, the `resource.id` indicates the
 
  If your application requires additional information or context, we recommend making an API call to look-up more information about the resources being referenced.
 
-## Security
+## Security {#security}
 
 By default, all webhooks have a signing key. This non-configurable signing secret can be used to verify that the request originates from Frame.io.
 
 The response payload for the webhook you’ve configured includes the signing secret specific to this webhook. This secret is **only provided in this initial webhook create response**, so store it somewhere safe in your secrets storage or environment variables.  Use it later to verify the webhook is coming directly from our servers and was not intercepted or manipulated in any way.
 
-### Verifying Webhook Signatures
+### Verifying Webhook Signatures {#verifying-webhook-signatures}
 
 To guard an integration against man-in-the-middle and replay attacks it is essential to verify the signature of the webhook payload. Verification ensures that webhook payloads were actually sent by Frame.io and payload content has not been modified in transport.
 
@@ -171,14 +171,14 @@ Webhooks-guide
 
 4. Compare!
 
-## Retries and Logging
+## Retries and Logging {#retries-and-logging}
 
 * Five total attempts (initial + 4 retries)
 * Exponential back-off starting at 15 s (+ jitter)
 * A non-`2xx` status or >5 second timeout triggers the retry
 * [Frame.io](http://frame.io/) keeps a **failure log** with: `webhook_id`, `account_id`, `event_type`, `resource_id`, `user_id`.
 
-## Changes to Webhooks
+## Changes to Webhooks {#changes-to-webhooks}
 
 Webhooks created in Legacy transfer to V4 with the following changes.
 
@@ -186,7 +186,7 @@ Webhooks created in Legacy transfer to V4 with the following changes.
 2. Due to changes in API structure, endpoints, and authentication methods any existing code for incoming webhooks that makes subsequent calls to the Frame.io API for enrichment and look-up of resources require updating.
 3. Since the asset webhooks have been split to Files and Folders, any webhooks coming from Legacy with asset events need to be updated to have the appropriate File and Folder events.
 
-## Webhook Tutorial
+## Webhook Tutorial {#webhook-tutorial}
 
 #### Step 1: Setup receiving end (done first so that you know what your URL will be)
 
@@ -222,7 +222,7 @@ Since our sample was set up to trigger on the `file.created` trigger, we’ll go
 
 ![Step 4 Example](../trigger_asset_created_webhook.gif)
 
-## Additional Resources
+## Additional Resources {#additional-resources}
 
 ### **Ngrok -** [**https://ngrok.com/**](https://ngrok.com/)
 
