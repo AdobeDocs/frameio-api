@@ -1,11 +1,11 @@
 
-# Frame.io Legacy API to V4 Migration Guide
+# Frame.io Legacy API to V4 Migration Guide {#frameio-legacy-api-to-v4-migration-guide}
 
-## Introduction
+## Introduction {#introduction}
 
 The Frame.io V4 API is a complete redesign of the Legacy API, often referred to as *V2 endpoints* or *Frame.io V3 API*. The redesign takes full advantage of the new capabilities and features of Frame V4 and is not backward compatible. This guide outlines the key differences between the Legacy and V4 APIs and provides step-by-step guidance to help you migrate smoothly.
 
-## Key Differences
+## Key Differences {#key-differences}
 
 * **API access and management**: The V4 APIs are managed through the [Adobe Developer Console](https://developer.adobe.com/developer-console/), whereas the Legacy API was managed in the Frame.io developer site.
 * **Assets → Folders & Files**: Distinct endpoints for files and folders in V4, unlike unified asset endpoints in Legacy.
@@ -14,7 +14,7 @@ The Frame.io V4 API is a complete redesign of the Legacy API, often referred to 
 * **Review and Presentation links → Share links**: Review and presentation links, which were two distinct ways of sharing content in V3, have been consolidated into a single “share link” in V4 with support for different custom branding options.
 * **Teams → Workspaces**: “Team” endpoints in the Legacy API have been replaced by “Workspace” endpoints in V4.
 
-## Migration Checklist
+## Migration Checklist {#migration-checklist}
 
 1. **Audit** **existing Legacy API calls.** Compare existing calls to the tables below. If an endpoint you use is **not in this list**, it does not yet exist in V4—please submit your feedback via this form.
 2. **Implement OAuth2.0 via the Adobe developer console**. Legacy Frame.io developer tokens and existing OAuth apps managed via [developer.frame.io](http://developer.frame.io/) will not work on V4 accounts.
@@ -25,7 +25,7 @@ The Frame.io V4 API is a complete redesign of the Legacy API, often referred to 
 
 > **Note**: This list is not exhaustive of the direct correlation of Legacy APIs to the V4 APIs and will be updated regularly as new endpoints are released, potentially via Alpha version.  If there is an endpoint that is not listed here that you have questions about, please reach out to our support team for more at [support@frame.io](mailto:support@frame.io).
 
-## Authentication
+## Authentication {#authentication}
 
 1. **Create a project in the Adobe Developer Console** and add Frame.io as a product.
 2. **Authenticate.** See the [Authenticatin Guide](https://developer.adobe.com/frameio/guides/Authentication/) for more information.
@@ -33,11 +33,11 @@ The Frame.io V4 API is a complete redesign of the Legacy API, often referred to 
     2. **Server to server authentication**: Connects to Frame using Client ID and Client Secret, but does not require a user in the loop to login via a browser.
 3. **JWT Bearer Auth**: For  every API request, pass the auth token via a header with key `Authorization` and a value of `Bearer <IMS_ACCESS_TOKEN>`.
 
-## Endpoint Mappings (Legacy API to V4)
+## Endpoint Mappings (Legacy API to V4) {#endpoint-mappings-legacy-api-to-v4}
 
 The table below **only** includes Legacy API endpoints that **do** have a V4 equivalent. If you don’t see your Legacy API call here, it’s likely **deprecated** with no direct migration path.
 
-### 1. Accounts & User Info
+### 1. Accounts & User Info {#1-accounts--user-info}
 
 | Legacy Method | Legacy Endpoint                                                                                                | V4 Method | V4 Endpoint                                                                                                                   | Notes                                                                                                                         |
 | ------------- | -------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 | GET           | `/v2/accounts/{account_id}`                                                                                    | GET       | `/v4/accounts/{account_id}`                                                                                                   | Does not exist in V4  <br />Retrieves info about a specific account. In V4, references to “teams” are replaced by “workspaces.” |
 | GET           | `/v2/me`                                                                                                       | GET       | `/v4/me`                                                                                                                      | Fetch current user’s profile.                                                                                                 |
 
-### 2. Workspaces (Replaced Team Endpoints)
+### 2. Workspaces (Replaced Team Endpoints) {#2-workspaces-replaced-team-endpoints}
 
 | Legacy Method | Legacy Endpoint                                                                                                                                | V4 Method | V4 Endpoint                                                                                                                                                                                                                         | Notes                                                                             |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -55,7 +55,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 | GET           | `/v2/teams/{team_id}/members`  <br />([Get Team Members](https://developer.frame.io/api/reference/operation/getTeamMembers/))                    | GET       | `/v4/accounts/{account_id}/workspaces/{workspace_id}/users`  <br />[(Get Workspace Members)](https://developer.adobe.com/frameio/api/alpha/#tag/Workspace-Permissions/operation/workspace_user_roles.index)                           | Returns all users in a workspace (available in the alpha API)                     |
 | POST          | `/v2/teams/{team_id}/members`  <br />([Add a Team Member)](https://developer.frame.io/api/reference/operation/addTeamMember/)                    | PATCH     | `/v4/accounts/{account_id}/workspaces/{workspace_id}/users/{user_id}`  <br />([Add Or Update User Role In Workspace](https://developer.adobe.com/frameio/api/alpha/#tag/Workspace-Permissions/operation/workspace_user_roles.update)) | Allows for adding or removing users from a workspace (available in the alpha API) |
 
-### 3. Projects
+### 3. Projects {#3-projects}
 
 | Legacy Method | Legacy Endpoint                                                                                                                                                  | V4 Method | V4 Endpoint                                                                                                                                                                                  | Notes                                                                              |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -67,7 +67,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 | GET           | `/v2/projects/{project_id}/collaborators`  <br />([Get Project Collaborators](https://developer.frame.io/api/reference/operation/getProjectCollaborators/))        | GET       | `/v4/accounts/{account_id}/projects/{project_id}/users`                                                                                                                                      | Returns all the users in a project (available in the V4 alpha API)                 |
 | POST          | `/v2/projects/{project_id}/collaborators`  <br />([Add a Collaborator to a Project](https://developer.frame.io/api/reference/operation/addCollaboratorToProject/)) | PATH      | `/v4/accounts/{account_id}/projects/{project_id}/users/{user_id}`                                                                                                                            | Allows for adding or removing users from a project (available in the V4 alpha API) |
 
-### 4. Folders
+### 4. Folders {#4-folders}
 
 | Legacy Method | Legacy Endpoint                                                                                                                   | V4 Method | V4 Endpoint                                                                                                                                                                  | Notes                                                                                                     |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -77,7 +77,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 | PUT           | `/v2/assets/{asset_id}` ([Update an Asset](https://developer.frame.io/api/reference/operation/updateAsset/))                      | PATCH     | `/v4/accounts/{account_id}/folders/{folder_id}`  <br />([Update folder](https://developer.adobe.com/frameio/api/current/#tag/Folders/operation/folders.update))                | Legacy API: `asset_id` will be your folder id  <br />V4 API: Body: `{"data": {"name": "New Folder Name"}}`. |
 | DELETE        | `/v2/assets/{asset_id}`  <br />([Delete an Asset](https://developer.frame.io/api/reference/operation/deleteAsset/))                 | DELETE    | `/v4/accounts/{account_id}/folders/{folder_id}`  <br />([Delete folder)](https://developer.adobe.com/frameio/api/current/#tag/Folders/operation/folders.delete)                | Removes folder.                                                                                           |
 
-### 5. Files
+### 5. Files {#5-files}
 
 | Legacy Method | Legacy Endpoint                                                                                                                   | V4 Method | V4 Endpoint                                                                                                                                                                                     | Notes                                                                                                                                                                                          |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -87,7 +87,7 @@ The table below **only** includes Legacy API endpoints that **do** have a V4 equ
 | DELETE        | `/v2/assets/{asset_id}`  <br />([Delete an Asset](https://developer.frame.io/api/reference/operation/deleteAsset/))                 | DELETE    | `/v4/accounts/{account_id}/files/{file_id}`  <br />([Delete file](https://developer.adobe.com/frameio/api/current/#tag/Files/operation/files.delete))                                             | 204 No Content on success.                                                                                                                                                                     |
 | POST          | `/v2/assets/{asset_id}/version`  <br />([Version an Asset](https://developer.frame.io/api/reference/operation/addVersionToAsset/))  | POST      | `/v4/accounts/{account_id}/folders/{folder_id}/version_stacks`  <br />([Create version stack](https://developer.adobe.com/frameio/api/alpha/#tag/Version-Stacks/operation/version_stacks.create)) | Requires api-version:alpha for V4                                                                                                                                                              |
 
-### 6. Comments
+### 6. Comments {#6-comments}
 
 Initial support for Commenting endpoints has been released. There are several additional capabilities that will be released soon. Support for coming soon capabilities includes:
 
@@ -110,7 +110,7 @@ Initial support for Commenting endpoints has been released. There are several ad
 | PUT           | `/v2/comments/{comment_id}`  <br />([Update a Comment](https://developer.frame.io/api/reference/operation/updateComment/))                                          | PATCH     | `/v4/accounts/{account_id}/comments/{comment_id}`  <br />([Update comment)](https://developer.adobe.com/frameio/api/current/#tag/Comments/operation/comments.update)     | Update text, time, etc.                                                |
 | DELETE        | `/v2/comments/{comment_id}`  <br />([Delete a Comment](https://developer.frame.io/api/reference/operation/deleteComment/))                                          | DELETE    | `/v4/accounts/{account_id}/comments/{comment_id}`  <br />([Delete comment](https://developer.adobe.com/frameio/api/current/#tag/Comments/operation/comments.delete))     | Remove comment.                                                        |
 
-### 7. Shares (Review Links / Presentations)
+### 7. Shares (Review Links / Presentations) {#7-shares-review-links--presentations}
 
 In Frame V4 share links are no longer split between review and presentation links. In V4 the same link can now be configured with different styling to match the review or presentation experience.
 
@@ -123,7 +123,7 @@ In Frame V4 share links are no longer split between review and presentation link
 |DELETE|`/v2/review_links/{link_id}`  <br />([Delete a Review Link](https://developer.frame.io/api/reference/operation/reviewLinkDelete/))|DELETE|`/v4/accounts/{account_id}/shares/{share_id}`  <br />[(Delete Share)](https://developer.adobe.com/frameio/api/alpha/#tag/Shares/operation/shares.delete)|Delete the share link.|
 |PUT|`/v2/review_links/{review_link_id}`  <br />([Update a Review Link](https://developer.frame.io/api/reference/operation/reviewLinkUpdate/))|PATCH|`/v4/accounts/{account_id}/shares/{share_id}`  <br />[(Update Share)](https://developer.adobe.com/frameio/api/current/#tag/Shares/operation/shares.update)|Update the share link|
 
-### 8. Webhooks
+### 8. Webhooks {#8-webhooks}
 
 Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the Alpha state of Webhooks for V4, the number of supported “events” that you trigger Webhooks off of is very different.
 
@@ -135,7 +135,7 @@ Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the 
 | PUT           | `/v2/hooks/{hook_id}`  <br />[(Update Webhook)](https://developer.frame.io/api/reference/operation/updateWebhook/)              | PATCH     | `/v4/accounts/{account_id}webhooks/{webhook_id}`  <br />[(Update Webhook)](https://developer.adobe.com/frameio/api/alpha/#tag/Webhooks/operation/webhooks.update)                | Update webhook settings                                         |
 | DELETE        | `/v2/hooks/{hook_id}`  <br />[(Delete Webhook)](https://developer.frame.io/api/reference/operation/deleteWebhook/)              | DELETE    | `/v4/accounts/{account_id}/webhooks{webhook_id}`  <br />[(Delete Webhook)](https://developer.adobe.com/frameio/api/alpha/#tag/Webhooks/operation/webhooks.delete)                | Removes the webhook.                                            |
 
-## Migration Steps
+## Migration Steps {#migration-steps}
 
 1. **Remove** any unsupported Legacy endpoints.
 2. **Create a new Project** in Adobe Developer Console, choose your user authentication type, & implement OAuth support in your app.
@@ -148,7 +148,7 @@ Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the 
 9. **Add** test users to your project via Adobe Developer Console.
 10. **Deploy** to Production once validated with a V4 [Frame.io](http://frame.io/) account.
 
-## Error Handling & Common Issues
+## Error Handling & Common Issues {#error-handling--common-issues}
 
 * **400** Bad Request: Check payload accuracy.
 * **401** Unauthorized: Refresh or re-authenticate OAuth tokens.

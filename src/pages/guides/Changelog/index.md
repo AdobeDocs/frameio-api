@@ -1,8 +1,8 @@
-# May 2025 Changelog
+# May 2025 Changelog {#may-2025-changelog}
 
 * * *
 
-## Webhooks `Breaking Change` Coming
+## Webhooks `Breaking Change` Coming {#webhooks-breaking-change-coming}
 
 Webhooks have been promoted from the alpha to the stable API version. The endpoint will be temporarily available in both APIs versions, before deprecating from alpha at the end of June.
 
@@ -18,7 +18,7 @@ The asset events are now split into folders and files.
 * **Old events**
     * `asset.created, asset.deleted, asset.ready, asset.updated, asset.upload.completed, asset.versioned`
 
-## More Additions
+## More Additions {#more-additions}
 
 **Custom Actions** Custom actions is part of limited beta. Anyone can create a custom action, but exposing it in the UI is only available to customers testing the feature. We plan to open the beta to all users in July 2025.
 

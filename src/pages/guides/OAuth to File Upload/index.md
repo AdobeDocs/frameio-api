@@ -1,6 +1,6 @@
-# OAuth to File Upload
+# OAuth to File Upload {#oauth-to-file-upload}
 
-## OAuth
+## OAuth {#oauth}
 
 **Authentication:** The V4 API exclusively uses OAuth 2.0 (`authorization_code` grant type). The Legacy API which allowed for JWT auth and developer tokens are no longer supported.
 
@@ -10,11 +10,11 @@
   2. [OAuth Single Page App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-single-page-app-credential)
   3. [OAuth Native App credential](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation#oauth-native-app-credential)
 
-### File Upload After Authorization
+### File Upload After Authorization {#file-upload-after-authorization}
 
 With support for over 500 file types and multiple ways to upload and download all your creative files, you can start faster. Manage and monitor uploads across your entire account from anywhere in the UI. Easily access upload history and jump to the location of where an asset was uploaded with a simple right-click command.
 
-### How To
+### How To {#how-to}
 
 1. Choose a project or folder location within the Transfer app file navigator and click **Upload.**
 2. Choose the assets you want to upload, and then click **Select**. Alternatively, drag and drop assets from your desktop into the Transfer app; uploading will begin.
