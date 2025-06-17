@@ -10,7 +10,7 @@ All Frame V4 accounts—not just those managed via the Adobe Admin Console—can
 
 ### Create API Credentials
 
-3. Once you have access to the APIs, the next step is to create API credentials, or an API token, to communicate with Frame. Create your API credentials at developer.adobe.com.
+2. Once you have access to the APIs, the next step is to create API credentials, or an API token, to communicate with Frame. Create your API credentials at developer.adobe.com.
 
 ![Account Access](../image_11.png)
 
