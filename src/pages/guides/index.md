@@ -1,13 +1,13 @@
-# Frame.io V4 API Getting Started Guide {#frameio-v4-api-getting-started-guide}
+# Frame.io V4 API Getting Started Guide
 
-## Adobe Developer Console {#adobe-developer-console}
+## Adobe Developer Console
 
 The first step in using an Adobe API is to create a **Project** in the Adobe Developer Console. Projects in the Developer Console correspond to an application you are building to consume the Frame.io Developer API. This is distinct from a project within Frame.io.
 
 * Adobe Developer Console is the developer destination to access Adobe APIs & SDKs including the Frame.io API. Access it [here](https://developer.adobe.com/developer-console/).
 * After creating a Project in the Developer Console, add the Frame.io API to it.  Access Projects in the Developer Console [here](https://developer.adobe.com/developer-console/docs/guides/projects/).
 
-## What's New in the Frame.io V4 Developer API? {#whats-new-in-the-frameio-v4-developer-api}
+## What's New in the Frame.io V4 Developer API?
 
 Just as the Frame.io application has been completely transformed for Version 4, the V4 API has also been redesigned from the ground up. Although some key concepts remain similar to legacy versions, many have been replaced or redesigned to support more powerful collaboration workflows and integrations. The introduction of a completely new API has also provided an opportunity to drastically simplify our operations and prioritize important customer workflows.
 
@@ -19,15 +19,15 @@ Additionally, some features remain in-progress and are expected to follow and ev
 
 Before diving into the V4 API it is helpful to first understand the core concepts expressed in the Frame.io Version 4 application. A good place to start is the [Frame.io V4 Knowledge Base](https://help.frame.io/en/). Concepts like Accounts, Users, Workspaces, Projects, Collections, Shares, and Custom Fields (Metadata) are modeled as distinct resources in the V4 API, and understanding their relationships and capabilities in the application will aid in understanding how they work in the V4 API.
 
-## API Overview {#api-overview}
+## API Overview
 
 The Frame.io V4 API is designed to follow RESTful architectural principles, and uses standard HTTP methods and response codes in conjunction with unique, resource-specific URLs. Frame.io publishes an [OpenAPI 3.0 specification](https://api.frame.io/v4/openapi.json) for our V4 API, which provides detailed information about its endpoints, request parameters, and responses. The OpenAPI spec can be consumed by a variety of third-party code-generation tools to facilitate rapid client application development.
 
-### URL and Path Conventions {#url-and-path-conventions}
+### URL and Path Conventions
 
 URL paths published in the OpenAPI specification generally reflect resource ownership and containment relationships. As such, some request parameters (e.g. account ids, folder ids, etc.) are embedded within the resource path. While these paths are intended to be predictable and easy-to-understand, the structure of some URLs returned by API requests (e.g. pre-signed upload URLs or display links) may be subject to change, and should never be composed directly by a client application.
 
-### Request Query Parameters {#request-query-parameters}
+### Request Query Parameters
 
 Request parameters that control pagination behavior and the optional inclusion of related resources in response objects are defined as a standard set of query parameters: `include`, `page_size`, `include_total_count`. Some requests may support additional query parameters that are specific to that resource or operation.
 
@@ -35,11 +35,11 @@ Request parameters that control pagination behavior and the optional inclusion o
 GET https://api.frame.io/v4/accounts/{account_id}/folders/{folder_id}/children?&include=project&page_size=5&include_total_count=true
 ```
 
-### Request and Response Payloads {#request-and-response-payloads}
+### Request and Response Payloads
 
 Request and response payloads both are composed as JSON objects, and, as such, the content-type header of an HTTP POST, PUT, or PATCH request must specify the `application/json` media type. When creating or updating resources, the `data` property of the request must contain the resource object. Attributes of the resource being created or updated are contained within this object. Similarly, successful responses that include resources will provide these within the `data` property of the response.
 
-### Pagination {#pagination}
+### Pagination
 
 Responses that may potentially return large numbers of resource objects (e.g folder or comment listings) are paginated in order to reduce request latency as a result set grows large.. This means that the response to a request may only include a single “page” of results. As mentioned above, a client may choose a specific page size, up to a maximum of 100 elements through the `page_size` query parameter when making the request. If left unspecified, the page size will default to 50 elements. The V4 API uses a form of pagination known as *cursor-based pagination* and includes a relative link in the `links` property of the response object (see example below) that contains an opaque (clients should not attempt to construct this string themselves) cursor string in the `after` query parameter, which allows the client to retrieve the next page of results (see example response below) by making subsequent requests. At present, the V4 API only supports unidirectional pagination.
 
@@ -78,7 +78,7 @@ Responses that may potentially return large numbers of resource objects (e.g fol
 }
 ```
 
-### Errors {#errors}
+### Errors
 
 In the event that an error occurs, the `errors` property in the response object will contain an array of one or more error objects that provide details about the error(s) that occurred. At present, batch operations are not supported by the V4 API so there are no cases where partial success and errors must be handled by the client.
 
@@ -111,16 +111,16 @@ The following table lists common status codes used by the V4 API.
 |429	|Too Many Requests	|The request has exceeded our API rate limit for this account. See Rate Limiting section of the Getting Started guide for details.	|
 |5xx	|Server Errors	|An unexpected error was reported by our server. Clients should be wait a minimum of 30 seconds before retrying the event and any automated retries should be limited and include a randomized interval in additonal to employing exponential back-off in successive requests.	|
 
-### Authentication and Authorization {#authentication-and-authorization}
+### Authentication and Authorization
 
 The V4 API relies on OAuth 2.0 and [Adobe Identity Management Server (IMS)](https://experienceleague.adobe.com/en/docs/commerce-admin/start/admin/ims/adobe-ims-integration-overview) to authenticate a user (AuthN) and generate access tokens on behalf of that user. An access token must be provided with each API request via the HTTP Authorization header (i.e. Bearer token authentication).
 > **Note** [Token scopes](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/IMS/#scopes) generated by IMS are static, and that authorization (AuthZ), which determines what the user is allowed to do (and what operations can be performed by the API on behalf of that user), is determined by the roles and permissions granted to the user within Frame.io. See Getting Started with the Developer Console and Authentication Setup (under Start Developing with Postman) sections for more detail about generating and requesting access tokens.
 
-### Versions and Backward-Compatibility {#versions-and-backward-compatibility}
+### Versions and Backward-Compatibility
 
 The Frame.io V4 API is *not* backward-compatible with earlier versions of Frame.io APIs and, generally, cannot be used to access or update resources contained within legacy accounts as there have been significant changes to the V4 concepts and data model. As such, the URIs associated with the V4 API all include a `/v4` path prefix. However, the V4 API is still evolving quickly and it is possible that new features may occasionally warrant breaking changes. More commonly, Frame.io will release new *additions* to the API that we consider to be experimental for some period of time, allowing us to receive and respond to customer feedback and usage metrics. Recognizing that backward-compatibility is a major concern for customers managing production-quality integrations with high uptime requirements, we are designing the V4 API to support an additional level of versioning via a custom HTTP header in order to allow clients to opt into using experimental endpoints, avoid breaking changes, and provide backward-compatibility guarantees within the V4 namespace. More details are forthcoming, but for now it is safe to assume that the initial release of the V4 API is considered to be stable and that it will be some time before we contemplate introducing breaking changes.
 
-### Rate Limiting {#rate-limiting}
+### Rate Limiting
 
 All V4 API calls are rate-limited, and each API resource and operation is configured with its own limit, The limits range from as low as 10 requests per minute to as high as 100 requests per second. At present, each limit is enforced by *account,* but the policies and limits themselves are subject to change.
 
@@ -140,11 +140,11 @@ In order to determine the rate limits that apply to a particular request, client
 |`x-ratelimit-remaining`	|The number of requests remaining in the current time window.	|
 |`x-ratelimit-window`	|The time window for this resource path's limits, measured in milliseconds (ms).	|
 
-## API Details {#api-details}
+## API Details
 
 The definitive documentation to the V4 API is our [API Reference Guide](../api/current/), but understanding the resource hierarchy as modeled by the V4 API will be helpful before issuing your first requests.
 
-### Resource Hierarchy {#resource-hierarchy}
+### Resource Hierarchy
 
 An [Account](https://help.frame.io/en/collections/8779087-account-settings) is typically associated with an organization and represents the fundamental resource that determines a subscription plan, content ownership, user roles / permissions, and Workspace organization. As such, the URL path to almost all of the endpoints in the V4 API include a prefix that identifies the Account in which the resource resides.
 
@@ -160,16 +160,16 @@ A Version Stack is an ordered container of Files. Its ordering is strictly linea
 
 See the [API Reference Guide](../api/current/) for more detail about performing basic CRUD operations on Files and Folders stored within Frame.io. At present the V4 API only supports Version Stacks when listing the contents of a Folder, but endpoints for creating and updating Version Stacks are coming soon.
 
-## Start Developing with Postman {#start-developing-with-postman}
+## Start Developing with Postman
 
 Postman is a popular tool used by web developers for testing and interacting with APIs. This section covers the basics of configuring Postman for use with the V4 API and includes a prebuilt Postman collection that developers can use to get started.
 
-### Prerequisites {#prerequisites}
+### Prerequisites
 
 1. You have downloaded [Postman](https://www.postman.com/downloads/).
 2. You have followed the steps in [Getting Started with the Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/getting-started/) to create an Adobe Developer Console Project with a Frame.io API subscription that has been configured with an OAuth Web App Credential. This example assumes the use of a OAuth Web App credential, but for real-world use make sure to choose the appropriate credential type for your application.
 
-### Importing the Postman Collection {#importing-the-postman-collection}
+### Importing the Postman Collection
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;" />](https://app.getpostman.com/run-collection/33150877-924315f2-cc62-45f5-8153-77ff2aaa9067?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D33150877-924315f2-cc62-45f5-8153-77ff2aaa9067%26entityType%3Dcollection%26workspaceId%3D96681ae7-d9a4-4ba0-a6ae-391c3aeb1e8b#?env%5BDefault%5D=W3sia2V5IjoiQkFTRV9VUkwiLCJ2YWx1ZSI6Imh0dHBzOi8vYXBpLmZyYW1lLmlvIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2FwaS5mcmFtZS5pbyIsImNvbXBsZXRlU2Vzc2lvblZhbHVlIjoiaHR0cHM6Ly9hcGkuZnJhbWUuaW8iLCJzZXNzaW9uSW5kZXgiOjB9LHsia2V5IjoiSU1TX0JBU0VfVVJMIiwidmFsdWUiOiJodHRwczovL2ltcy1uYTEuYWRvYmVsb2dpbi5jb20iLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiZGVmYXVsdCIsInNlc3Npb25WYWx1ZSI6Imh0dHBzOi8vaW1zLW5hMS5hZG9iZWxvZ2luLmNvbSIsImNvbXBsZXRlU2Vzc2lvblZhbHVlIjoiaHR0cHM6Ly9pbXMtbmExLmFkb2JlbG9naW4uY29tIiwic2Vzc2lvbkluZGV4IjoxfSx7ImtleSI6IklNU19DTElFTlRfSUQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiIiwiY29tcGxldGVTZXNzaW9uVmFsdWUiOiIiLCJzZXNzaW9uSW5kZXgiOjJ9LHsia2V5IjoiSU1TX0NMSUVOVF9TRUNSRVQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiIiwiY29tcGxldGVTZXNzaW9uVmFsdWUiOiIiLCJzZXNzaW9uSW5kZXgiOjN9LHsia2V5IjoiQUNDT1VOVF9JRCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiIiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6NH0seyJrZXkiOiJXT1JLU1BBQ0VfSUQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiIiwiY29tcGxldGVTZXNzaW9uVmFsdWUiOiIiLCJzZXNzaW9uSW5kZXgiOjV9LHsia2V5IjoiUFJPSkVDVF9JRCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiIiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6Nn0seyJrZXkiOiJST09UX0ZPTERFUl9JRCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiIiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6N30seyJrZXkiOiJGT0xERVJfSUQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiIiwiY29tcGxldGVTZXNzaW9uVmFsdWUiOiIiLCJzZXNzaW9uSW5kZXgiOjh9LHsia2V5IjoiV0VCSE9PS19JRCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiIiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6OX0seyJrZXkiOiJBU1NFVF9JRCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiIiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6MTB9LHsia2V5IjoiU0hBUkVfSUQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiIiwiY29tcGxldGVTZXNzaW9uVmFsdWUiOiIiLCJzZXNzaW9uSW5kZXgiOjExfV0=)
 
@@ -180,7 +180,7 @@ The Frame.io Developer API collection contains all the V4 API public endpoints. 
 If you download the collection, once it and the environment are imported, you will see both within Postman. The environment contains default URLs for the BASE_URL and IMS_BASE_URL variables. Additional environment variables are empty and require your particular input.
 ![alt image](./image_2.png)
 
-### Authentication Setup {#authentication-setup}
+### Authentication Setup
 
 The `IMS_CLIENT_ID` and `IMS_CLIENT_SECRET` environment variables should be set to the values retrieved from the Credential page associated with your Project in the Adobe Developer Console.
 ![alt image](./image_3.png)Note that this example is using a OAuth Web App credential, which generates a client secret. Using this type of credential makes it easy to configure Postman so that it can automatically refresh access tokens and reduce friction during ongoing development, but typically this type of credential should only be used for web applications in which the client secret is never distributed within client code. Also note that this credential has been configured for use with Postman by setting the Redirect URI / Redirect URI Pattern values appropriately.
@@ -190,20 +190,20 @@ Once those environment variables have been set (**make sure to save these change
 ![alt image](./image_5.png)
 >**Note** Copy the `account_id` property within the response and copy this value (without the double quotes) to the `ACCOUNT_ID` environment variable in your Postman environment (reminder: always be sure to save your environment after making changes so that they are visible in your active environment when sending requests). The `account_id` is used as a path parameter for most of the V4 API requests.
 
-### Retrieving Workspaces and Projects {#retrieving-workspaces-and-projects}
+### Retrieving Workspaces and Projects
 
 Most of the resources that you’ll interact with using the V4 API are contained within a Project. Projects are organized and managed within a Workspace, so the first step to creating or listing a Project is to determine the Workspace ID that contains it. In order to retrieve a list of existing Workspaces that you have access to in the account you logged into, select the **LIST workspaces** endpoint in the Postman collection browser and click the Send button. If your `ACCOUNT_ID` environment variable has been properly set then you should receive a response containing a list of all available Workspaces.
 ![alt image](./image_6.png)Once you’ve identified the Workspace in which you plan to operate, copy the value of its `id` property to the `WORKSPACE_ID` environment variable and save your environment. You are now ready to request a list of Projects that you have access to within that Workspace. Select the **LIST projects** endpoint in Postman and click Send. The response will contain the list of Projects contained within the Workspace. Identify the Project in which you’d like to experiment, and copy its `id` value to the `PROJECT_ID` environment variable in your current Postman environment. Also copy the `root_folder_id` property to the `FOLDER_ID` property in your environment. When operating on the asset tree within a Project, many requests take the parent Folder ID of a resource as a path parameter. Setting this environment variable to refer to the root folder will allow you to make requests to operate on resources contained at the root level of the Project.
 ![alt image](./image_7.png)
 
-### Listing the Contents of a Project {#listing-the-contents-of-a-project}
+### Listing the Contents of a Project
 
 Now that the `FOLDER_ID` has been set to the root folder of the Project, you will able to list the content stored within it. Select the “list folder children” endpoint and click the Send button to try it out. This is a good opportunity to experiment with some of the optional query parameters that you may include with some GET requests that return lists of resources. In the example below, query parameters have been added to limit the number of returned resources to 5 (`page_size=5`), include the total count of child resources (`include_total_count=true`) and to include information about the child resources’ creator (`include=creator`). More information about the query parameters supported by each endpoint can be found in the [API Reference Guide](../api/current/).
 ![alt image](./image_8.png)
 >**Note** Notice the `links.next` value in the response. For paginated responses, this value will be populated if there is more data to return. In this case the requested number of items per “page” was quite small (5) and there are 15 files and folders stored in the Project’s root folder (the `total_count` property in the response) so the client should use the relative URL contained within the `links.next` property to retrieve the next page of items. Be aware that in Postman, clicking on the link will create a new tab containing that request, but you’ll need to manually set the Auth Type (on its Authorization page) to “Bearer” and copy the auth token from the Authorization settings of the Frame.io V4 Developer API collection since the dynamically created request isn’t a child of the collection.
 >**Note** The query parameters from the initial request aren’t propagated to the link, so you’ll need to manually append those query parameters again if you’d like to apply them to the request for the next page of data.
 
-### Uploading a New File {#uploading-a-new-file}
+### Uploading a New File
 
 Uploading a File to a Frame.io Project requires two or more requests. Select the **CREATE file** endpoint to demonstrate how to create a File asset in a Frame.io Project. The body of the POST request contains a resource that describes the destination file name, its media type, and its file size. If the request is successful then a placeholder File resource will be created without any content in the destination folder. The `status` property of the new File resource will be set to “created” to indicate that the file does not yet have any bytes and that uploading has not yet commenced.  The response will also include one or more `upload_urls` which consist of pre-signed URLs to which you can upload the file content in subsequent requests. The number of pre-signed URLs returned in the `upload_urls` array is determined based on the file size of the original file.
 ![alt image](./image_9.png)
