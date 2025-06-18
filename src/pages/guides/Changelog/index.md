@@ -4,9 +4,9 @@
 
 ## Webhooks `Breaking Change` Coming {#webhooks-breaking-change-coming}
 
-Webhooks have been promoted from the alpha to the stable API version. The endpoint will be temporarily available in both APIs versions, before deprecating from alpha at the end of June.
+Webhooks have been promoted from the experimental to the stable API version. The endpoint will be temporarily available in both APIs versions, before deprecating from experimental at the end of June.
 
-To use webhooks  in the stable API version remove the `alpha` value in the `api-version` header of any webhook requests going forward.
+To use webhooks  in the stable API version remove the `experimental` value in the `api-version` header of any webhook requests going forward.
 
 The asset events are now split into folders and files.
 
@@ -24,22 +24,22 @@ The asset events are now split into folders and files.
 
 * Created endpoints for `creating`, `deleting`, `listing`, `showing`, and `updating` a custom action
 
-**`Create File Local Upload`** This is a new endpoint specifically for uploading local files in the alpha API.
+**`Create File Local Upload`** This is a new endpoint specifically for uploading local files in the experimental API.
 
 * Removes the requirement to include the media type in the parameter
 * Returns upload URLs to initiate a multi-part upload for file
 
-**`Create File Remote Upload`** This is a new endpoint specifically for uploading remote files, (i.e. files inaccessible via a publicly accessible URL) in the alpha API.
+**`Create File Remote Upload`** This is a new endpoint specifically for uploading remote files, (i.e. files inaccessible via a publicly accessible URL) in the experimental API.
 
 * Removes the need to include the file size and media type in the parameter
 
-**`Show Files`** Added `media_links` parameters to allow specifying `media_links enums` in the alpha and stable API.
+**`Show Files`** Added `media_links` parameters to allow specifying `media_links enums` in the experimental and stable API.
 Options now include:
 
 * High quality proxy (4K or 1080P)
 * Efficient proxy (360P)
 
-**`List folder children`** Added `media_links` parameters to allow specifying `media_links enums` in the alpha API when requesting a list of files.
+**`List folder children`** Added `media_links` parameters to allow specifying `media_links enums` in the experimental API when requesting a list of files.
 Options now include:
 
 * High quality proxy (4K or 1080P)
