@@ -1,4 +1,4 @@
-# Authentication Guide {#authentication-guide}
+# Authentication Guide
 
 Adobe is committed to the privacy and security of our users and their data. The first step in accessing the Frame.io API is authentication.
 For Frame.io via our integration with Adobe Business Platform (ABP) and Identity Management Service (IMS), there are authentication types for several use cases.
@@ -6,7 +6,7 @@ For Frame.io via our integration with Adobe Business Platform (ABP) and Identity
 * **OAuth Server to Server Authentication:** This allows technical or service user accounts to take action. They are also known as service or system accounts or bot users. When authenticating this way you are not required to complete the classic sign-up / sign-in (SUSI) process.
 * **OAuth User Authentication:** This functions as the user whose token it is.
 
-## User Authentication {#user-authentication}
+## User Authentication
 
 Add the Frame.io V4 API with one of the user authentication credentials available. The steps here walk you through how to create the user authentication credentials and generate an access token and make your first API call.
 
@@ -14,7 +14,7 @@ Add the Frame.io V4 API with one of the user authentication credentials availabl
 2. **OAuth Single Page App**: If the API is added as a single page app, use this credential. Go [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-single-page-app-credential) for details.
 3. **OAuth Native App**: If the API is configured as a Native app, use this credential.  Details are [here](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/implementation/#oauth-native-app-credential).
 
-## Server to Server Authentication {#server-to-server-authentication}
+## Server to Server Authentication
 
 Frame.io's V4 API supports service account users to connect the tools and systems critical to your creative process with your Frame.io account.
 
@@ -24,7 +24,7 @@ Server-to-server authentication credentials allow your application's server to g
 
 When a service account user performs an action, the service account user name is displayed in Frame.io. Users can grant and revoke service account users via the Adobe Admin and Developer Consoles. Users can manage service account users within the Frame.io UI including names. The first S2S connection you make will be called **Service Account User** by default, the second **Service Account User 2** by default, and so on.
 
-## Adobe Identity Management Service (IMS) {#adobe-identity-management-service-ims}
+## Adobe Identity Management Service (IMS)
 
 Adobe Identity Management Service (IMS) is Adobe’s OAuth 2.0-based identity management feature that supports authentication. There are two steps required for generating the access token.
 
