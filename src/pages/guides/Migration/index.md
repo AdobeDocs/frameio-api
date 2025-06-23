@@ -135,6 +135,16 @@ Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the 
 | PUT           | `/v2/hooks/{hook_id}`  <br />[(Update Webhook)](https://developer.frame.io/api/reference/operation/updateWebhook/)              | PATCH     | `/v4/accounts/{account_id}webhooks/{webhook_id}`  <br />[(Update Webhook)](https://developer.adobe.com/frameio/api/experimental/#tag/Webhooks/operation/webhooks.update)                | Update webhook settings                                         |
 | DELETE        | `/v2/hooks/{hook_id}`  <br />[(Delete Webhook)](https://developer.frame.io/api/reference/operation/deleteWebhook/)              | DELETE    | `/v4/accounts/{account_id}/webhooks{webhook_id}`  <br />[(Delete Webhook)](https://developer.adobe.com/frameio/api/experimental/#tag/Webhooks/operation/webhooks.delete)                | Removes the webhook.                                            |
 
+### 9. Custom Actions
+
+| Legacy Method | Legacy Endpoint | V4 Method | V4 Endpoint | Notes |
+| ----- | ----- | ----- | ----- | ----- |
+| POST | /v2/accounts ([Create a Custom Action](https://developer.frame.io/api/reference/operation/createActionForTeam/)) | POST | /v4/accounts ([Create Custom Action](https://developer.adobe.com/frameio/api/experimental/#tag/Custom-Actions/operation/actions.create)) | Create a custom action in a workspace. |
+| DELETE | /v2/accounts ([Delete a Custom Action](https://developer.frame.io/api/reference/operation/deleteAction/)) | DELETE | /v4/accounts ([Delete Custom Action](https://developer.adobe.com/frameio/api/experimental/#tag/Custom-Actions/operation/actions.create)) | Delete a custom action. |
+| PUT | /v2/accounts ([Update a Custom Action](https://developer.frame.io/api/reference/operation/updateAction/)) | PATCH | /v4/accounts ([Update Custom Action](https://developer.adobe.com/frameio/api/experimental/#tag/Custom-Actions/operation/actions.update)) | Update custom action details. |
+| GET | /v2/accounts ([Get Custom Actions for an Account or Team)](https://developer.frame.io/api/reference/operation/getActionsByAccount/) | GET | /v4/accounts ([List Actions](https://developer.adobe.com/frameio/api/experimental/#tag/Custom-Actions/operation/actions.index)) | List actions in a given workspace. |
+| GET | /v2/accounts ([Get a Custom Action by ID](hhttps://developer.frame.io/api/reference/operation/getAction/)) | GET | /v4/accounts ([Show Custom Action Details](https://developer.adobe.com/frameio/api/experimental/#tag/Custom-Actions/operation/actions.show)) | Update custom action details. |
+
 ## Migration Steps
 
 1. **Remove** any unsupported Legacy endpoints.
@@ -177,3 +187,5 @@ Given the many changes to resources in [Frame.io](http://frame.io/) V4, and the 
     1. `GET /v2/review_links/{link_id}`
 6. Webhooks
     1. `GET /v2/accounts/{account_id}/webhooks`
+7. Custom Actions
+   1. `GET /v2/accounts/{account_id}/actions`
