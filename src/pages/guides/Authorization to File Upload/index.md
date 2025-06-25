@@ -35,23 +35,23 @@ There are two ways to upload a new file: `Create File (local upload)` and `Creat
 
 To create a file through local upload, select the **Create File (local upload)** endpoint. The request body requires the file name and its file size.
 
-![alt image](../image_12.png)
+![Request body](../image_12.png)
 
 * If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`.  See [Multi-part Upload](http://multi-part%20upload/) for next steps.
 
-![alt image](../image_13.png)
+![Upload url](../image_13.png)
 
 **Remote Upload**
 
 To create a file through remote upload, select the **Create File (remote upload)** endpoint. The request body requires the file name and its source url.
 
-![alt image](../image_14.png)
+![Remote upload](../image_14.png)
 
 * If the request is successful, the file appears in the UI.
 
-![alt image](../image_15.png)
+![File](../image_15.png)
 
-![alt image](../image_16.png)
+![File 2](../image_16.png)
 
 ## Multi-part Upload  
 
