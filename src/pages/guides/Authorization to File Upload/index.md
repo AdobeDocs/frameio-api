@@ -1,4 +1,3 @@
-
 # Authorization to File Upload Guide
 
 This guide describes the authorization to file upload flow for the Frame.io V4 API.  
@@ -27,7 +26,7 @@ Using APIs allows your application to make calls to Adobe services by means of a
 * [Add an API using OAuth User authentication credential](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-user-authentication)
 * [Add an API using API Key authentication](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-key)
 
-# Upload a New File
+## Upload a New File
 
 There are two ways to upload a new file: `Create File (local upload)` and `Create File (remote upload)`.
 
@@ -37,7 +36,7 @@ To create a file through local upload, select the **Create File (local upload)**
 
 ![Request body](../image_12.png)
 
-* If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`.  See [Multi-part Upload](http://multi-part%20upload/) for next steps.
+* If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
 
 ![Upload url](../image_13.png)
 
@@ -55,7 +54,7 @@ To create a file through remote upload, select the **Create File (remote upload)
 
 ## Multi-part Upload  
 
-After creating a placeholder file through the the **Create File (local upload)** endpoint, you will have one or more upload urls. These upload urls are required to make upload requests. It may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
+After creating a placeholder file through the **Create File (local upload)** endpoint, you will have one or more upload urls. These upload urls are required to make upload requests. It may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
 
 > **NOTE:** These are important details to keep in mind when sending the subsequent upload requests.
 
@@ -63,7 +62,7 @@ After creating a placeholder file through the the **Create File (local upload)**
 > * The `x-amz-acl` header must be included and be set to private.
 > * The `Content-Type` header must match the `media_type` specified in the original **Create File (local upload)** request. This is true even when uploading the file as separate parts.
 
-In the sample Python script below, we’re passing in one upload url in the `upload_urls` parameter, though as noted above, you may have more than one provided to you based on the file size set in the request body for **Create File (local upload).**
+In the sample Python script below, we're passing in one upload url in the `upload_urls` parameter, though as noted above, you may have more than one provided to you based on the file size set in the request body for **Create File (local upload).**
 
 ``` python
 import requests
@@ -137,5 +136,5 @@ if __name__ == "__main__":
     if success:
         print("File upload completed successfully!")
     else:
-        print("File upload failed!"
+        print("File upload failed!")
 ```
