@@ -49,9 +49,9 @@ To create a file through remote upload, select the **Create File (remote upload)
 
 * If the request is successful, the file appears in the UI.
 
-![File](../image_15.png)
+![Request](../image_15.png)
 
-![File 2](../image_16.png)
+![Request 2](../image_16.png)
 
 ## Multi-part Upload  
 
