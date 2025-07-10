@@ -5,7 +5,7 @@ This guide describes the authorization to file upload flow for the Frame.io V4 A
 ## Prerequisites
 
 * [Overview of Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/)
-* * [Fetching Access tokens](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims#fetching-access-tokens)
+* [Fetching Access tokens](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims#fetching-access-tokens)
 * [How To Refresh Access Tokens](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims#refreshing-access-tokens)
 * [Uploading a New File](https://developer.adobe.com/frameio/guides/#uploading-a-new-file)
 
