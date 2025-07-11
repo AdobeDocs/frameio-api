@@ -139,6 +139,7 @@ if __name__ == "__main__":
     file_path =  "/Users/MyComputer/local_upload/sample.jpg"  # Path to your file
     upload_urls = ["https://frameio-uploads-development.s3-accelerate.amazonaws.com/uploads/10e35b09-7e07-43a1-bd43-897f252ab627/original.png?..."]
     # Optional: specify chunk size in bytes (e.g., 10MB = 10 * 1024 * 1024)
+    content_type = "image/jpeg"
     chunk_size = 10 * 1024 * 1024  # 10MB
     
     print("Starting file upload...")
