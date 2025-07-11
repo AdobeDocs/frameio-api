@@ -69,11 +69,18 @@ import math
 from typing import List
 from tqdm import tqdm  # For progress bar
 
-def upload_file_in_chunks(file_path, upload_urls, chunk_size) -> bool:
+def upload_file_in_chunks(file_path: str, upload_urls: list[str], content_type: str | None = None, chunk_size: int | None = None) -> bool:
     """
     Upload a file in chunks using presigned URLs.
     """
     try:
+        # Auto-detect content type based on file extension
+        if content_type is None:
+            detected_content_type, _ = mimetypes.guess_type(file_path)
+            content_type = detected_content_type # Default fallback
+        
+        print(f"Detected content type: {content_type}")
+        
         # Get file size
         with open(file_path, 'rb') as f:
             f.seek(0, 2)  # Seek to end of file
@@ -98,20 +105,25 @@ def upload_file_in_chunks(file_path, upload_urls, chunk_size) -> bool:
                     f.seek(start_byte)
                     chunk = f.read(end_byte - start_byte)
                     
-                    # Upload chunk
+                    print(f"Uploading chunk {i+1}: {len(chunk)} bytes")
+                    
+                    # Upload chunk with minimal headers matching the signature
                     response = requests.put(
                         url,
                         data=chunk,
                         headers={
-                            'Content-Length': str(len(chunk)),
-                            'Content-Type': 'image/jpeg',
-                            'X-Amz-Acl': 'private'
-                            }
+                            'content-type': content_type,  
+                            'x-amz-acl': 'private'       
+                        }
                     )
                     
                     if response.status_code != 200:
                         print(f"Failed to upload chunk {i+1}. Status code: {response.status_code}")
+                        print(f"Response text: {response.text}")
+                        print(f"Response headers: {dict(response.headers)}")
                         return False
+                    else:
+                        print(f"Chunk {i+1} uploaded successfully!")
                     
                     pbar.update(1)
         
