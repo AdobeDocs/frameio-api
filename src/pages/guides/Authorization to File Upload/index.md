@@ -142,7 +142,7 @@ if __name__ == "__main__":
     chunk_size = 10 * 1024 * 1024  # 10MB
     
     print("Starting file upload...")
-    success = upload_file_in_chunks(file_path, upload_urls, chunk_size)
+    success = upload_file_in_chunks(file_path, upload_urls, content_type, chunk_size)
     
     if success:
         print("File upload completed successfully!")
