@@ -1,10 +1,11 @@
 # Authentication Guide
 
-Adobe is committed to the privacy and security of our users and their data. The first step in accessing the Frame.io API is authentication.
-For Frame.io via our integration with Adobe Business Platform (ABP) and Identity Management Service (IMS), there are authentication types for several use cases.
+Adobe is committed to the privacy and security of our users and their data. The first step in accessing the Frame.io API is authentication. The Frame.io V4 API supports multiple authentication types depending on your use case.
 
-* **OAuth Server to Server Authentication:** This allows technical or service user accounts to take action. They are also known as service or system accounts or bot users. When authenticating this way you are not required to complete the classic sign-up / sign-in (SUSI) process.
-* **OAuth User Authentication:** This functions as the user whose token it is.
+## Authentication types
+
+* **OAuth User Authentication:** functions as the user whose token it is. User Authentication is available to all Frame.io V4 accounts administered via the Adobe Admin Console, as well as Frame-managed accounts that have [switched to Adobe Authentication](https://help.frame.io/en/articles/11758018-connecting-to-adobe-authentication).
+* **OAuth Server to Server (S2S) Authentication:** allows technical or service accounts to take action. S2S Authentication is only available to Frame.io V4 accounts administered via the Adobe Admin Console.
 
 ## User Authentication
 
