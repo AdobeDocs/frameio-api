@@ -38,14 +38,44 @@ To create a file through local upload, select the **Create File (local upload)**
 }
 ```
 
-
 * If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
 
-![Upload url](../image_13.png)
+``` json
+{
+    "data": {
+        "id": "fa18ba7b-b3ee-4dd6-9b31-bd07e554241d",
+        "name": "my_file.jpg",
+        "status": "created",
+        "type": "file",
+        "file_size": 50645990,
+        "updated_at": "2025-06-26T20:08:06.823170Z",
+        "media_type": "image/jpeg",
+        "parent_id": "2e426fe0-f965-4594-8b2b-b4dff1dc00ec",
+        "project_id": "7e46e495-4444-4555-8649-bee4d391a997",
+        "created_at": "2025-06-26T20:08:06.751313Z",
+        "upload_urls": [
+            {
+                "size": 16881997,
+                "url": "https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_1?..."
+            },
+            {
+                "size": 16881997,
+                "url": "https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_2?..."
+            },
+            {
+                "size": 16881996,
+                "url": "https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_3?..."
+            },
+
+        ],
+        "view_url": "https://next.frame.io/project/7e46e495-4444-4555-8649-bee4d391a997/view/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d"
+    }
+}
+```
 
 ## Multi-part Upload  
 
-After creating a placeholder file through the **Create File (local upload)** endpoint, you will have one or more upload urls. These upload urls are required to make upload requests. It may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
+After creating a placeholder file through the **Create File (local upload)** endpoint, you will have one or more upload urls depending on the file_size provided in the request. When a given file results in more than one upload url, it may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
 
 > **NOTE:** These are important details to keep in mind when sending the subsequent upload requests.
 
