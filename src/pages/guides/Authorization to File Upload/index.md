@@ -4,40 +4,14 @@ This guide describes the authorization to file upload flow for the Frame.io V4 A
 
 ## Prerequisites
 
-* [Overview of Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/)
-* [Fetching Access tokens](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims#fetching-access-tokens)
-* [How To Refresh Access Tokens](https://developer.adobe.com/developer-console/docs/guides/authentication/UserAuthentication/ims#refreshing-access-tokens)
-* [Uploading a New File](https://developer.adobe.com/frameio/guides/#uploading-a-new-file)
+1. You have a Frame.io V4 account administered via the [Adobe Admin Console](https://adminconsole.adobe.com/), OR you have [switched to Adobe authentication](https://help.frame.io/en/articles/11758018-connecting-to-adobe-authentication) for your account user
+2. You have logged into the [Adobe Developer Console](https://developer.adobe.com/console) and have added the Frame.io API to a new or existing project
+3. You have generated the [appropriate Authentication credentials](https://developer.adobe.com/frameio/guides/Authentication/) for your project
+4. You have succfully used those credentials to generate an access token
 
-## Adobe Authorization
+## Choosing your upload method
 
-Follow the guidance on the Adobe Developer Console [Authentication Guide](https://developer.adobe.com/developer-console/docs/guides/authentication/) to join and build with the Frame.io V4 API safely. Follow the steps in [Getting Started with the Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/getting-started/) to create an Adobe Developer Console Project with a Frame.io API subscription configured with the appropriate credential type for your application.
-
-## Credential and Token creation
-
-View, add, and manage credentials required for your application to connect safely and securely to external services. Configure your event registration to access authentication credentials. This could be a OAuth Server-to-Server credential or OAuth User authentication credential, depending on the type of event being configured.
-
-## Add an API
-
-Using APIs allows your application to make calls to Adobe services by means of a REST API. APIs can be connected to your app in multiple ways, depending on the API or the type of app that you are building. To learn more about each of these authentication methods or API connections, read the [authentication documentation](https://developer.adobe.com/developer-console/docs/guides/authentication/).
-
-* [Add an API using OAuth Server-to-Server credential](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s)
-* [Add an API using OAuth User authentication credential](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-user-authentication)
-* [Add an API using API Key authentication](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-key)
-
-## Upload a New File
-
-There are two ways to upload a new file: `Create File (local upload)` and `Create File (remote upload)`.
-
-**Local Upload**
-
-To create a file through local upload, select the **Create File (local upload)** endpoint. The request body requires the file name and its file size.
-
-![Request body](../image_12.png)
-
-* If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
-
-![Upload url](../image_13.png)
+There are two ways to upload a file using the Frame.io API: `Create File (local upload)` and `Create File (remote upload)`. The local endpoint would be used when the media is locally accessible to your application, similar to dragging a file from your desktop; the remote upload option would be used when the media is accessed over the network, such as through an intergration with another service. In this guide we'll start with the simpler case of completing a remote upload.
 
 **Remote Upload**
 
@@ -50,6 +24,16 @@ To create a file through remote upload, select the **Create File (remote upload)
 ![Request](../image_15.png)
 
 ![Request 2](../image_16.png)
+
+**Local Upload**
+
+To create a file through local upload, select the **Create File (local upload)** endpoint. The request body requires the file name and its file size.
+
+![Request body](../image_12.png)
+
+* If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
+
+![Upload url](../image_13.png)
 
 ## Multi-part Upload  
 
