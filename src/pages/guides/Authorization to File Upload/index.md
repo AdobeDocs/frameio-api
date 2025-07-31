@@ -183,7 +183,7 @@ def upload_file_in_chunks(file_path: str, upload_urls: list[str], content_type: 
 if __name__ == "__main__":
     # Replace these with your actual values
     file_path =  "/Users/MyComputer/local_upload/sample.jpg"  # Path to your file
-    upload_urls = ["https://frameio-uploads-development.s3-accelerate.amazonaws.com/uploads/10e35b09-7e07-43a1-bd43-897f252ab627/original.png?..."]
+    upload_urls = ["https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_1?...", "https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_2?...", "https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_3?..."]
     # Optional: specify chunk size in bytes (e.g., 10MB = 10 * 1024 * 1024)
     content_type = "image/jpeg"
     chunk_size = 10 * 1024 * 1024  # 10MB
