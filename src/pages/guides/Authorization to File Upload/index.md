@@ -1,6 +1,6 @@
-# Authorization to File Upload Guide
+# How to: Upload
 
-This guide describes the authorization to file upload flow for the Frame.io V4 API.  
+This guide details the full flow to upload files using the Frame.io V4 API.  
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ This guide describes the authorization to file upload flow for the Frame.io V4 A
 
 There are two ways to upload a file using the Frame.io API: `Create File (local upload)` and `Create File (remote upload)`. The local endpoint would be used when the media is locally accessible to your application, similar to dragging a file from your desktop; the remote upload option would be used when the media is accessed over the network, such as through an intergration with another service. In this guide we'll start with the simpler case of completing a remote upload.
 
-**Remote Upload**
+## Remote Upload
 
 To create a file through remote upload, select the **Create File (remote upload)** endpoint. The request body requires the file name and its source url.
 
@@ -26,9 +26,28 @@ To create a file through remote upload, select the **Create File (remote upload)
 }
 ```
 
-![Request 2](../image_16.png)
+```json
+{
+    "data": {
+        "id": "93e4079d-0a8a-4bf3-96cd-e6a03c465e5e",
+        "name": "my_file.jpg",
+        "status": "created",
+        "type": "file",
+        "file_size": 518,
+        "updated_at": "2025-06-26T20:14:33.796116Z",
+        "media_type": "image/jpeg",
+        "parent_id": "2e426fe0-f965-4594-8b2b-b4dff1dc00ec",
+        "project_id": "7e46e495-4444-4555-8649-bee4d391a997",
+        "created_at": "2025-06-26T20:14:33.159489Z",
+        "view_url": "https://next.frame.io/project/7e46e495-4444-4555-8649-bee4d391a997/view/93e4079d-0a8a-4bf3-96cd-e6a03c465e5e"
+    },
+    "links": {
+        "status": "/v4/accounts/6f70f1bd-7e89-4a7e-b4d3-7e576585a181/files/93e4079d-0a8a-4bf3-96cd-e6a03c465e5e/status"
+    }
+}
+```
 
-**Local Upload**
+## Local Upload
 
 To create a file through local upload, select the **Create File (local upload)** endpoint. The request body requires the file name and its file size.
 
@@ -41,7 +60,7 @@ To create a file through local upload, select the **Create File (local upload)**
 }
 ```
 
-If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
+If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. Given this example, we will need to manage this upload in multiple parts. See [Multi-part Upload](#multi-part-upload) for next steps.
 
 ``` json
 {
@@ -76,15 +95,17 @@ If the request is successful, a placeholder file resource is created without any
 }
 ```
 
-## Multi-part Upload  
-
-After creating a placeholder file through the **Create File (local upload)** endpoint, you will have one or more upload urls depending on the file_size provided in the request. When a given file results in more than one upload url, it may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
-
-> **NOTE:** These are important details to keep in mind when sending the subsequent upload requests.
+**NOTE:** These are important details to keep in mind when sending the subsequent upload request(s).
 
 > * The HTTP request method must be `PUT`.
 > * The `x-amz-acl` header must be included and be set to private.
 > * The `Content-Type` header must match the `media_type` specified in the original **Create File (local upload)** request. This is true even when uploading the file as separate parts.
+
+
+**Multi-part Uploads**
+
+When a given file results in more than one upload url, it may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
+
 
 In the sample Python script below, we're passing in one upload url in the `upload_urls` parameter, though as noted above, you may have more than one provided to you based on the file size set in the request body for **Create File (local upload).**
 
