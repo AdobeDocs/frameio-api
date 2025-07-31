@@ -29,7 +29,15 @@ To create a file through remote upload, select the **Create File (remote upload)
 
 To create a file through local upload, select the **Create File (local upload)** endpoint. The request body requires the file name and its file size.
 
-![Request body](../image_12.png)
+```json
+{ 
+"data": {
+    "name": "my_file.jpg",
+    "file_size": 50645
+  }
+}
+```
+
 
 * If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
 
