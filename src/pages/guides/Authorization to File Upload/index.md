@@ -26,10 +26,6 @@ To create a file through remote upload, select the **Create File (remote upload)
 }
 ```
 
-* If the request is successful, the file appears in the UI.
-
-![Request](../image_15.png)
-
 ![Request 2](../image_16.png)
 
 **Local Upload**
