@@ -17,7 +17,14 @@ There are two ways to upload a file using the Frame.io API: `Create File (local 
 
 To create a file through remote upload, select the **Create File (remote upload)** endpoint. The request body requires the file name and its source url.
 
-![Remote upload](../image_14.png)
+```json
+{ 
+    "data": {
+        "name": "my_file.jpg",
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/White_Pixel_1x1.jpg"
+    }
+}
+```
 
 * If the request is successful, the file appears in the UI.
 
@@ -38,7 +45,7 @@ To create a file through local upload, select the **Create File (local upload)**
 }
 ```
 
-* If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
+If the request is successful, a placeholder file resource is created without any content. Depending on the file size, the response body will include one or more `upload_urls`. See [Multi-part Upload](#multi-part-upload) for next steps.
 
 ``` json
 {
