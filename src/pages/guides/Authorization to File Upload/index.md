@@ -107,7 +107,9 @@ If the request is successful, a placeholder file resource is created without any
 When a given file results in more than one upload url, it may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
 
 
-In the sample Python script below, we're passing in one upload url in the `upload_urls` parameter, though as noted above, you may have more than one provided to you based on the file size set in the request body for **Create File (local upload).**
+In the sample Python script below, we're passing in multiple upload urls in the `upload_urls` parameter.
+
+**Create File (local upload).**
 
 ``` python
 import requests
