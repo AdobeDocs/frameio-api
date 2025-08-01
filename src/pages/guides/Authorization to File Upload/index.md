@@ -99,7 +99,7 @@ If the request is successful, a placeholder file resource is created without any
 
 > * The HTTP request method must be `PUT`.
 > * The `x-amz-acl` header must be included and be set to private.
-> * The `Content-Type` header must match the `media_type` specified in the original **Create File (local upload)** request. This is true even when uploading the file as separate parts.
+> * The `Content-Type` header must match the `media_type` specified in the original **Create File (local upload)** request. This is true even when uploading the file as separate parts. In the example above, the value for `media_type` is `image/jpeg`. Therefore, the value for `Content-Type` must also be `image/jpeg`.
 
 
 **Multi-part Uploads**
