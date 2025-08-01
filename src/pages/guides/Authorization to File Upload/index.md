@@ -11,7 +11,7 @@ This guide details the full flow to upload files using the Frame.io V4 API.
 
 ## Choosing your upload method
 
-There are two ways to upload a file using the Frame.io API: `Create File (local upload)` and `Create File (remote upload)`. The local endpoint would be used when the media is locally accessible to your application, similar to dragging a file from your desktop; the remote upload option would be used when the media is accessed over the network, such as through an intergration with another service. In this guide we'll start with the simpler case of completing a remote upload.
+There are two ways to upload a file using the Frame.io API: `Create File (local upload)` and `Create File (remote upload)`. The local endpoint would be used when the media is locally accessible to your application, similar to dragging a file from your desktop; the remote upload option would be used when the media is accessed over the network, such as through an integration with another service. In this guide we'll start with the simpler case of completing a remote upload.
 
 ## Remote Upload
 
