@@ -25,7 +25,9 @@ To create a file through remote upload, select the **Create File (remote upload)
     }
 }
 ```
+
 A successful request will yield a response like the one below.
+
 ```json
 {
     "data": {
