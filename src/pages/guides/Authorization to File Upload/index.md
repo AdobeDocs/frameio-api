@@ -103,11 +103,9 @@ If the request is successful, a placeholder file resource is created without any
 > * The `x-amz-acl` header must be included and be set to private.
 > * The `Content-Type` header must match the `media_type` specified in the original **Create File (local upload)** request. This is true even when uploading the file as separate parts. In the example above, the value for `media_type` is `image/jpeg`. Therefore, the value for `Content-Type` must also be `image/jpeg`.
 
-
 ## Multi-part Upload
 
 When a given file results in more than one upload url, it may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
-
 
 In the sample Python script below, we're passing in multiple upload urls in the `upload_urls` parameter.
 
