@@ -49,13 +49,13 @@ A successful request will yield a response like the one below.
 
 ## Local Upload
 
-To create a file through local upload, select the **Create File (local upload)** endpoint. The request body requires the file name and its file size.
+To create a file through local upload, select the **Create File (local upload)** endpoint. The request body requires the file name and its file size specified in bytes.
 
 ```json
 { 
 "data": {
     "name": "my_file.jpg",
-    "file_size": 50645
+    "file_size": 50645990
   }
 }
 ```
@@ -102,14 +102,14 @@ If the request is successful, a placeholder file resource is created without any
 > * The `Content-Type` header must match the `media_type` specified in the original **Create File (local upload)** request. This is true even when uploading the file as separate parts. In the example above, the value for `media_type` is `image/jpeg`. Therefore, the value for `Content-Type` must also be `image/jpeg`.
 
 
-**Multi-part Uploads**
+## Multi-part Upload
 
 When a given file results in more than one upload url, it may be useful to compose a shell script that splits up the source file into chunks and issues the same number of subsequent requests.
 
 
 In the sample Python script below, we're passing in multiple upload urls in the `upload_urls` parameter.
 
-**Create File (local upload).**
+**Create File (local upload) with Multi-part Upload**
 
 ``` python
 import requests
@@ -186,12 +186,10 @@ if __name__ == "__main__":
     # Replace these with your actual values
     file_path =  "/Users/MyComputer/local_upload/sample.jpg"  # Path to your file
     upload_urls = ["https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_1?...", "https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_2?...", "https://frameio-uploads-development.s3-accelerate.amazonaws.com/parts/fa18ba7b-b3ee-4dd6-9b31-bd07e554241d/part_3?..."]
-    # Optional: specify chunk size in bytes (e.g., 10MB = 10 * 1024 * 1024)
     content_type = "image/jpeg"
-    chunk_size = 10 * 1024 * 1024  # 10MB
     
     print("Starting file upload...")
-    success = upload_file_in_chunks(file_path, upload_urls, content_type, chunk_size)
+    success = upload_file_in_chunks(file_path, upload_urls, content_type)
     
     if success:
         print("File upload completed successfully!")
