@@ -67,7 +67,7 @@ When creating and updating webhooks identify which events you’re interested in
 |Event	|Description	|
 |---	|---	|
 |`comment.created`	|A new Comment or Reply has been **created**	|
-|`comment.updated`	|A Comment has been updated	|
+|`comment.updated`	|A Comment has been **updated**	|
 |`comment.deleted`	|A Comment was **deleted**	|
 |`comment.completed`	|A Comment was marked as **completed**	|
 |`comment.uncompleted`	|A Comment was marked as **uncompleted**	|
@@ -77,6 +77,31 @@ When creating and updating webhooks identify which events you’re interested in
 |Event	|Description	|
 |---	|---	|
 |`metadata.value.updated`	|Metadata fields updated for an asset|
+
+### Collections
+
+|Event	|Description	|
+|---	|---	|
+|`collection.created`	|A new Collection has been **created**	|
+|`collection.updated`	|A Collection has been **updated**	|
+|`collection.deleted`	|A Collection was **deleted**	|
+
+### Custom Fields
+
+|Event	|Description	|
+|---	|---	|
+|`customfield.created`	|A new custom field has been **created**	|
+|`customfield.updated`	|A custom field has been **updated**	|
+|`customfield.deleted`	|A custom field was **deleted**	|
+
+### Shares
+
+|Event	|Description	|
+|---	|---	|
+|`share.created`	|A new Share has been **created**	|
+|`share.updated`	|A Share has been **updated**	|
+|`share.deleted`	|A Share was **deleted**	|
+|`share.viewed`	|A Share was **viewed**	|
 
 ## Webhook Message Payload
 
