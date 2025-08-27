@@ -1,39 +1,34 @@
 # Custom Actions
 
-Frame.io Actions power integtations of 3rd party tools and services surfaced directly within the user interface of [Frame.io](https://next.frame.io/). Custom Actions allow developers to create, manage and host their own Actions. Leveraging the same underlying events system as [webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism developers can use to connect their Frame.io assets to the tools that matter most to users in their Frame.io Account.
+Frame.io Actions allow integrations with 3rd party tools and services to be surfaced directly within the user interface of [Frame.io](https://next.frame.io/). Custom Actions allow developers to create, manage and host their own Actions. Leveraging the same underlying Event system as [Webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism developers can use to connect their Assets to the tools that matter most to users in their Frame.io Account.
 
-Actions can be executed by any user within the Frame.io appplication via the context menu presented when right-clicking on any asset. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or responds with a custom callback that can render additional UI in Frame.io. The recieving application can be your own hosted program or service, or even a low-code/no-code IPaaS tool like Workfront Fusion or Zapier.  
+Actions can be executed by any user within the Frame.io account via the context menu presented when right-clicking on an asset. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or responds with a custom callback to can render additional UI in Frame.io. The recieving application can be your own hosted program or service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier.  
 
-Custom Actions can be created and managed via [endpoints available in Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or via the new [Actions settings page (beta)](https://next.frame.io/settings/actions) available in the Frame.io V4 web app. Any user can see Actions in Settings (or List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update Actions. 
+Custom Actions can be created and managed via [endpoints made available in the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or via a new [Actions settings page (beta)](https://next.frame.io/settings/actions) available in the Frame.io V4 web app. Any user can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update Actions.
 
-## Anatomy of an Action
+## Configure a Custom Action
 <br/>
 
 |Field name	|Description	|
 |---	|---	|
-|Name	|The name you choose for your custom Action. It will be shown in the menu of available custom actions in Frame.io.	|
-|Description	|Explain what the Action does, for reference (the description won't appear in the Frame.io web app).	|
-|Event	|Internal event key to help you differentiate between standard webhook events and your own.	|
-|URL	|Where to deliver events.	|
-|Workspace	|The Workspace that will use the custom Action.	|
-
-## Configure Your Custom Action
-
-When a user selects a custom Action on an Asset, Frame.io sends a payload to a URL you provide. The receiving application can respond with an HTTP status code to acknowledge receipt, or respond with a custom callback that renders additional UI in [Frame.io](https://next.frame.io/).
-
-Content Admin permissions are required to create custom Actions for a Workspace. Ask your admin to modify your permissions if you don't have access.
+|Name	|The name you choose for your custom Action. It will be used in the menu of available Actions in Frame.io	|
+|Description	|Explains what the Action does for users reference. It will be displayed under the Action's Name in the context menu	|
+|Event	|Internal event key to help you differentiate between standard webhook events and your own	|
+|URL	|Where to deliver events	|
+|Workspace	|The Workspace that will use the custom Action	|
 
 ## Payload From Frame.io
 
-When the user clicks your custom Action, a payload is sent to the URL you set in the URL field. Use this payload to identify:
+When your custom Action is executed, a payload is sent to the URL set in the Action's configuration. Use this payload to identify:
 
-* Which custom Action was clicked
-* Which resource was clicked
-* Which user took the action
-* Which account is associated with the Custom Action
-* Which event type was triggered
-* Which Workspace is associated with the Custom Action
-* Which Project contains the resource on which the Custom action was triggered
+* Which Action was executed
+* Which Account is associated with the Action
+* Which Project contains the asset the Action was executed on
+* Which Resource the Action was executed on and it's type
+* Which Event was executed
+* Which User executed the Action
+* Which Workspace is associated with the Action
+
 
 ```json
 POST /your/url
