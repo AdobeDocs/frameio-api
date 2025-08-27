@@ -1,29 +1,33 @@
 # Custom Actions
 
-Use the Custom Actions beta to build integrations directly into [Frame.io](https://next.frame.io/) as programmable UI components. This enables workflows that can be triggered by users within the app, leveraging the same underlying events routing as webhooks. You can create user-triggered single or multi-step forms that come back to Frame.io as another form or a basic response. And when a user clicks a Custom Action on an Asset, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or responds with a custom callback that can render additional UI in Frame.io.
+Frame.io Actions power integtations of 3rd party tools and services surfaced directly within the user interface of [Frame.io](https://next.frame.io/). Custom Actions allow developers to create, manage and host their own Actions. Leveraging the same underlying events system as [webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism developers can use to connect their Frame.io assets to the tools that matter most to users in their Frame.io Account.
 
-Configure [Custom Actions](/frameio/api/experimental/#tag/Custom-Actions) in the Experimental API.
+Actions can be executed by any user within the Frame.io appplication via the context menu presented when right-clicking on any asset. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or responds with a custom callback that can render additional UI in Frame.io. The recieving application can be your own hosted program or service, or even a low-code/no-code IPaaS tool like Workfront Fusion or Zapier.  
+
+Custom Actions can be created and managed via [endpoints available in Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or via the new [Actions settings page (beta)](https://next.frame.io/settings/actions) available in the Frame.io V4 web app. Any user can see Actions in Settings (or List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update Actions. 
+
+## Anatomy of an Action
 <br/>
 
 |Field name	|Description	|
 |---	|---	|
-|Name	|The name you choose for your custom action. It will be shown in the menu of available custom actions in Frame.io.	|
-|Description	|Explain what the action does, for reference (the description won't appear in the Frame.io web app).	|
+|Name	|The name you choose for your custom Action. It will be shown in the menu of available custom actions in Frame.io.	|
+|Description	|Explain what the Action does, for reference (the description won't appear in the Frame.io web app).	|
 |Event	|Internal event key to help you differentiate between standard webhook events and your own.	|
 |URL	|Where to deliver events.	|
-|Workspace	|The Workspace that will use the custom action.	|
+|Workspace	|The Workspace that will use the custom Action.	|
 
 ## Configure Your Custom Action
 
-When a user selects a Custom Action on an Asset, Frame.io sends a payload to a URL you provide. The receiving application can respond with an HTTP status code to acknowledge receipt, or respond with a custom callback that renders additional UI in [Frame.io](https://next.frame.io/).
+When a user selects a custom Action on an Asset, Frame.io sends a payload to a URL you provide. The receiving application can respond with an HTTP status code to acknowledge receipt, or respond with a custom callback that renders additional UI in [Frame.io](https://next.frame.io/).
 
-Content Admin permissions are required to create Custom Actions for a Workspace. Ask your admin to modify your permissions if you don't have access.
+Content Admin permissions are required to create custom Actions for a Workspace. Ask your admin to modify your permissions if you don't have access.
 
 ## Payload From Frame.io
 
-When the user clicks your Custom Action, a payload is sent to the URL you set in the URL field. Use this payload to identify:
+When the user clicks your custom Action, a payload is sent to the URL you set in the URL field. Use this payload to identify:
 
-* Which Custom Action was clicked
+* Which custom Action was clicked
 * Which resource was clicked
 * Which user took the action
 * Which account is associated with the Custom Action
