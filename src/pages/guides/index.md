@@ -111,7 +111,7 @@ The following table lists common status codes used by the V4 API.
 |429	|Too Many Requests	|The request has exceeded our API rate limit for this account. See Rate Limiting section of the Getting Started guide for details.	|
 |5xx	|Server Errors	|An unexpected error was reported by our server. Clients should be wait a minimum of 30 seconds before retrying the event and any automated retries should be limited and include a randomized interval in additonal to employing exponential back-off in successive requests.	|
 
-**Note** You may also see a 403 returned if your account is locked; in this scenairo we'll inform you of this via the response description. There are several conditions that could place your account in this state so you'll need to contact Frame.io support to learn more and get your account back into good standing.
+**Note** You may also see a 403 returned if your account is locked; in this scenario we'll inform you of this via the response description. There are several conditions that could place your account in this state so you'll need to contact Frame.io support to learn more and get your account back into good standing.
 
 ### Authentication and Authorization
 
