@@ -57,7 +57,7 @@ module.exports = {
       },
       {
         title: 'How to: Upload',
-        path: '/guides/How to: Upload'
+        path: '/guides/How To: Upload'
       },
       {
         title: 'Accounts, Projects, and Workspaces',
