@@ -74,6 +74,32 @@ module.exports = {
       {
         title: 'Webhooks',
         path: '/guides/Webhooks'
+      },   
+      {
+        title: 'Zapier',
+        path: '/guides/Zapier',
+        pages: [
+          {
+            title: 'Introduction to Zapier',
+            path: '/guides/Zapier/index.md'
+          },
+          {
+            title: 'Setting Up Zapier',
+            path: '/guides/Zapier/Setting Up Zapier'
+          },
+          {
+            title: 'How-To Guide',
+            path: '/guides/Zapier/How-To Guide'
+          },
+          {
+            title: 'Frame.io Resources in Zapier V4',
+            path: '/guides/Zapier/Frame.io Resources in Zapier V4'
+          },
+          {
+            title: 'Legacy vs V4',
+            path: '/guides/Zapier/Legacy vs V4'
+          }
+        ]
       }
     ]
   },
