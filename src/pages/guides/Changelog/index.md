@@ -4,7 +4,9 @@
 
 ## Endpoints Moving From `experimental` to `stable` 
 
-**Version Stacks** Version stacks have been promoted from the `experimental` to the `stable` version of the API. The following endpoints will be temporarily available in both API versions before being removed from `experimental` at the end of September 2025.
+The following endpoints have been promoted from `experimental` to `stable`. They will be temporarily available in both API versions before being removed from `experimental` at the end of September 2025. Endpoints marked with an asterisk have already been removed from `experimental`.
+
+**Version Stacks**
   
 * `Copy Version Stack`
 * `Create Version Stack`
@@ -12,7 +14,7 @@
 * `List Version Stacks`
 * `Move Version Stack`
 
-**Files** The following endpoints have been promoted from `experimental` to `stable` and will be removed from `experimental` at the end of September 2025. Endpoints marked with an asterisk have been removed from `experimental`.
+**Files** 
 
 * `Copy File`
 * `Create File (Local Upload)`*
@@ -22,7 +24,7 @@
 * `Show File Upload Status`
 * `Update File`
 
-**Folders** The following endpoints have been promoted from `experimental` to `stable` and will be removed from `experimental` at the end of September 2025. Endpoints marked with an asterisk have been removed from `experimental`.
+**Folders**
 
 * `Copy Folder`
 * `List Folder Children`
