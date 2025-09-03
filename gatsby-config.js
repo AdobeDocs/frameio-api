@@ -96,8 +96,8 @@ module.exports = {
             path: '/guides/Zapier/Frame.io Resources in Zapier V4'
           },
           {
-            title: 'Legacy vs V4',
-            path: '/guides/Zapier/Legacy vs V4'
+            title: 'Migrating from Legacy to V4',
+            path: '/guides/Zapier/Migrating from Legacy to V4'
           }
         ]
       }
