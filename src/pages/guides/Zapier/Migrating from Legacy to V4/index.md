@@ -24,12 +24,11 @@ The most noticeable change is in our language around content organization:
 
 ## Need a Missing Feature?
 
-**We're here to help!** Our goal was to match all features between Legacy and V4, but if you notice something missing or need additional functionality:
+**We're here to help!** Our goal is to match all features between Legacy and V4, but if you notice something missing or need additional functionality:
 
 ### How to Reach Out
 - **Community Forum**: Post in our [Frame.io Community](https://forum.frame.io/) for feature requests
 - **Support Team**: Contact our support team directly through the Frame.io app
-- **Integration Feedback**: We actively monitor and respond to integration feedback
 
 ### What to Include
 When requesting features or reporting issues:
