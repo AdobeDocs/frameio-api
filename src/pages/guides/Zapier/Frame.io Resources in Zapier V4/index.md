@@ -102,8 +102,9 @@ The following table reflects the V4 Zapier integration's actual field structure 
 **Recommended approach**: When you have a choice between "File Attachment" and "File Attachment (URL)" in other apps, choose the URL option as it generally supports larger files and more file types.
 
 **Available URL types**:
+
 - `Original Download URL`: The original uploaded file
-- `High Quality Download URL`: High-quality proxy (when available)  
+- `High Quality Download URL`: High-quality proxy (when available)
 - `Thumbnail Download URL`: File thumbnail
 - `Thumbnail URL`: Direct thumbnail display link
 
@@ -112,19 +113,23 @@ The following table reflects the V4 Zapier integration's actual field structure 
 The V4 integration supports the following webhook-based triggers:
 
 ### File Events
+
 - **File Created**: Triggers when a file is first created (before upload completion)
 - **File Ready**: Triggers when file processing is complete and file is ready for review
 - **File Upload Completed**: Triggers when file upload finishes
 
 ### Comment Events
+
 - **Comment Created**: Triggers when a new comment is added to a file
 - **Comment Updated**: Triggers when an existing comment is modified
 - **Comment Completed**: Triggers when a comment is marked as resolved/completed
 
 ### Project Events
+
 - **Project Created**: Triggers when a new project is created
 
 ### Metadata Events
+
 - **Metadata Value Updated**: Triggers when custom metadata field values change
 
 ## Available Actions
@@ -132,14 +137,17 @@ The V4 integration supports the following webhook-based triggers:
 The V4 integration supports these create/update actions:
 
 ### File & Folder Management
+
 - **Create Folder**: Create a new folder to a project
 - **Upload File From URL**: Upload a file from a publicly available URL
 
 ### Comment Management
+
 - **Create Comment**: Add a new comment to a file
 - **Update Comment**: Modify an existing comment
 
 ### Workspace Management
+
 - **Create Workspace**: Create a new workspace in an account
 - **Create Share**: Create a new share link
 
@@ -147,7 +155,7 @@ The V4 integration supports these create/update actions:
 
 The V4 integration provides these search capabilities:
 
-- **Show Comment**: Get comment details 
+- **Show Comment**: Get comment details
 - **Find Project**: Search for projects by name
 - **Show File**: Retrieve detailed file information
 - **Show Project Details**: Get comprehensive project details

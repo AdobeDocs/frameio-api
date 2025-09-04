@@ -1,10 +1,10 @@
-# Introduction to Zapier 
+# Introduction to Zapier
 
 Transform your Frame.io workflows with simple, no-code automation that anyone can set up in minutes with no technical expertise required.
 
 ## What is Zapier?
 
-**Zapier is your digital assistant that connects your favorite apps automatically.** Think of it as a bridge that lets your apps "talk" to each other without you having to do anything manually. 
+**Zapier is your digital assistant that connects your favorite apps automatically.** Think of it as a bridge that lets your apps "talk" to each other without you having to do anything manually.
 
 The magic happens through simple "if this, then that" rules called [**Zaps**](https://help.zapier.com/hc/en-us/articles/8496309697421-What-is-a-Zap). For example: "When a new video is uploaded to Frame.io, automatically create a share link to send to my team." That's it—no coding, no complex setup, just point-and-click simplicity.
 
@@ -15,6 +15,7 @@ With over [7,000+ apps available](https://zapier.com/apps), Zapier turns repetit
 Frame.io's [Zapier integration](https://zapier.com/apps/frameio-v4/integrations) brings the power of automation to your video collaboration workflows. Instead of manually checking for new uploads, copying links, or sending status updates, you can set up automated workflows that handle these tasks for you.
 
 **Popular automation examples:**
+
 - **New upload notifications**: Automatically notify your team in Slack when someone uploads a new video
 - **Project management sync**: Create tasks in Airtable when new Frame.io projects are created
 - **Client communication**: Send email updates to clients when their review is ready

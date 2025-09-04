@@ -50,7 +50,7 @@ For producers juggling multiple video projects, keeping team communication organ
    - More information can be found in [Zapier's testing documentation](https://help.zapier.com/hc/en-us/articles/18811411817741-Test-Zap-steps)
 5. **Publish**: Once you're satisfied with the configuration, click "Publish" to activate your Zap!
 
-## Building Custom Zaps 
+## Building Custom Zaps
 
 *If you prefer to build a custom workflow from scratch or need something more specific than our templates offer:*
 
