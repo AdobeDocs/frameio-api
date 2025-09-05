@@ -16,7 +16,7 @@ Get up and running with our Zapier integration and connect Frame.io to hundreds 
 
 ## Integrate
 
-* Review our [How-To Guide](./How-To%20Guide/) to set started
+* Review our [How-To Guide](../How-To%20Guide/) to set started
 * Ask the [community](https://forum.frame.io/) or reach out to Support if you get stuck
 
 ## Partner with us
