@@ -74,10 +74,6 @@ POST /your/url
 | `workspace.id`       | The unique identifier of the Workspace the Action belongs to. It is always the same for a given Action. |
 | `data`| Object containing key-value pairs denoting the name of each form element and the value selected. |
 
-## Actionable Reources: Files, Folders & Version Stacks
-
-Given the separation of concerns between different asset types in Frame.io V4, there is new behavior you may want consider when interpreting the resouce ID recieved in your Action's payload. The use-cases for individual Files is straight-forward, as the ID will reflect the File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder which the Action was executed on; depending on your usecase you may want to use the Folder ID to make subsequent calls to the Frame.io API as-is, interacting with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. Finally, when an action is Executed on a Version Stack, your payload will contain the 'Head Asset', which is the top most File in the Stack and is therefore shown in the Frame.io UI. Looking ahead we plan to offer additional resources for you to develop Actions against, including V4-specific features like Collections. Be sure to [reach out to us](https://forum.frame.io/) with your ideas and use-cases to help inform our prioritizaion.
-
 ## Interactions, Retries and Timeouts
 
 The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the User is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message.
@@ -296,4 +292,11 @@ There are a few things to keep in mind when migrating to a Frame.io V4 Account c
 
 ### Action Status
 
-Upon Account migration, all custom Actions created prior will have a status of 'null' and will be disabled. This provides users the opportunity to first update their Actions to work with the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or if using the API checking the is_active field.
+Upon Account migration to Frame.io V4, all custom Actions created in earlier versions will have a status of 'null' and will be automatically disabled. This provides users the opportunity to first update your Actions to use the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or, if using the API, by checking the is_active field.
+
+### Actionable Reources: Files, Folders & Version Stacks
+
+Given the separation of concerns between different asset types in Frame.io V4, there is new behavior you may want consider when interpreting the resouce ID recieved in your Action's payload. The use-cases for individual Files is straight-forward, as the ID will reflect the File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder which the Action was executed on; depending on your usecase you may want to use the Folder ID to make subsequent calls to the Frame.io API as-is, interacting with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. Finally, when an action is Executed on a Version Stack, your payload will contain the 'Head Asset', which is the top most File in the Stack and is therefore shown in the Frame.io UI. Looking ahead we plan to offer additional resources for you to develop Actions against, including the new, V4-specific features like Collections. 
+
+### Beta Feedback
+We'd love to hear from developers and end-users about the ways you'd like to use Actions in Frame.io V4. Be sure to [reach out to us](https://forum.frame.io/) with your questions, ideas, and use-cases to help inform our prioritizaion.
