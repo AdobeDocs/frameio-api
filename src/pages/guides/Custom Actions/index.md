@@ -76,7 +76,7 @@ POST /your/url
 
 ## Interactions, Retries and Timeouts
 
-The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the User is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message.
+The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the user is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message.
 
 Actions support message callbacks. Frame.io expects a response in under 10 seconds and attempts to retry up to 5 times while waiting for a response. Ideally the response is immediate and asynchronous operations occur after an Action is executed.
 
@@ -151,7 +151,7 @@ All fields added on a form appear in the data section of the JSON payload sent b
 Like Messages, Forms support `title` and `description` attributes that render at the top of the Form. Beyond that, each form field accepts the following base attributes:
 
 * type -- Tells Frame.io which type of data to expect, and which component to render in the UI
-* label -- Appears in the UI as desciptor for your field
+* label -- Appears in the UI as descriptor for your field
 * name -- Key by which the field will be identified on the subsequent payload
 * value -- Value with which to pre-populate the field
 
@@ -292,7 +292,7 @@ There are a few things to keep in mind when migrating to a Frame.io V4 Account c
 
 ### Action Status
 
-Upon Account migration to Frame.io V4, all custom Actions created in earlier versions will have a status of 'null' and will be automatically disabled. This provides users the opportunity to first update your Actions to use the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or, if using the API, by checking the is_active field.
+Upon Account migration to Frame.io V4, all custom Actions created in earlier versions will have a status of 'null' and will be automatically disabled. This provides users the opportunity to first update your Actions to use the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and reference the column "Status" or, if using the API, by checking the is_active field.
 
 ### Actionable Reources: Files, Folders & Version Stacks
 
