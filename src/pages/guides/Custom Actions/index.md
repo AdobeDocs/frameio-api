@@ -7,7 +7,7 @@ Actions can be executed by any User added to the Frame.io Workspace the Action w
 Just like in the Legacy version of Frame.io, Actions can be triggered on Assets. With the introduction of Actions in Frame.io V4 you can execute actions Files, Folders and Version Stacks. Continue reading for a detailed walkthrough for configuing Actions in Frame.io V4, including examples to help you get started building your own.
 
 ## Configuring Custom Actions
-<br/>
+
 Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings page (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Any User can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
 
 |Field name	|Description	|
@@ -19,6 +19,7 @@ Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/
 |Workspace	|The Workspace your Action will be made available in	|
 
 ## Executing Actions
+
 Navigate to any File, Folder, or Version Stack and invoke the context menu by selecting the three dots (or right-clicking) and navigate to the sub menu for custom Actions. Any active Actions configured for the Workspace you're in will be displayed. If there are no Actions enabled in your Workspace, this menu item will be greyed out. If you do have Actions available, simply select one to execute it. The user will be presented with a success message or a modal with form fileds to fill out depending on your Action's use case. We also support error messaging in case your Action fails to execute or the URL provided is unreachable. You can read more about common issues with troubleshooting and debugging tips at the end of this guide.
 
 ## Recieve an Action Payload From Frame.io
@@ -74,6 +75,7 @@ POST /your/url
 | `data`| Object containing key-value pairs denoting the name of each form element and the value selected. |
 
 ## Actionable Reources: Files, Folders & Version Stacks
+
 Given the separation of concerns between different asset types in Frame.io V4, there is new behavior you may want consider when interpreting the resouce ID recieved in your Action's payload. The use-cases for individual Files is straight-forward, as the ID will reflect the File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder which the Action was executed on; depending on your usecase you may want to use the Folder ID to make subsequent calls to the Frame.io API as-is, interacting with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. Finally, when an action is Executed on a Version Stack, your payload will contain the 'Head Asset', which is the top most File in the Stack and is therefore shown in the Frame.io UI. Looking ahead we plan to offer additional resources for you to develop Actions against, including V4-specific features like Collections. Be sure to [reach out to us](https://forum.frame.io/) with your ideas and use-cases to help inform our prioritizaion.
 
 ## Interactions, Retries and Timeouts
@@ -287,8 +289,11 @@ import hashlib
             return True
     return False
 ```
+
 ## Migrated Actions
+
 There are a few things to keep in mind when migrating to a Frame.io V4 Account containing custom Actions created in the Frame.io Legacy application. 
 
 ### Action Status
+
 Upon Account migration, all custom Actions created prior will have a status of 'null' and will be disabled. This provides users the opportunity to first update their Actions to work with the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or if using the API checking the is_active field. 
