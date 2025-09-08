@@ -150,7 +150,7 @@ All fields added on a form appear in the data section of the JSON payload sent b
 Like Messages, Forms support `title` and `description` attributes that render at the top of the Form. Beyond that, each form field accepts the following base attributes:
 
 * type -- Tells Frame.io which type of data to expect, and which component to render in the UI
-* label -- Appears in the UI as the header above the field
+* label -- Appears in the UI as desciptor for your field
 * name -- Key by which the field will be identified on the subsequent payload
 * value -- Value with which to pre-populate the field
 
@@ -288,4 +288,4 @@ import hashlib
 There are a few things to keep in mind when migrating to a Frame.io V4 Account containing custom Actions created in the Frame.io Legacy application. 
 
 ### Action Status
-Upon Account migration, all custom Actions created prior will have a status of 'null'. This provides users the opportunity to first update their Actions to work with the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or if using the API checking the is_active field. 
+Upon Account migration, all custom Actions created prior will have a status of 'null' and will be disabled. This provides users the opportunity to first update their Actions to work with the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or if using the API checking the is_active field. 
