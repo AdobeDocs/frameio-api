@@ -2,7 +2,7 @@
 
 Frame.io Actions provide quick access to common media operations like downloading, renaming, and duplicating items – and also allow for integrations with 3rd party tools and services to be surfaced directly within the user interface of [Frame.io](https://next.frame.io/). With the introduction of custom Actions (beta), developers can now configure and manage their own Actions in Frame.io V4. Leveraging the same underlying Event system as [Webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism for developers to connect their assets to the tools that matter most to the Users in their Frame.io Account.
 
-Actions can be executed by any User added to the Frame.io Workspace the Action was created in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier. 
+Actions can be executed by any User added to the Frame.io Workspace the Action was created in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier.
 
 Just like in the Legacy version of Frame.io, Actions can be triggered on Assets. With the introduction of Actions in Frame.io V4 you can execute actions Files, Folders and Version Stacks. Continue reading for a detailed walkthrough for configuing Actions in Frame.io V4, including examples to help you get started building your own.
 
@@ -80,7 +80,7 @@ Given the separation of concerns between different asset types in Frame.io V4, t
 
 ## Interactions, Retries and Timeouts
 
-The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the User is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message. 
+The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the User is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message.
 
 Actions support message callbacks. Frame.io expects a response in under 10 seconds and attempts to retry up to 5 times while waiting for a response. Ideally the response is immediate and asynchronous operations occur after an Action is executed.
 
@@ -99,7 +99,7 @@ Messages close an Action's interaction loop providing variable context to the Us
 
 ## Create a Form Callback
 
-When your use case requires more information from the User before you start your process, Actions enable you to render form field modals in the Frame.io UI. 
+When your use case requires more information from the User before you start your process, Actions enable you to render form field modals in the Frame.io UI.
 
 For example, you may want to create an Action to orchestrate the upload of a file from Frame.io into another system but it requires the User to provide additional details and settings before it can be completed. You can describe a form in your inital response which will be presented to the User in Frame.io to fill out. Once submitted, the form values are included in a subsequent payload back to the URL defined in your Action's configuration.
 
@@ -240,9 +240,9 @@ A simple link with no additional parameters.
 
 Custom Actions have a special permissions model: they belong to a Workspace, not to any specific User who exists on an Account. That means:
 
-* Any Content Admin can create a custom Action in a Workspace.
-* Any Content Admin can modify or delete a custom Action in a Workspace.  Once modified, all Users that are members of that Workspace will immediately see the change.
-* 
+* Any Content Admin can create a custom Action in a Workspace
+* Any Member of a Workspace can execute an Action
+Any Content Admin can modify or delete a custom Action in a Workspace. Once modified, all Users that are Members of that Workspace will immediately see the change
 
 ## Security and Verification
 
@@ -292,8 +292,8 @@ import hashlib
 
 ## Migrated Actions
 
-There are a few things to keep in mind when migrating to a Frame.io V4 Account containing custom Actions created in the Frame.io Legacy application. 
+There are a few things to keep in mind when migrating to a Frame.io V4 Account containing custom Actions created in the Frame.io Legacy application.
 
 ### Action Status
 
-Upon Account migration, all custom Actions created prior will have a status of 'null' and will be disabled. This provides users the opportunity to first update their Actions to work with the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or if using the API checking the is_active field. 
+Upon Account migration, all custom Actions created prior will have a status of 'null' and will be disabled. This provides users the opportunity to first update their Actions to work with the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and refrence the column "Status" or if using the API checking the is_active field.
