@@ -73,6 +73,9 @@ POST /your/url
 | `workspace.id`       | The unique identifier of the Workspace the Action belongs to. It is always the same for a given Action. |
 | `data`| Object containing key-value pairs denoting the name of each form element and the value selected. |
 
+## Actionable Reources: Files, Folders & Version Stacks
+Given the separation of concerns between different asset types in Frame.io V4, there is new behavior you may want consider when interpreting the resouce ID recieved in your Action's payload. The use-cases for individual Files is straight-forward, as the ID will reflect the File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder which the Action was executed on; depending on your usecase you may want to use the Folder ID to make subsequent calls to the Frame.io API as-is, interacting with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. Finally, when an action is Executed on a Version Stack, your payload will contain the 'Head Asset', which is the top most File in the Stack and is therefore shown in the Frame.io UI. Looking ahead we plan to offer additional resources for you to develop Actions against, including V4-specific features like Collections. Be sure to [reach out to us](https://forum.frame.io/) with your ideas and use-cases to help inform our prioritizaion.
+
 ## Interactions, Retries and Timeouts
 
 The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the User is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message. 
