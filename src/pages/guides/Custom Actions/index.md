@@ -6,7 +6,9 @@ Frame.io Actions provide quick access to common media operations like downloadin
 
 With the introduction of custom Actions (beta), developers can configure and manage their own Actions in Frame.io V4. Leveraging the same underlying Event system as [Webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism for developers to connect their assets to the tools that matter most to the users in their Frame.io Account.
 
-Actions can be executed by any user that is a Member of the Frame.io Workspace the Action is enabled in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier. For more detailed information about these options visit Deploying Actions.
+ Actions can be executed by any user that is a Member of the Frame.io Workspace the Action is enabled in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier. 
+ 
+ In this guide we'll walk you through everything you need to know for Configuring, Executing, and Deploying your own custom Actions.
 
 ## Actions Improvements in V4
 
