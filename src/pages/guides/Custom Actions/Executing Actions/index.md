@@ -12,4 +12,4 @@ Depending on your Action's configuration, the user will be presented with a succ
 
 Frame.io Actions also support error messaging in case your Action fails to execute, or if the URL provided is unreachable. 
 
-You can read more about interactions, forms, and all of the information needed for developing debugging in the Configuring Actions guide.
+You can read more about interactions, forms, and all of the information needed for developing and debugging in the Configuring Actions guide.
