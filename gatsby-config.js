@@ -65,7 +65,20 @@ module.exports = {
       },
       {
         title: 'Custom Actions',
-        path: '/guides/Custom Actions'
+        path: '/guides/Custom Actions',
+        pages: [
+          {
+            title: 'Executing Actions',
+            path: '/guides/Custom Actions/Executing Actions'
+          },
+          {
+            title: 'Configuring Actions',
+            path: '/guides/Custom Actions/Configuring Actions'
+          },
+          {title: 'Deploying Actions',
+            path: '/guides/Custom Actions/Deploying Actions'
+          }
+        ]
       },
       {
         title: 'Migration',
