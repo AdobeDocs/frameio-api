@@ -1,6 +1,6 @@
 # Executing Actions
 
-Like in the Legacy version of Frame.io, Actions can be triggered on Assets.
+Actions can be executed by any user that is a Member of the Frame.io Workspace the Action is enabled in. Like in the Legacy version of Frame.io, Actions can be triggered on Assets.
 
 Navigate to any File, Folder, or Version Stack and invoke the context menu by selecting the three dots (or right-clicking) and navigate to the sub-menu for custom Actions.
 
@@ -10,6 +10,6 @@ If you do have Actions available, simply select one to execute it. A unique `int
 
 Depending on your Action's configuration, the user will be presented with a success message or a modal with form fileds to fill out before resubmitting.
 
-Frame.io Actions also support error messaging in case your Action fails to execute, or if the URL provided is unreachable. 
+Frame.io Actions also support error messaging in case your Action fails to execute, or if the URL provided is unreachable.
 
-You can read more about interactions, forms, and all of the information needed for developing and debugging in the Configuring Actions guide.
+You can read more about interactions, forms, and all of the information needed for developing and debugging in the [Configuring Actions](../Configuring%20Actions/) guide.
