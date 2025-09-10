@@ -1,6 +1,6 @@
 ## Configuring Custom Actions
 
-Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings page (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Any User can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
+Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Any User can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
 
 |Field name	|Description	|
 |---	|---	|
