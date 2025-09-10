@@ -1,11 +1,10 @@
 # Custom Actions
 
-Frame.io Actions provide quick access to common media operations like downloading, renaming, and duplicating items – and also allow for integrations with 3rd party tools and services to be surfaced directly within the user interface of [Frame.io](https://next.frame.io/). With the introduction of custom Actions (beta), developers can now configure and manage their own Actions in Frame.io V4. Leveraging the same underlying Event system as [Webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism for developers to connect their assets to the tools that matter most to the Users in their Frame.io Account.
+Frame.io Actions provide quick access to common media operations like downloading, renaming, and duplicating items – and also allow for integrations with 3rd party tools and services to be surfaced directly within the user interface of [Frame.io](https://next.frame.io/).
 
-Actions can be executed by any User that is a Member of the Frame.io Workspace the Action is available in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier.
+With the introduction of custom Actions (beta), developers can now configure and manage their own Actions in Frame.io V4. Leveraging the same underlying Event system as [Webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism for developers to connect their assets to the tools that matter most to the users in their Frame.io Account.
 
-Just like in the Legacy version of Frame.io, Actions can be triggered on Assets. With the introduction of Actions in Frame.io V4 you can execute actions Files, Folders and Version Stacks. Continue reading for a detailed walkthrough for configuing Actions in Frame.io V4, including examples to help you get started building your own.
-
+Actions can be executed by any user that is a Member of the Frame.io Workspace the Action is enabled in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier. For more detailed information about these options visit Deploying Actions.
 
 ## Migrated Actions
 
@@ -17,9 +16,9 @@ Upon Account migration to Frame.io V4, all custom Actions created in earlier ver
 
 ### Actionable Reources: Files, Folders & Version Stacks
 
-Given the separation of concerns between different asset types in Frame.io V4, there is new behavior you may want consider when interpreting the resource ID recieved in your Action's payload. The use-cases for individual Files is straight-forward, as the ID will reflect the File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder which the Action was executed on; depending on your usecase you may want to use the Folder ID to make subsequent calls to the Frame.io API as-is, interacting with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. Finally, when an action is Executed on a Version Stack, your payload will contain the 'Head Asset', which is the top most File in the Stack and is therefore shown in the Frame.io UI.
+Given the separation of concerns between different asset types in the Frame.io V4 API, there is new behavior you may want consider when interpreting the resource ID recieved in your Action's payload. The behavior for individual Files is straight-forward, as the ID will reflect the specific File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder the Action was executed on; however, depending on your usecase you have multiple options when defining your Action's behavior. Use the Folder ID to make subsequent calls to the Frame.io API if you want interact with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. When an action is Executed on a Version Stack, your payload will contain the ID for the 'Head Asset', which is the top most File in the Stack and is what is shown in the Frame.io UI.
 
-You can read more about the differences between the Frame.io Legacy API and V4 in our [Migration Guide](https://developer.adobe.com/frameio/guides/Migration/). Looking ahead we plan to offer additional resources for you to develop Actions against, including the new, V4-specific features like Collections.
+You can read more about the differences between the Frame.io Legacy API and V4 in our [Migration Guide](https://developer.adobe.com/frameio/guides/Migration/).
 
 ## Beta Feedback
 
