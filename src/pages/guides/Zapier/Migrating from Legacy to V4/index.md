@@ -6,7 +6,7 @@ Frame.io's V4 Zapier integration brings significant improvements while maintaini
 
 ### For Existing Users
 
-If you're currently using the legacy Frame.io Zapier integration, your existing Zaps will continue to work. However, we recommend migrating to V4 since we've phased out support for legacy integrations to focus on improving our latest features.
+If you're currently using the legacy [Frame.io Zapier integration](https://zapier.com/apps/frameio/integrations), your existing Zaps will only work with the legacy version of Frame.io. Once you've upgraded your Frame.io Account to V4, you'll need to rebuild your integrations using the [Frame.io V4 Zapier integration](https://zapier.com/apps/frameio-v4/integrations).
 
 ### For New Users
 
@@ -37,10 +37,9 @@ The most noticeable change is in our language around content organization:
 ### What to Include
 
 When requesting features or reporting issues:
-
-- Describe the specific workflow you're trying to achieve
-- Let us know if this worked in the legacy version
-- Share your use case
+- Describe the specific workflow you're trying to achieve, the error you're seeing, or where you're getting stuck
+- Let us know if this worked in the legacy version or if this is a new V4-specific feature
+- If the issue is with one of our new templates, or a custom workflow you've set up from scratch
 
 **We're committed to making V4 the best possible experience** and regularly add new features based on user feedback. Your input directly influences our development roadmap.
 

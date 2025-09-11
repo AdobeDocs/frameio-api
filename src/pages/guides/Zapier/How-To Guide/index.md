@@ -10,28 +10,21 @@ The quickest method to get started is to use one of our pre-built templates. The
 
 ## Monday.com to Frame.io Project Creation
 
-*Automatically create Frame.io projects when new items are added to monday.com*
+[*Create Frame.io projects from new monday.com items in a board*](https://zapier.com/apps/frameio-v4/integrations/monday/255666675/create-frameio-projects-from-new-mondaycom-items-in-a-board)
 
 For busy production teams, setting up new Frame.io projects every time a task is added in monday.com can slow things down. This automation helps project managers skip the manual setup. Whenever a new item is created on a monday.com board, a matching Frame.io project is spun up instantly. It keeps creative workflows moving and gives media teams a head start on collaboration.
 ![Screenshot of Workflow](../../image_17.png)
 
 ## Frame.io Approval to YouTube Publishing
 
-*Automatically publish approved videos from Frame.io to YouTube*
+[*Upload newly-approved Frame.io videos to YouTube*](https://zapier.com/apps/frameio-v4/integrations/youtube/255666695/upload-newly-approved-frameio-videos-to-youtube)
 
 Publishing final videos can become a bottleneck if approvals and uploads live in separate places. This automation takes care of that last step—once a video is marked as approved in Frame.io, it's automatically published to your YouTube channel. It's perfect for content teams who want to go live faster without chasing down files or repeating steps.
 ![Screenshot of Workflow](../../image_14.png)
 
-## Airtable to Frame.io Project Creation
-
-*Automatically create Frame.io projects from new or updated Airtable records*
-
-Managing creative projects in Airtable is flexible, but jumping over to Frame.io to set things up manually can break momentum. With this automation, anytime a record is added or updated in Airtable, a corresponding Frame.io project is created instantly. It's ideal for teams who track pre-production or briefs in Airtable and want a seamless handoff to post.
-![Screenshot of Workflow](../../image_15.png)
-
 ## Frame.io Project to Slack Channel Creation
 
-*Automatically create dedicated Slack channels for new Frame.io projects*
+[*Create Slack channels for new Frame.io projects*](https://zapier.com/apps/frameio-v4/integrations/slack/255666678/create-slack-channels-for-new-frameio-projects)
 
 For producers juggling multiple video projects, keeping team communication organized is a must. This automation creates a dedicated Slack channel as soon as a new Frame.io project is added—no need to manually set it up. It gives teams a shared space to collaborate from day one, so every project kicks off with structure and clarity.
 ![Screenshot of Workflow](../../image_16.png)
@@ -43,7 +36,7 @@ For producers juggling multiple video projects, keeping team communication organ
 1. **Select a Template**: Choose from one of the pre-built templates that matches your workflow needs
 2. **Configure Each Step**: For each step within the Zap, you'll go straight to the configure section *(setup is already done as per the template)*
    - With templates like *Airtable to Frame.io Project Creation* and *Frame.io Approval to YouTube Publishing* there are are several steps to fill out
-3. **Add Your Information**: Input the required details like your account credentials, project names, folder locations, etc., depending on the type of workflow
+3. **Add Your Information**: Input the required details like your account credentials, workspace names, project names, folder locations, etc., depending on the type of workflow
 4. **Test Your Zap** *(Optional)*: Run a test to make sure everything works correctly
    - *Important note*: Testing can sometimes be tricky, especially with webhook-based triggers
    - The testing step may show sample data that will be replaced by real data once you actually use the Zap

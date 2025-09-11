@@ -12,7 +12,7 @@ With over [7,000+ apps available](https://zapier.com/apps), Zapier turns repetit
 
 ## Why Use Frame.io with Zapier?
 
-Frame.io's [Zapier integration](https://zapier.com/apps/frameio-v4/integrations) brings the power of automation to your video collaboration workflows. Instead of manually checking for new uploads, copying links, or sending status updates, you can set up automated workflows that handle these tasks for you.
+Frame.io's [Zapier integration](https://zapier.com/apps/frameio-v4/integrations) brings the power of automation to your file workflows. Instead of manually checking for new uploads, copying links, or sending status updates, you can set up automated workflows that handle these tasks for you.
 
 **Popular automation examples:**
 
