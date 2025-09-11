@@ -1,294 +1,28 @@
-# Custom Actions
+# Custom Actions Beta
 
-Frame.io Actions provide quick access to common media operations like downloading, renaming, and duplicating items – and also allow for integrations with 3rd party tools and services to be surfaced directly within the user interface of [Frame.io](https://next.frame.io/). With the introduction of custom Actions (beta), developers can now configure and manage their own Actions in Frame.io V4. Leveraging the same underlying Event system as [Webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism for developers to connect their assets to the tools that matter most to the Users in their Frame.io Account.
+Frame.io Actions provide quick access to common media operations like downloading, renaming, and duplicating items – and also allow for integrations with 3rd party tools and services to be surfaced directly within the user interface of [Frame.io](https://next.frame.io/).
 
-Actions can be executed by any User that is a Member of the Frame.io Workspace the Action is available in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier.
+## About Actions
 
-Just like in the Legacy version of Frame.io, Actions can be triggered on Assets. With the introduction of Actions in Frame.io V4 you can execute actions Files, Folders and Version Stacks. Continue reading for a detailed walkthrough for configuing Actions in Frame.io V4, including examples to help you get started building your own.
+With the introduction of custom Actions (beta), developers can configure and manage their own Actions in Frame.io V4. Leveraging the same underlying Event system as [Webhooks](https://developer.adobe.com/frameio/guides/Webhooks/), custom Actions are an alternative mechanism for developers to connect their assets to the tools that matter most to the users in their Frame.io Account.
 
-## Configuring Custom Actions
+Actions can be executed by any user that is a Member of the Frame.io Workspace the Action is enabled in. When executing an Action, Frame.io sends a payload to a URL you provide. The receiving application responds with an HTTP status code to acknowledge receipt, or with a custom callback to render additional form fields in the Frame.io UI. The receiving application can be your own hosted program, service, or even low-code/no-code IPaaS tool like Workfront Fusion or Zapier.
 
-Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings page (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Any User can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
+In this guide we'll walk you through everything you need to know for Configuring, Executing, and Deploying your own custom Actions.
 
-|Field name	|Description	|
-|---	|---	|
-|Name	|The name you choose for your Action. It will be displayed in the Frame.io UI in places like the context menu and form-field modals	|
-|Description	|Explains what the Action does. It will be displayed under the Action's name in the Frame.io UI	|
-|Event	| An internal Event key to help you differentiate between Frame.io system Events and your own	|
-|URL	|Where to deliver Events, either your own self-hosted application or an IPaSS tool	|
-|Workspace	|The Workspace your Action will be made available in	|
+## Actions Improvements in V4
 
-## Executing Actions
+Leveraging learnings from users of our Legacy version, we've included a number of enhancements to the Actions feature set in Frame.io V4:
 
-Navigate to any File, Folder, or Version Stack and invoke the context menu by selecting the three dots (or right-clicking) and navigate to the sub menu for custom Actions. Any active Actions configured for the Workspace you're in will be displayed. If there are no Actions enabled in your Workspace, this menu item will be greyed out. If you do have Actions available, simply select one to execute it. The user will be presented with a success message or a modal with form fileds to fill out depending on your Action's use case. We also support error messaging in case your Action fails to execute or the URL provided is unreachable. You can read more about common issues with troubleshooting and debugging tips at the end of this guide.
+– **New Field Types**: previously limited to text and single-select fields, we now support multi-select, text area (for a larger text box) and a boolean field (for a radio button) as well
 
-## Recieve an Action Payload From Frame.io
+– **Clickable Links**: text fields don't make it easy for users to copy/paste URLs. Use our new link field to get an easy, 1-click to copy experience instead
 
-When your Action is executed, a payload is sent to the URL set in the Action's configuration. Use this payload to identify:
-
-* Which Action was executed
-* Which Account is associated with the Action
-* Which Project contains the asset the Action was executed on
-* Which Resource the Action was executed on and its type
-* Which Event was executed
-* Which User executed the Action
-* Which Workspace is associated with the Action
-
-```json
-POST /your/url
-{
-    "account_id": "9a44f696-ae69-4e0c-9731-806d27ea46f1",
-    "action_id": "ecd40785-4485-4f07-9d26-a006ea84efdf",
-    "interaction_id": "e0a1c945-a8da-480d-92fb-e895cb640a01",
-    "project":
-    {
-        "id": "3dda6833-ec3b-46bd-a7d9-1a77c03a165b"
-    },
-    "resource":
-    {
-        "id": "f9d5728c-ac1a-4f48-92bb-ea2f9be3c58b",
-        "type": "file"
-    },
-    "type": "two.event",
-    "user":
-    {
-        "id": "50d976e6-27d2-47cb-9388-45b38d55f4f0"
-    },
-    "workspace":
-    {
-        "id": "382a1fe6-67cf-481e-9b65-79cfd9e9727f"
-    }
-}
-```
-
-| Field name     | Description     |
-| ---------- | ---------- |
-| `account_id`       | The unique Account identifier this Action belongs to. It is always the same for a given Action. |
-| `action_id`       | The unique identifier of the Action itself. It is always the same for a given Action.|
-| `interaction_id`       | Unique identifier generated by Frame.io representing each time an Action is executed. |
-| `project_id`       | Unique identifier of the Project containing the asset this Action was triggered on. |
-| `resource.id`       | The id of the resource your Action was executed on (usually an asset). |
-| `resource.type`       | The type of resource your Action was executed on. Possible values include `file`,`folder` or `version_stack`. |
-| `type`       | The internal Event key defined when configuring your Action. |
-| `user.id`       | The unique identifier of the User who executed the Action. |
-| `workspace.id`       | The unique identifier of the Workspace the Action belongs to. It is always the same for a given Action. |
-| `data`| Object containing key-value pairs denoting the name of each form element and the value selected. |
-
-## Interactions, Retries and Timeouts
-
-The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the user is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message.
-
-Actions support message callbacks. Frame.io expects a response in under 10 seconds and attempts to retry up to 5 times while waiting for a response. Ideally the response is immediate and asynchronous operations occur after an Action is executed.
-
-## Create a Message Callback
-
-In your HTTP response to the webhook event, you can return a JSON object describing a message that will be returned to the initiating user in the Frame.io UI.
-
-```json
-{
-  "title": "Success!",
-  "description": "The thing worked! Nice."
-}
-```
-
-Messages close an Action's interaction loop providing variable context to the User without asking them to switch contexts. If the initial payload, and any subsequent calls to the Frame.io API, don't provide enough context for the receiving application to complete the Action, use **Form Callbacks**.
-
-## Create a Form Callback
-
-When your use case requires more information from the User before you start your process, Actions enable you to render form field modals in the Frame.io UI.
-
-For example, you may want to create an Action to orchestrate the upload of a file from Frame.io into another system but it requires the User to provide additional details and settings before it can be completed. You can describe a form in your inital response which will be presented to the User in Frame.io to fill out. Once submitted, the form values are included in a subsequent payload back to the URL defined in your Action's configuration.
-
-```json
-{
-  "title": "Need some more info!",
-  "description": "Getting ready to submit this file!",
-  "fields": [
-    {
-      "type": "text",
-      "label": "Title",
-      "name": "title",
-      "value": "MyVideo.mp4"
-    },
-    {
-      "type": "select",
-      "label": "Captions",
-      "name": "captions",
-      "options": [
-        {
-          "name": "Off",
-          "value": "off"
-        },
-        {
-          "name": "On",
-          "value": "on"
-        }
-      ]
-    }
-  ]
-}
-```
-
-When the user submits the form, you'll receive an event on the same URL as the initial POST:
-
-```json
-POST /your/url
-{
-  "type": "your-specified-event-name",
-  "interaction_id": "the-same-id-as-before",
-  "action_id": "unique-id-for-this-custom-action",
-  "data":{
-    "title": "MyVideo.mp4",
-    "captions": "off"
-  }
-}
-```
-
-All fields added on a form appear in the data section of the JSON payload sent by Frame.io. Use the `interaction_id` to map the initial request and this new form data. And again, you can respond with a message (or even another form!) By chaining Actions, Forms, and Messages, you can effectively program entire Asset workflows in Frame.io with business logic from an external system.
-
-## Form Details
-
-Like Messages, Forms support `title` and `description` attributes that render at the top of the Form. Beyond that, each form field accepts the following base attributes:
-
-* type -- Tells Frame.io which type of data to expect, and which component to render in the UI
-* label -- Appears in the UI as descriptor for your field
-* name -- Key by which the field will be identified on the subsequent payload
-* value -- Value with which to pre-populate the field
-
-## Supported Field Types
-
-### Text Field
-
-A simple text field with no additional parameters.
-
-```json
-{  
-  "type": "text",
-  "label": "Title",
-  "name": "title",
-  "value": "MyVideo.mp4"
-}
-```
-
-### Text Area
-
-A simple text area with no additional parameters.
-
-```json
-{  
-  "type": "textarea",
-  "label": "Description",
-  "name": "description",
-  "value": "This video is really, really popular."
-}
-````
-
-### Select List
-
-Defines a picklist that the user can choose from. Must include an `options` list, each member of which should include a human-readable `name`, and a machine-parseable `value`.
-
-```json
-{
-  "type": "select",
-  "label": "Captions",
-  "name": "captions",
-  "value": "off",
-  "options": [
-       {
-         "name": "Off",
-         "value": "off"
-       },
-       {
-         "name": "On",
-         "value": "on"
-      }
-   ]
-}
-```
-
-### Checkbox
-
-A simple checkbox with no additional parameters.
-
-```json
-{ 
-   "type": "boolean", 
-   "name": "enabled", 
-   "label": "Enabled", 
-   "value": "false"
-}
-```
-
-### Link
-
-A simple link with no additional parameters.
-
-```json
-  {
-    "type": "link",
-    "name": "videoLink",
-    "label": "Video Link",
-    "value": "https://www.youtube.com/watch?v=XtX1zv9CEVc"
- }
- ```
-
-## The Frame.io Permissions Model
-
-Custom Actions have a special permissions model: they belong to a Workspace, not to any specific User who exists on an Account. That means:
-
-* Any Content Admin can create a custom Action in a Workspace
-* Any Member of a Workspace can execute an Action
-Any Content Admin can modify or delete a custom Action in a Workspace. Once modified, all Users that are Members of that Workspace will immediately see the change
-
-## Security and Verification
-
-By default, all Actions have a signing key generated when created. This is not configurable. This key can be used to verify that the request originates from Frame.io. Included in the `POST` request are the following:
-
-| Name     | Description     |
-| ---------- | ---------- |
-| `X-Frameio-Request-Timestamp`       | The time your Custom Action was triggered.       |
-| `X-Frameio-Signature`       | The computed signature.       |
-
-* **The timestamp** is the time the request was signed on its way out of Frame.io's network. This can be used to prevent replay attacks. We recommended verifying this time is within 5 minutes of local time.
-* **The signature** is a HMAC SHA-256 hash using the signing key provided when the Custom Action is first created.
-
-### Verifying the Signature
-
-1. Extract the signature from the HTTP headers.
-2. Create a message to sign by combining the version, delivery time, and request body `v0:timestamp:body`.
-3. Compute the HMAC SHA256 signature using your signing secret.
-
-**Note**: The provided signature is prefixed with `v0=`. Currently Frame.io only has this one version for signing requests. You will need to add this prefix to your computed signature.
-
-Compare!
-
-```python
-import hmac
-import hashlib
-**def** verify_signature(curr_time, req_time, signature, body, secret):
-    """
-    Verify webhook/custom action signature
-    :Args:
-        curr_time (float): Current epoch time
-        req_time (float): Request epoch time
-        signature (str): Signature provided by the frame.io API for the given request
-        body (str): Custom Action body from the received POST
-        secret (str): The secret for this Custom Action that you saved when you first created it
-    """
-    if int(curr_time) - int(req_time) < 500:
-        message = 'v0:{}:{}'.format(req_time, body)
-        calculated_signature = 'v0={}'.format(hmac.new(
-            bytes(secret, 'latin-1'),
-            msg=bytes(message, 'latin-1'),
-            digestmod=hashlib.sha256).hexdigest())
-        if calculated_signature == signature:
-            return True
-    return False
-```
+– **Dynamic Modals**: depending on the amount of data returned, you can trust your Action's modal to dynamically resize to best fit the information in your form, including scollable modals when needed
 
 ## Migrated Actions
 
-There are a few things to keep in mind when migrating to a Frame.io V4 Account containing custom Actions created in the Frame.io Legacy application.
+There are a few things to keep in mind when migrating to a Frame.io V4 Account containing custom Actions previously created in the legacy version of Frame.io.
 
 ### Action Status
 
@@ -296,10 +30,10 @@ Upon Account migration to Frame.io V4, all custom Actions created in earlier ver
 
 ### Actionable Reources: Files, Folders & Version Stacks
 
-Given the separation of concerns between different asset types in Frame.io V4, there is new behavior you may want consider when interpreting the resource ID recieved in your Action's payload. The use-cases for individual Files is straight-forward, as the ID will reflect the File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder which the Action was executed on; depending on your usecase you may want to use the Folder ID to make subsequent calls to the Frame.io API as-is, interacting with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. Finally, when an action is Executed on a Version Stack, your payload will contain the 'Head Asset', which is the top most File in the Stack and is therefore shown in the Frame.io UI.
+Given the separation of asset types as separate resources in the Frame.io V4 API, there may be behavior to consider when interpreting the resource ID received in your Action's payload. The behavior for individual Files is straight-forward, as the ID will reflect the specific File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder the Action was executed on; however, depending on your use-case you have multiple options when defining your Action's behavior. Use the Folder ID to make subsequent calls to the Frame.io API if you want interact with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. When an action is Executed on a Version Stack, your payload will contain the ID for the 'Head Asset', which is the top most File in the Stack and is what is shown in the Frame.io UI.
 
-You can read more about the differences between the Frame.io Legacy API and V4 in our [Migration Guide](https://developer.adobe.com/frameio/guides/Migration/). Looking ahead we plan to offer additional resources for you to develop Actions against, including the new, V4-specific features like Collections.
+You can read more about the differences between the Frame.io Legacy API and V4 in our [Migration Guide](https://developer.adobe.com/frameio/guides/Migration/).
 
-### Beta Feedback
+## Beta Feedback
 
 We'd love to hear from developers and end-users about the ways you'd like to use Actions in Frame.io V4. Be sure to [reach out to us](https://forum.frame.io/) with your questions, ideas, and use-cases to help inform our prioritizaion.
