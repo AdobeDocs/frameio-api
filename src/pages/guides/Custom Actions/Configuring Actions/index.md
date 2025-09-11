@@ -1,6 +1,6 @@
 ## Configuring Custom Actions
 
-Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Any User can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
+Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Any user can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
 
 |Field name	|Description	|
 |---	|---	|
@@ -64,7 +64,7 @@ POST /your/url
 
 ## Interactions, Retries and Timeouts
 
-The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the user is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message.
+The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the user is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success or error message.
 
 Actions support message callbacks. Frame.io expects a response in under 5 seconds and attempts to retry up to 5 times while waiting for a response. Ideally the response is immediate and asynchronous operations occur after an Action is executed.
 
