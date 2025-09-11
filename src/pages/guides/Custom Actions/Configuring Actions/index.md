@@ -1,6 +1,6 @@
 ## Configuring Custom Actions
 
-Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Any user can see Actions in Settings (and List via the API) but only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
+Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/api/experimental/#tag/Custom-Actions), or through the new [Actions settings (Beta)](https://next.frame.io/settings/actions) available in Frame.io V4 on Web. Only Content Admins and Account Owners can Create, Edit, Delete or Update custom Actions.
 
 |Field name	|Description	|
 |---	|---	|
@@ -220,13 +220,14 @@ A simple link with no additional parameters.
  }
  ```
 
-## The Frame.io Permissions Model
+## Custom Actions Permissions
 
-Custom Actions have a special permissions model: they belong to a Workspace, not to any specific User who exists on an Account. That means:
+Custom Actions have a special permissions model: they belong to a Workspace, not to any specific user who exists on an Account. That means:
 
 * Any Content Admin can create a custom Action in a Workspace
-* Any Member of a Workspace can execute an Action
-Any Content Admin can modify or delete a custom Action in a Workspace. Once modified, all Users that are Members of that Workspace will immediately see the change
+* Any Member with permission to the Workspace the Action is in can execute that Action
+* Any Content Admin can modify or delete a custom Action in a Workspace. Once modified, all users with permissions to that Workspace will immediately see the change
+* Any subsequent Frame.io API requests performed as a result of the Action's execution will respect the permissions of the token used to make those requests
 
 ## Security and Verification
 

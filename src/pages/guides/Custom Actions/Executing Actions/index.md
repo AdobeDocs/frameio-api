@@ -1,6 +1,6 @@
 # Executing Actions
 
-Actions can be executed by any user that is a Member of the Frame.io Workspace the Action is enabled in. Like in the Legacy version of Frame.io, Actions can be triggered on Assets.
+Actions can be executed by any user that has permissions to the Frame.io Workspace the Action is enabled in. Like in the Legacy version of Frame.io, Actions can be triggered on Assets.
 
 Navigate to any File, Folder, or Version Stack and invoke the context menu by selecting the three dots (or right-clicking) and navigate to the sub-menu for custom Actions.
 
