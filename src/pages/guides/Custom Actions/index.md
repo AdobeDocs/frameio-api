@@ -18,7 +18,7 @@ Leveraging learnings from users of our Legacy version, we've included a number o
 
 – **Clickable Links**: text fields don't make it easy for users to copy/paste URLs. Use our new link field to get an easy, 1-click to copy experience instead
 
-- **Dynamic Modals**: depending on the amount of data returned, you can trust your Action's modal to dynamically resize to best fit the information in your form, including scollable modals when needed
+– **Dynamic Modals**: depending on the amount of data returned, you can trust your Action's modal to dynamically resize to best fit the information in your form, including scollable modals when needed
 
 ## Migrated Actions
 
