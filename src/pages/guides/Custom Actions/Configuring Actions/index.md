@@ -10,7 +10,7 @@ Actions can be created and managed via [the Frame.io V4 Developer API](/frameio/
 |URL	|Where to deliver Events, either your own self-hosted application or an IPaSS tool	|
 |Workspace	|The Workspace your Action will be made available in	|
 
-## Recieve an Action Payload From Frame.io
+## Receive an Action Payload From Frame.io
 
 When your Action is executed, a payload is sent to the URL set in the Action's configuration. Use this payload to identify:
 

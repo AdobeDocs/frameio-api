@@ -1,6 +1,6 @@
 # Deploying Actions
 
-When a custom Action is executed, a payload is sent from Frame.io to the URL provided in your Action's configuration. This URL represents the 'recieving application' for your Action.
+When a custom Action is executed, a payload is sent from Frame.io to the URL provided in your Action's configuration. This URL represents the 'receiving application' for your Action.
 
 The receiving application is what listens for the events emitted when your Action is executed and responds appropriately. It's where your Action's business logic, sometimes called a 'workflow' or 'scenario', is defined and maintained.
 
