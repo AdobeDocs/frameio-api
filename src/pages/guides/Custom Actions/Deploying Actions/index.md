@@ -12,7 +12,7 @@ Sometimes referred to as IPaSS, or Integration Platform as a Service, these are 
 
 ### Zapier
 
-A popular choice of customers who use legacy version of Frame.io, we're excited to continue our partnership with Zapier with the release of our Frame.io V4 Zapier integration. Check out our new [Zapier Guide]() for more information.
+A popular choice of customers who use legacy version of Frame.io, we're excited to continue our partnership with Zapier with the release of our Frame.io V4 Zapier integration. Check out our new Zapier Guide for more information.
 
 ### Workfront Fusion
 
@@ -22,16 +22,20 @@ Existing Adobe customers may want to check their plan for existing access to Wor
 
 Another popular tool loved by customers of the legacy version of Frame.io, we're working to provide an updated integration to support Frame.io V4 as soon as possible.
 
-## Low-Code serverless applications
+## Low-Code Serverless Applications
 
 ### Val Town
 
+Val Town is a collaborative website to write and scale serverless JavaScript– and is a popular tool we use to demo the Frame.io Actions feature. Use it to quickly try out the new field types added in V4.
 
-### AWS Lambda
+### AWS
 
-### Azure Functions
+Actions can be used with API Gateway in AWS to be further integrated with Amazon's [infamously large](https://aws.amazon.com/what-is-aws/) set of cloud services. The simplest pattern would be to proxy the Frame.io event defined in your Action to AWS Lambda, a compute service for running serverless functions.
+
+### More Serverless Options
+
+When you don't want to provision, manage, or scale servers, custom Actions can be deployed to any serverless compute service across popular cloud platforms such as Azure, Google Cloud Platform, and Digital Ocean.
 
 ## Bring Your Own Server
 
 While the cloud services and IPaaS platforms listed above may be convenient and useful options for many, we recognize some customers want total control over their data and infrastructure. This option requires customers administer everything from networking to the application code itself, providing the most flexibility and control for enterprise and security-conscious customers.
-
