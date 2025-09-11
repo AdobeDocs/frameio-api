@@ -66,7 +66,7 @@ POST /your/url
 
 The `interaction_id` is a unique identifier to track an Action's execution as it evolves over time. The ID persists throughout any sequence of an Action, including callback forms. If a response to the user is not required, simply return a 200 status code and the interaction is done. We recommend including information about the result of the interaction, such as a success (displayed in the UI as a toast) or error (dismissable modal) message.
 
-Actions support message callbacks. Frame.io expects a response in under 10 seconds and attempts to retry up to 5 times while waiting for a response. Ideally the response is immediate and asynchronous operations occur after an Action is executed.
+Actions support message callbacks. Frame.io expects a response in under 5 seconds and attempts to retry up to 5 times while waiting for a response. Ideally the response is immediate and asynchronous operations occur after an Action is executed.
 
 ## Create a Message Callback
 
