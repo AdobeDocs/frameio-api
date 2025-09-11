@@ -37,6 +37,7 @@ The most noticeable change is in our language around content organization:
 ### What to Include
 
 When requesting features or reporting issues:
+
 - Describe the specific workflow you're trying to achieve, the error you're seeing, or where you're getting stuck
 - Let us know if this worked in the legacy version or if this is a new V4-specific feature
 - If the issue is with one of our new templates, or a custom workflow you've set up from scratch
