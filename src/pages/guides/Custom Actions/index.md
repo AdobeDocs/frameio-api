@@ -18,7 +18,7 @@ Leveraging learnings from users of our Legacy version, we've included a number o
 
 – **Clickable Links**: text fields don't make it easy for users to copy/paste URLs. Use our new link field to get an easy, 1-click to copy experience instead
 
-– **Dynamic Modals**: depending on the amount of data returned, you can trust your Action's modal to dynamically resize to best fit the information in your form, including scollable modals when needed
+– **Dynamic Modals**: depending on the amount of data returned, you can trust your Action's modal to dynamically resize to best fit the information in your form, including scrollable modals when needed
 
 ## Migrated Actions
 
@@ -26,11 +26,11 @@ There are a few things to keep in mind when migrating to a Frame.io V4 Account c
 
 ### Action Status
 
-Upon Account migration to Frame.io V4, all custom Actions created in earlier versions will have a status of 'null' and will be automatically disabled. This provides users the opportunity to first update your Actions to use the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state vist the Actions Settings page and reference the column "Status" or, if using the API, by checking the is_active field.
+Upon Account migration to Frame.io V4, all custom Actions created in earlier versions will have a status of 'null' and will be automatically disabled. This provides users the opportunity to first update your Actions to use the V4 API before enabling as any Actions not updated will fail. To identify Actions in this state visit the Actions Settings page and reference the column "Status" or, if using the API, by checking the is_active field.
 
-### Actionable Reources: Files, Folders & Version Stacks
+### Actionable Resources: Files, Folders & Version Stacks
 
-Given the separation of asset types as separate resources in the Frame.io V4 API, there may be behavior to consider when interpreting the resource ID received in your Action's payload. The behavior for individual Files is straight-forward, as the ID will reflect the specific File the Action was executed on. Likewise for Folders, you'll be recieving the ID for the Folder the Action was executed on; however, depending on your use-case you have multiple options when defining your Action's behavior. Use the Folder ID to make subsequent calls to the Frame.io API if you want interact with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. When an action is Executed on a Version Stack, your payload will contain the ID for the 'Head Asset', which is the top most File in the Stack and is what is shown in the Frame.io UI.
+Given the separation of asset types as separate resources in the Frame.io V4 API, there may be behavior to consider when interpreting the resource ID received in your Action's payload. The behavior for individual Files is straightforward, as the ID will reflect the specific File the Action was executed on. Likewise for Folders, you'll be receiving the ID for the Folder the Action was executed on; however, depending on your use-case you have multiple options when defining your Action's behavior. Use the Folder ID to make subsequent calls to the Frame.io API if you want to interact with the Folder resource itself. Alternatively, you may want to get the children of that Folder in order to perform further processing on the assets within. When an action is Executed on a Version Stack, your payload will contain the ID for the 'Head Asset', which is the top-most File in the Stack and is what is shown in the Frame.io UI.
 
 You can read more about the differences between the Frame.io Legacy API and V4 in our [Migration Guide](https://developer.adobe.com/frameio/guides/Migration/).
 
