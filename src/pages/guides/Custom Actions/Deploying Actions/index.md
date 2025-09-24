@@ -12,7 +12,7 @@ Sometimes referred to as IPaaS, or Integration Platform as a Service, these are 
 
 ### Zapier
 
-A popular choice of customers who use legacy version of Frame.io, we're excited to continue our partnership with Zapier with the release of our Frame.io V4 Zapier integration. Check out our new Zapier Guide for more information.
+A popular choice of customers who use legacy version of Frame.io, we're excited to continue our partnership with Zapier with the release of our [Frame.io V4 Zapier integration](https://zapier.com/apps/frameio-v4/integrations). Check out our new [Zapier Guide](https://developer.adobe.com/frameio/guides/Zapier/) for more information.
 
 ### Workfront Fusion
 
