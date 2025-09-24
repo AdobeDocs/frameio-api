@@ -8,7 +8,7 @@ There are muliple options for receiving applications depending on your requireme
 
 ## No-Code Integration Platforms
 
-Sometimes referred to as IPaSS, or Integration Platform as a Service, these are cloud-based data orchestration tools that offer a code-less GUI anyone can use to define a workflow. These platforms are a good choice when looking for a simple "click and create" experience to quickly connect your Frame.io assets with other popular apps and productivity tools already integrated with their platform. As IPaSS platforms usually require a subscription, cost-conscious customers will want to consider recurring payments and/or usage-based transcation fees when exploring these options.
+Sometimes referred to as IPaaS, or Integration Platform as a Service, these are cloud-based data orchestration tools that offer a code-less GUI anyone can use to define a workflow. These platforms are a good choice when looking for a simple "click and create" experience to quickly connect your Frame.io assets with other popular apps and productivity tools already integrated with their platform. As IPaaS platforms usually require a subscription, cost-conscious customers will want to consider recurring payments and/or usage-based transcation fees when exploring these options.
 
 ### Zapier
 
