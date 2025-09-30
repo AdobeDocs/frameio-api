@@ -1,46 +1,194 @@
-# May 2025 Changelog
+# Frame.io v4 Developer API Changelog
 
-* * *
+## September 22, 2025
 
-## Webhooks `Breaking Change` Coming
+### Added:
 
-Webhooks have been promoted from the experimental to the stable API version. The endpoint will be temporarily available in both APIs versions, before deprecating from experimental at the end of June.
+- Added PATCH Reorder version stacks endpoint in experimental
+- Added POST Import file from external storage endpoint in experimental
 
-To use webhooks  in the stable API version remove the `experimental` value in the `api-version` header of any webhook requests going forward.
+## September 15, 2025
 
-The asset events are now split into folders and files.
+### Added:
 
-* **New events**
-    * **Files**
-        * `file.created, file.deleted, file.ready, file.updated, file.upload.completed, file.versioned`
-    * **Folders**
-        * `folder.created, folder.deleted, folder.updated`
-* **Old events**
-    * `asset.created, asset.deleted, asset.ready, asset.updated, asset.upload.completed, asset.versioned`
+- Added GET list files to stable
+- Added GET show file with metadata to stable
+- Added GET show file upload status to stable
+- Added POST copy file to stable
+- PATCH move file to stable
+- Added PATCH update file to stable
+- Added POST create version stack to stable
+- Added POST copy version stack to stable
+- Added PATCH move version stack to stable
+- Added GET list version stack children to stable
+- Added GET list version stacks to stable
 
-## More Additions
+### Changed:
 
-**Custom Actions** Custom actions is part of limited beta. Anyone can create a custom action, but exposing it in the UI is only available to customers testing the feature. We plan to open the beta to all users in July 2025.
+- Removed GET show file with metadata in experimental, see stable API
+- Removed GET show file upload status to stable in experimental, see stable API
+- Removed POST copy file, PATCH move file in experimental, see stable API
+- Removed PATCH update file in experimental, see stable API
+- Removed POST create version stack in experimental, see stable API
+- Removed POST copy version stack in experimental, see stable API
+- Removed PATCH move version stack in experimental, see stable API
+- Removed GET list version stack children in experimental, see stable API
+- Removed GET list version stacks in experimental, see stable API
 
-* Created endpoints for `creating`, `deleting`, `listing`, `showing`, and `updating` a custom action
+## September 8, 2025
 
-**`Create File Local Upload`** This is a new endpoint specifically for uploading local files in the experimental API.
+### Changed:
 
-* Removes the requirement to include the media type in the parameter
-* Returns upload URLs to initiate a multi-part upload for file
+- Removed POST Add reviewers to secure share, see stable API
+- Removed DELETE Delete share, see stable API
+- Removed GET Show share, see stable API
+- Removed GET List share reviewers (restricted only), see stable API
+- Removed DELETE Remove reviewers from share, see stable API
 
-**`Create File Remote Upload`** This is a new endpoint specifically for uploading remote files, (i.e. files inaccessible via a publicly accessible URL) in the experimental API.
+## September 2, 2025
 
-* Removes the need to include the file size and media type in the parameter
+### Added:
 
-**`Show Files`** Added `media_links` parameters to allow specifying `media_links enums` in the experimental and stable API.
-Options now include:
+- Added GET audit log endpoint to collection in experimental
 
-* High quality proxy (4K or 1080P)
-* Efficient proxy (360P)
+## August 25, 2025
 
-**`List folder children`** Added `media_links` parameters to allow specifying `media_links enums` in the experimental API when requesting a list of files.
-Options now include:
+### Added:
 
-* High quality proxy (4K or 1080P)
-* Efficient proxy (360P)
+- Added GET List version stacks in experimental
+- Added GET List version stacks with media links in experimental
+- Added GET List version stacks with metadata in experimental
+
+### Changed:
+
+- Removed GET List user roles for account in experimental , see stable API
+- Removed GET List user roles for workspace in experimental , see stable API
+- Removed PATCH Update user role in a workspace in experimental , see stable API
+- Removed DELETE Delete user from a workspace in experimental , see stable API
+- Removed GET List user roles for project in experimental , see stable API
+- Removed PATCH Update user role in a Project in experimental , see stable API
+- Removed DELETE Delete user from a project in experimental , see stable API
+- Modified POST Copy version stack to use `version_stack_id` value in experimental , see stable API
+
+## August 20, 2025
+
+### Changed:
+
+- Modified request bodies to standardize placeholder example and comments
+
+## August 11, 2025
+
+### Added:
+
+- Added GET list version stack children in experimental
+- Added GET list version stack children with media links in experimental
+- Added GET list version stack children with metadata in experimental
+
+### Changed:
+
+- Removed webhooks in experimental, see stable API
+
+## August 5, 2025
+
+### Added:
+
+- Added PATCH metadata field definitions in experimental
+
+## July 28, 2025
+
+### Changed:
+
+- Modified request bodies to standardize placeholder example and comments
+
+## July 21, 2025
+
+### Added:
+
+- Added PATCH files move file in experimental
+- Added POST files copy file in experimental
+- Added PATCH folders move folder in experimental
+- Added POST folders copy folder in experimental
+- Added PATCH version stacks move version stack in experimental
+- Added POST version stacks copy version stack in experimental
+
+### Changed:
+
+- Moved from calling our experimental version of the API from `Alpha` to `experimental`
+
+## July 14, 2025
+
+### Added:
+
+- Added DELETE Field Definitions move file in alpha
+
+### Changed:
+
+- Moved Create account level field definitions in alpha
+- Moved List account field definitions in alpha
+
+## June 23, 2025
+
+### Added:
+
+- Added GET files show file upload status in alpha
+- Added GET metadata List account field definitions in alpha
+
+## June 16, 2025
+
+### Added:
+
+- Added POST metadata Create account level field definitions
+
+## June 9, 2025
+
+### Added:
+
+- Added webhooks APIs to stable
+- Added all the user management APIs to stable
+- Added all the shares APIs from alpha to stable
+- Added POST create file (remote upload) to stable
+- Added POST create file (local upload) to stable
+- Added GET show file with media links to stable
+
+### Changed:
+
+- Removed webhooks APIs in experimental , see stable API
+- Removed all the user management APIs in experimental , see stable API
+- Removed all the shares APIs from alpha in experimental , see stable API
+- Removed POST create file (remote upload) in experimental , see stable API
+- Removed POST create file (local upload) in experimental , see stable API
+- Removed GET show file with media links in experimental , see stable API
+
+## May 28, 2025
+
+### Fixed:
+
+- Fixes 'Worspace Management" to "Workspace Management"
+
+## May 27, 2025
+
+### Added:
+
+- Added POST create file (local upload) in alpha
+
+## May 19, 2025
+
+### Added:
+
+- Added POST files create file (remote upload) in alpha
+- Added GET files show file with metadata in alpha
+- Added GET file show file with metadata links in alpha
+
+### Changed:
+
+- Modified GET show file with media links expanded to include 'high_quality' and 'efficient'
+
+## May 12, 2025
+
+### Added:
+
+- Added GET shares show share in alpha
+- Added DELETE Custom Actions delete action in alpha
+- Added GET Custom Actions get action in alpha
+- Added GET Custom Actions list action in alpha
+- Added PATCH Custom Actions update action in alpha
