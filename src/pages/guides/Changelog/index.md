@@ -6,6 +6,7 @@
 
 - Added PATCH Reorder version stacks endpoint in experimental
 - Added POST Import file from external storage endpoint in experimental
+
 ## September 15, 2025
 
 ### Added:
@@ -33,6 +34,7 @@
 - Removed PATCH move version stack in experimental, see stable API
 - Removed GET list version stack children in experimental, see stable API
 - Removed GET list version stacks in experimental, see stable API
+
 ## September 8, 2025
 
 ### Changed:
@@ -42,11 +44,13 @@
 - Removed GET Show share, see stable API
 - Removed GET List share reviewers (restricted only), see stable API
 - Removed DELETE Remove reviewers from share, see stable API
+
 ## September 2, 2025
 
 ### Added:
 
 - Added GET audit log endpoint to collection in experimental
+
 ## August 25, 2025
 
 ### Added:
@@ -89,11 +93,13 @@
 ### Added:
 
 - Added PATCH metadata field definitions in experimental
+
 ## July 28, 2025
 
 ### Changed:
 
 - Modified request bodies to standardize placeholder example and comments
+
 ## July 21, 2025
 
 ### Added:
@@ -119,17 +125,20 @@
 
 - Moved Create account level field definitions in alpha
 - Moved List account field definitions in alpha
+
 ## June 23, 2025
 
 ### Added:
 
 - Added GET files show file upload status in alpha
 - Added GET metadata List account field definitions in alpha
+
 ## June 16, 2025
 
 ### Added:
 
 - Added POST metadata Create account level field definitions
+
 ## June 9, 2025
 
 ### Added:
@@ -149,6 +158,7 @@
 - Removed POST create file (remote upload) in experimental , see stable API
 - Removed POST create file (local upload) in experimental , see stable API
 - Removed GET show file with media links in experimental , see stable API
+
 ## May 28, 2025
 
 ### Fixed:
@@ -160,6 +170,7 @@
 ### Added:
 
 - Added POST create file (local upload) in alpha
+
 ## May 19, 2025
 
 ### Added:
@@ -171,6 +182,7 @@
 ### Changed:
 
 - Modified GET show file with media links expanded to include 'high_quality' and 'efficient'
+
 ## May 12, 2025
 
 ### Added:
