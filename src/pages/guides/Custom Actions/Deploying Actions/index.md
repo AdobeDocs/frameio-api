@@ -1,6 +1,6 @@
 # Deploying Actions
 
-There are muliple options for receiving applications depending on your requirements, budget, and use case.
+There are muliple options for deploying Actions depending on your requirements, budget, and use case.
 
 When a custom Action is executed, a payload is sent from Frame.io to the URL provided in your Action's configuration. This URL represents the 'receiving application' for your Action.
 

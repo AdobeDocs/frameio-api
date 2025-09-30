@@ -8,7 +8,7 @@ Any active Actions configured for the Workspace you're in will be displayed.
 
 ## Action Availiability
 
-If there are no Actions enabled in your Workspace, this menu item will be hidden. Actions can be executed by any user that has Edit permissions to the Frame.io Workspace the Action is enabled in.
+If there are no Actions enabled in your Workspace, this menu item will be hidden. Actions can be executed by any user that has permissions to the Frame.io Workspace the Action is enabled in.
 
 If you do have Actions available, simply select one to execute it. A unique `interaction_id` will be generated and included in the Action's payload which you can use to distinguish between independent executions of your Action by different users or at different times.
 
