@@ -20,7 +20,7 @@ Existing Adobe customers may want to check their plan for existing access to Wor
 
 ### Make.com
 
-Another popular tool loved by customers of the legacy version of Frame.io, we're working to provide an updated integration to support Frame.io V4 as soon as possible.
+Another popular tool loved by customers of the legacy version of Frame.io, use the [Frame.io V4 integration offered by Make](https://www.make.com/en/integrations/frame-io).
 
 ## Low-Code Serverless Applications
 
