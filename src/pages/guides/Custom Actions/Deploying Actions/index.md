@@ -1,10 +1,10 @@
 # Deploying Actions
 
+There are muliple options for receiving applications depending on your requirements, budget, and use case.
+
 When a custom Action is executed, a payload is sent from Frame.io to the URL provided in your Action's configuration. This URL represents the 'receiving application' for your Action.
 
 The receiving application is what listens for the events emitted when your Action is executed and responds appropriately. It's where your Action's business logic, sometimes called a 'workflow' or 'scenario', is defined and maintained.
-
-There are muliple options for receiving applications depending on your requirements, budget, and use case.
 
 ## No-Code Integration Platforms
 
