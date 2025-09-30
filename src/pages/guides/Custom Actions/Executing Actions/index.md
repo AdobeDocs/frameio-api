@@ -4,7 +4,7 @@ Navigate to any File, Folder, or Version Stack and invoke the context menu by se
 
 ![Gif of Action Execution](../../image_18.gif)
 
-Any active Actions configured for the Workspace you're in will be displayed. 
+Any active Actions configured for the Workspace you're in will be displayed.
 
 ## Action Availiability
 
