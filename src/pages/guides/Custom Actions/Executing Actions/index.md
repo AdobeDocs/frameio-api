@@ -2,7 +2,7 @@
 
 Navigate to any File, Folder, or Version Stack and invoke the context menu by selecting the three dots (or right-clicking) and navigate to the sub-menu for custom Actions.
 
-![Gif of Action Execution](../../image_18.png)
+![Gif of Action Execution](../../image_18.gif)
 
 Any active Actions configured for the Workspace you're in will be displayed. 
 
