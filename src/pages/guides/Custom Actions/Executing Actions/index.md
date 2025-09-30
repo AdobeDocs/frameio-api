@@ -1,10 +1,10 @@
 # Executing Actions
 
-Actions can be executed by any user that has permissions to the Frame.io Workspace the Action is enabled in. Like in the Legacy version of Frame.io, Actions can be triggered on Assets.
-
 Navigate to any File, Folder, or Version Stack and invoke the context menu by selecting the three dots (or right-clicking) and navigate to the sub-menu for custom Actions.
 
-Any active Actions configured for the Workspace you're in will be displayed. If there are no Actions enabled in your Workspace, this menu item will be hidden.
+![Gif of Action Execution](../../image_18.png)
+
+Any active Actions configured for the Workspace you're in will be displayed. If there are no Actions enabled in your Workspace, this menu item will be hidden. Actions can be executed by any user that has Edit permissions to the Frame.io Workspace the Action is enabled in.
 
 If you do have Actions available, simply select one to execute it. A unique `interaction_id` will be generated and included in the Action's payload which you can use to distinguish between independent executions of your Action by different users or at different times.
 
