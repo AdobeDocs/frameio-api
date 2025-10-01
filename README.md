@@ -29,6 +29,33 @@ For the developer documentation, read the following sections on how to:
 
 For more in-depth [instructions](https://github.com/adobe/aio-theme#getting-started).
 
+## LLMs.txt Generation
+
+This project automatically generates an [llms.txt](https://llmstxt.org) file that contains the **complete content** of all markdown files in the documentation. The llms.txt file follows the official specification structure while including all documentation content in a single file.
+
+The generated llms.txt includes:
+- H1 heading with site title
+- Blockquote with site description
+- Explanatory text about the documentation
+- The main index page content
+- H2 headings for content categories (based on directory structure)
+- H3 headings for individual pages
+- Complete markdown content from all pages with headings appropriately adjusted
+- File paths as references
+
+Key features:
+1. Creates a comprehensive `/llms.txt` file in the public directory with all documentation
+2. Also generates individual markdown versions of pages at `/{original-path}.html.md` for reference
+3. Automatically adjusts heading levels to maintain proper document hierarchy
+4. Preserves all original markdown formatting including tables
+5. Removes React/HTML components (like `<Hero>`, `<RedoclyAPIBlock>`) for clean, pure markdown
+
+To manually generate the llms.txt file:
+
+```shell
+$ yarn generate:llms
+```
+
 ## How to test
 
 - To run the configured linters locally (requires [Docker](https://www.docker.com/)):
