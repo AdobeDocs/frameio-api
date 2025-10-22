@@ -23,11 +23,18 @@ For more on what a webhook is, and what it does, see https://docs.webhook.site/.
 
 > 🔑 **Authentication** — All V4 endpoints require an OAuth 2.0 access token obtained through the Adobe Developer Console. Legacy developer tokens and JWTs are **not** accepted.
 
-## Updates to Webhooks in Frame V4
+## Changes and Updates in Frame V4
 
-* Added Account ID to the payload
-* Renamed Team ID to be Workspace ID
-* Split asset webhooks to file and folder webhooks
+Webhooks created in Legacy transfer to V4 with the following changes:
+
+1. **Payload Structure**: Added Account ID to the payload
+2. **Endpoint Changes**: The `team_id` is no longer provided in the JSON payload, but is instead in the path parameter of the URL: `https://api.frame.io/v4/accounts/:account_id/workspaces/:workspace_id/webhooks`
+3. **API Integration**: Due to changes in API structure, endpoints, and authentication methods, any existing code for incoming webhooks that makes subsequent calls to the Frame.io API for enrichment and look-up of resources require updating
+4. **Event Types**: Asset webhooks have been split into separate File and Folder events - any webhooks coming from Legacy with asset events need to be updated to have the appropriate File and Folder events
+
+### Webhook Status After Migration
+
+When your account migrates to Frame.io V4, existing webhooks from previous versions are automatically disabled. This ensures you can modify your webhook endpoints and integration logic to work with V4's updates before reactivating them. Webhooks that haven't been updated for V4 compatibility will encounter errors if enabled without proper modifications. You can verify which webhooks are inactive by examining the `is_active` field through the API or by reviewing your [webhook settings](https://next.frame.io/settings/webhooks) before turning them back on.
 
 ## Webhook Event Subscriptions
 
@@ -202,14 +209,6 @@ Webhooks-guide
 * Exponential back-off starting at 15 s (+ jitter)
 * A non-`2xx` status or >5 second timeout triggers the retry
 * [Frame.io](http://frame.io/) keeps a **failure log** with: `webhook_id`, `account_id`, `event_type`, `resource_id`, `user_id`.
-
-## Changes to Webhooks
-
-Webhooks created in Legacy transfer to V4 with the following changes.
-
-1. When creating a new webhook resource the `team_id` is no longer provided in the JSON payload, but that is instead in the path parameter of the URL: `https://api.frame.io/v4/accounts/:account_id/workspaces/:workspace_id/webhooks`.
-2. Due to changes in API structure, endpoints, and authentication methods any existing code for incoming webhooks that makes subsequent calls to the Frame.io API for enrichment and look-up of resources require updating.
-3. Since the asset webhooks have been split to Files and Folders, any webhooks coming from Legacy with asset events need to be updated to have the appropriate File and Folder events.
 
 ## Webhook Tutorial
 
