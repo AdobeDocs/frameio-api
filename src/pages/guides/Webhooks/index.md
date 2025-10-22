@@ -34,7 +34,7 @@ Webhooks created in Legacy transfer to V4 with the following changes:
 
 ### Webhook Status After Migration
 
-When your account migrates to Frame.io V4, existing webhooks from previous versions are automatically disabled for safety. This ensures you can modify your webhook endpoints and integration logic to work with V4's updates before reactivating them. Webhooks that haven't been updated for V4 compatibility will encounter errors if enabled without proper modifications. You can verify which webhooks are inactive by examining the `is_active` field through the API or by reviewing your webhook settings before turning them back on.
+When your account migrates to Frame.io V4, existing webhooks from previous versions are automatically disabled. This ensures you can modify your webhook endpoints and integration logic to work with V4's updates before reactivating them. Webhooks that haven't been updated for V4 compatibility will encounter errors if enabled without proper modifications. You can verify which webhooks are inactive by examining the `is_active` field through the API or by reviewing your [webhook settings](https://next.frame.io/settings/webhooks) before turning them back on.
 
 ## Webhook Event Subscriptions
 
@@ -209,7 +209,6 @@ Webhooks-guide
 * Exponential back-off starting at 15 s (+ jitter)
 * A non-`2xx` status or >5 second timeout triggers the retry
 * [Frame.io](http://frame.io/) keeps a **failure log** with: `webhook_id`, `account_id`, `event_type`, `resource_id`, `user_id`.
-
 
 ## Webhook Tutorial
 
