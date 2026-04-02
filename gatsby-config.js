@@ -13,6 +13,7 @@
 module.exports = {
   pathPrefix: process.env.PATH_PREFIX || '/frameio/',
   siteMetadata: {
+    siteUrl: 'https://developer.adobe.com',
     pages: [
       {
         title: 'Frame.io API',
@@ -116,5 +117,39 @@ module.exports = {
       }
     ]
   },
-  plugins: [`@adobe/gatsby-theme-aio`]
+  plugins: [
+    `@adobe/gatsby-theme-aio`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            pathPrefix
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }
+        `,
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          return allPages.map(page => {
+            return { ...page }
+          })
+        },
+        serialize: ({ site, path }) => {
+          return {
+            url: site.siteMetadata.siteUrl + site.siteMetadata.pathPrefix + path,
+            changefreq: 'daily',
+            priority: 0.9,
+          }
+        },
+      },
+    },
+  ]
 };
